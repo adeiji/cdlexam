@@ -1,0 +1,584 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 48;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		F4674A98201C95DA00944EC5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4674A97201C95DA00944EC5 /* AppDelegate.swift */; };
+		F4674A9B201C95DA00944EC5 /* CDLExam.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = F4674A99201C95DA00944EC5 /* CDLExam.xcdatamodeld */; };
+		F4674A9D201C95DA00944EC5 /* MasterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4674A9C201C95DA00944EC5 /* MasterViewController.swift */; };
+		F4674A9F201C95DA00944EC5 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4674A9E201C95DA00944EC5 /* DetailViewController.swift */; };
+		F4674AA2201C95DA00944EC5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F4674AA0201C95DA00944EC5 /* Main.storyboard */; };
+		F4674AA4201C95DA00944EC5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F4674AA3201C95DA00944EC5 /* Assets.xcassets */; };
+		F4674AA7201C95DA00944EC5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F4674AA5201C95DA00944EC5 /* LaunchScreen.storyboard */; };
+		F4674AB2201C95DA00944EC5 /* CDLExamTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4674AB1201C95DA00944EC5 /* CDLExamTests.swift */; };
+		F4674ABD201C95DA00944EC5 /* CDLExamUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4674ABC201C95DA00944EC5 /* CDLExamUITests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		F4674AAE201C95DA00944EC5 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F4674A8C201C95DA00944EC5 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = F4674A93201C95DA00944EC5;
+			remoteInfo = CDLExam;
+		};
+		F4674AB9201C95DA00944EC5 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F4674A8C201C95DA00944EC5 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = F4674A93201C95DA00944EC5;
+			remoteInfo = CDLExam;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		F4674A94201C95DA00944EC5 /* CDLExam.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CDLExam.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		F4674A97201C95DA00944EC5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		F4674A9A201C95DA00944EC5 /* CDLExam.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CDLExam.xcdatamodel; sourceTree = "<group>"; };
+		F4674A9C201C95DA00944EC5 /* MasterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MasterViewController.swift; sourceTree = "<group>"; };
+		F4674A9E201C95DA00944EC5 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		F4674AA1201C95DA00944EC5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		F4674AA3201C95DA00944EC5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		F4674AA6201C95DA00944EC5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		F4674AA8201C95DA00944EC5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F4674AAD201C95DA00944EC5 /* CDLExamTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CDLExamTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		F4674AB1201C95DA00944EC5 /* CDLExamTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CDLExamTests.swift; sourceTree = "<group>"; };
+		F4674AB3201C95DA00944EC5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F4674AB8201C95DA00944EC5 /* CDLExamUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CDLExamUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		F4674ABC201C95DA00944EC5 /* CDLExamUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CDLExamUITests.swift; sourceTree = "<group>"; };
+		F4674ABE201C95DA00944EC5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		F4674A91201C95DA00944EC5 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F4674AAA201C95DA00944EC5 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F4674AB5201C95DA00944EC5 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		F4674A8B201C95DA00944EC5 = {
+			isa = PBXGroup;
+			children = (
+				F4674A96201C95DA00944EC5 /* CDLExam */,
+				F4674AB0201C95DA00944EC5 /* CDLExamTests */,
+				F4674ABB201C95DA00944EC5 /* CDLExamUITests */,
+				F4674A95201C95DA00944EC5 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		F4674A95201C95DA00944EC5 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				F4674A94201C95DA00944EC5 /* CDLExam.app */,
+				F4674AAD201C95DA00944EC5 /* CDLExamTests.xctest */,
+				F4674AB8201C95DA00944EC5 /* CDLExamUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		F4674A96201C95DA00944EC5 /* CDLExam */ = {
+			isa = PBXGroup;
+			children = (
+				F4674A97201C95DA00944EC5 /* AppDelegate.swift */,
+				F4674A9C201C95DA00944EC5 /* MasterViewController.swift */,
+				F4674A9E201C95DA00944EC5 /* DetailViewController.swift */,
+				F4674AA0201C95DA00944EC5 /* Main.storyboard */,
+				F4674AA3201C95DA00944EC5 /* Assets.xcassets */,
+				F4674AA5201C95DA00944EC5 /* LaunchScreen.storyboard */,
+				F4674AA8201C95DA00944EC5 /* Info.plist */,
+				F4674A99201C95DA00944EC5 /* CDLExam.xcdatamodeld */,
+			);
+			path = CDLExam;
+			sourceTree = "<group>";
+		};
+		F4674AB0201C95DA00944EC5 /* CDLExamTests */ = {
+			isa = PBXGroup;
+			children = (
+				F4674AB1201C95DA00944EC5 /* CDLExamTests.swift */,
+				F4674AB3201C95DA00944EC5 /* Info.plist */,
+			);
+			path = CDLExamTests;
+			sourceTree = "<group>";
+		};
+		F4674ABB201C95DA00944EC5 /* CDLExamUITests */ = {
+			isa = PBXGroup;
+			children = (
+				F4674ABC201C95DA00944EC5 /* CDLExamUITests.swift */,
+				F4674ABE201C95DA00944EC5 /* Info.plist */,
+			);
+			path = CDLExamUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		F4674A93201C95DA00944EC5 /* CDLExam */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F4674AC1201C95DA00944EC5 /* Build configuration list for PBXNativeTarget "CDLExam" */;
+			buildPhases = (
+				F4674A90201C95DA00944EC5 /* Sources */,
+				F4674A91201C95DA00944EC5 /* Frameworks */,
+				F4674A92201C95DA00944EC5 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = CDLExam;
+			productName = CDLExam;
+			productReference = F4674A94201C95DA00944EC5 /* CDLExam.app */;
+			productType = "com.apple.product-type.application";
+		};
+		F4674AAC201C95DA00944EC5 /* CDLExamTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F4674AC4201C95DA00944EC5 /* Build configuration list for PBXNativeTarget "CDLExamTests" */;
+			buildPhases = (
+				F4674AA9201C95DA00944EC5 /* Sources */,
+				F4674AAA201C95DA00944EC5 /* Frameworks */,
+				F4674AAB201C95DA00944EC5 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				F4674AAF201C95DA00944EC5 /* PBXTargetDependency */,
+			);
+			name = CDLExamTests;
+			productName = CDLExamTests;
+			productReference = F4674AAD201C95DA00944EC5 /* CDLExamTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		F4674AB7201C95DA00944EC5 /* CDLExamUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F4674AC7201C95DA00944EC5 /* Build configuration list for PBXNativeTarget "CDLExamUITests" */;
+			buildPhases = (
+				F4674AB4201C95DA00944EC5 /* Sources */,
+				F4674AB5201C95DA00944EC5 /* Frameworks */,
+				F4674AB6201C95DA00944EC5 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				F4674ABA201C95DA00944EC5 /* PBXTargetDependency */,
+			);
+			name = CDLExamUITests;
+			productName = CDLExamUITests;
+			productReference = F4674AB8201C95DA00944EC5 /* CDLExamUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		F4674A8C201C95DA00944EC5 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0920;
+				LastUpgradeCheck = 0920;
+				ORGANIZATIONNAME = Dephyned;
+				TargetAttributes = {
+					F4674A93201C95DA00944EC5 = {
+						CreatedOnToolsVersion = 9.2;
+						ProvisioningStyle = Automatic;
+					};
+					F4674AAC201C95DA00944EC5 = {
+						CreatedOnToolsVersion = 9.2;
+						ProvisioningStyle = Automatic;
+						TestTargetID = F4674A93201C95DA00944EC5;
+					};
+					F4674AB7201C95DA00944EC5 = {
+						CreatedOnToolsVersion = 9.2;
+						ProvisioningStyle = Automatic;
+						TestTargetID = F4674A93201C95DA00944EC5;
+					};
+				};
+			};
+			buildConfigurationList = F4674A8F201C95DA00944EC5 /* Build configuration list for PBXProject "CDLExam" */;
+			compatibilityVersion = "Xcode 8.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = F4674A8B201C95DA00944EC5;
+			productRefGroup = F4674A95201C95DA00944EC5 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				F4674A93201C95DA00944EC5 /* CDLExam */,
+				F4674AAC201C95DA00944EC5 /* CDLExamTests */,
+				F4674AB7201C95DA00944EC5 /* CDLExamUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		F4674A92201C95DA00944EC5 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F4674AA7201C95DA00944EC5 /* LaunchScreen.storyboard in Resources */,
+				F4674AA4201C95DA00944EC5 /* Assets.xcassets in Resources */,
+				F4674AA2201C95DA00944EC5 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F4674AAB201C95DA00944EC5 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F4674AB6201C95DA00944EC5 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		F4674A90201C95DA00944EC5 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F4674A9B201C95DA00944EC5 /* CDLExam.xcdatamodeld in Sources */,
+				F4674A98201C95DA00944EC5 /* AppDelegate.swift in Sources */,
+				F4674A9D201C95DA00944EC5 /* MasterViewController.swift in Sources */,
+				F4674A9F201C95DA00944EC5 /* DetailViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F4674AA9201C95DA00944EC5 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F4674AB2201C95DA00944EC5 /* CDLExamTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F4674AB4201C95DA00944EC5 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F4674ABD201C95DA00944EC5 /* CDLExamUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		F4674AAF201C95DA00944EC5 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = F4674A93201C95DA00944EC5 /* CDLExam */;
+			targetProxy = F4674AAE201C95DA00944EC5 /* PBXContainerItemProxy */;
+		};
+		F4674ABA201C95DA00944EC5 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = F4674A93201C95DA00944EC5 /* CDLExam */;
+			targetProxy = F4674AB9201C95DA00944EC5 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		F4674AA0201C95DA00944EC5 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F4674AA1201C95DA00944EC5 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		F4674AA5201C95DA00944EC5 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F4674AA6201C95DA00944EC5 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		F4674ABF201C95DA00944EC5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		F4674AC0201C95DA00944EC5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		F4674AC2201C95DA00944EC5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = HJPTQ3N75W;
+				INFOPLIST_FILE = CDLExam/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.nhsa.CDLExam;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		F4674AC3201C95DA00944EC5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = HJPTQ3N75W;
+				INFOPLIST_FILE = CDLExam/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.nhsa.CDLExam;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		F4674AC5201C95DA00944EC5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = HJPTQ3N75W;
+				INFOPLIST_FILE = CDLExamTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.nhsa.CDLExamTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/CDLExam.app/CDLExam";
+			};
+			name = Debug;
+		};
+		F4674AC6201C95DA00944EC5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = HJPTQ3N75W;
+				INFOPLIST_FILE = CDLExamTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.nhsa.CDLExamTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/CDLExam.app/CDLExam";
+			};
+			name = Release;
+		};
+		F4674AC8201C95DA00944EC5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = HJPTQ3N75W;
+				INFOPLIST_FILE = CDLExamUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.nhsa.CDLExamUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = CDLExam;
+			};
+			name = Debug;
+		};
+		F4674AC9201C95DA00944EC5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = HJPTQ3N75W;
+				INFOPLIST_FILE = CDLExamUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.nhsa.CDLExamUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = CDLExam;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		F4674A8F201C95DA00944EC5 /* Build configuration list for PBXProject "CDLExam" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F4674ABF201C95DA00944EC5 /* Debug */,
+				F4674AC0201C95DA00944EC5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F4674AC1201C95DA00944EC5 /* Build configuration list for PBXNativeTarget "CDLExam" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F4674AC2201C95DA00944EC5 /* Debug */,
+				F4674AC3201C95DA00944EC5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F4674AC4201C95DA00944EC5 /* Build configuration list for PBXNativeTarget "CDLExamTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F4674AC5201C95DA00944EC5 /* Debug */,
+				F4674AC6201C95DA00944EC5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F4674AC7201C95DA00944EC5 /* Build configuration list for PBXNativeTarget "CDLExamUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F4674AC8201C95DA00944EC5 /* Debug */,
+				F4674AC9201C95DA00944EC5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		F4674A99201C95DA00944EC5 /* CDLExam.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				F4674A9A201C95DA00944EC5 /* CDLExam.xcdatamodel */,
+			);
+			currentVersion = F4674A9A201C95DA00944EC5 /* CDLExam.xcdatamodel */;
+			path = CDLExam.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = F4674A8C201C95DA00944EC5 /* Project object */;
+}
