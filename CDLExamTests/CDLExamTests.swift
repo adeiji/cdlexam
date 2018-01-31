@@ -10,14 +10,19 @@ import XCTest
 @testable import CDLExam
 
 class CDLExamTests: XCTestCase {
-    
+    var examVC:ExamViewController!
     override func setUp() {
         super.setUp()
         // Put setup code here. This method is called before the invocation of each test method in the class.
+        examVC = ExamViewController()
+        examVC.viewDidLoad()
+        XCTAssertNotNil(examVC.requirements);
+        XCTAssertNotNil(examVC.examSections);
     }
     
     override func tearDown() {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
+        examVC = nil;
         super.tearDown()
     }
     
@@ -28,6 +33,7 @@ class CDLExamTests: XCTestCase {
     
     func testPerformanceExample() {
         // This is an example of a performance test case.
+        
         self.measure {
             // Put the code you want to measure the time of here.
         }

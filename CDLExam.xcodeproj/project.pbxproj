@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4D19DB9003BCD64316516A13 /* Pods_CDLExamUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B64B9C32CB0D3F5E48B84EB /* Pods_CDLExamUITests.framework */; };
+		6EF3E77AC8822F14F7F936A7 /* Pods_CDLExamTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BBD2D0D787777CCADED9EFE6 /* Pods_CDLExamTests.framework */; };
+		82DF936606E5F445A3598B78 /* Pods_CDLExam.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E7405E8C0C329D2D7355BC61 /* Pods_CDLExam.framework */; };
 		F4674A98201C95DA00944EC5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4674A97201C95DA00944EC5 /* AppDelegate.swift */; };
 		F4674A9B201C95DA00944EC5 /* CDLExam.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = F4674A99201C95DA00944EC5 /* CDLExam.xcdatamodeld */; };
 		F4674A9D201C95DA00944EC5 /* MasterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4674A9C201C95DA00944EC5 /* MasterViewController.swift */; };
@@ -16,6 +19,9 @@
 		F4674AA7201C95DA00944EC5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F4674AA5201C95DA00944EC5 /* LaunchScreen.storyboard */; };
 		F4674AB2201C95DA00944EC5 /* CDLExamTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4674AB1201C95DA00944EC5 /* CDLExamTests.swift */; };
 		F4674ABD201C95DA00944EC5 /* CDLExamUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4674ABC201C95DA00944EC5 /* CDLExamUITests.swift */; };
+		F4674ACB201C965D00944EC5 /* exam-criteria.plist in Resources */ = {isa = PBXBuildFile; fileRef = F4674ACA201C965D00944EC5 /* exam-criteria.plist */; };
+		F4674ACE201F0CC700944EC5 /* ExamViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4674ACC201F0CC700944EC5 /* ExamViewController.swift */; };
+		F4674ACF201F0CC700944EC5 /* ExamViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F4674ACD201F0CC700944EC5 /* ExamViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +42,15 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3B64B9C32CB0D3F5E48B84EB /* Pods_CDLExamUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CDLExamUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		48AAC3B449388A0553609A41 /* Pods-CDLExamUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CDLExamUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-CDLExamUITests/Pods-CDLExamUITests.release.xcconfig"; sourceTree = "<group>"; };
+		57345D0C3CAD412631B9EF31 /* Pods-CDLExam.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CDLExam.release.xcconfig"; path = "Pods/Target Support Files/Pods-CDLExam/Pods-CDLExam.release.xcconfig"; sourceTree = "<group>"; };
+		859B6B05326119180EBA616E /* Pods-CDLExamTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CDLExamTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-CDLExamTests/Pods-CDLExamTests.release.xcconfig"; sourceTree = "<group>"; };
+		8B5DA99532A7D8B40B50D334 /* Pods-CDLExamUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CDLExamUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CDLExamUITests/Pods-CDLExamUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		9BA4DACF9B226CB95A085F5F /* Pods-CDLExamTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CDLExamTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CDLExamTests/Pods-CDLExamTests.debug.xcconfig"; sourceTree = "<group>"; };
+		BBD2D0D787777CCADED9EFE6 /* Pods_CDLExamTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CDLExamTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		DFADD75CBDACF24254B89DFF /* Pods-CDLExam.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CDLExam.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CDLExam/Pods-CDLExam.debug.xcconfig"; sourceTree = "<group>"; };
+		E7405E8C0C329D2D7355BC61 /* Pods_CDLExam.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CDLExam.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F4674A94201C95DA00944EC5 /* CDLExam.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CDLExam.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F4674A97201C95DA00944EC5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F4674A9A201C95DA00944EC5 /* CDLExam.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CDLExam.xcdatamodel; sourceTree = "<group>"; };
@@ -51,6 +66,9 @@
 		F4674AB8201C95DA00944EC5 /* CDLExamUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CDLExamUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F4674ABC201C95DA00944EC5 /* CDLExamUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CDLExamUITests.swift; sourceTree = "<group>"; };
 		F4674ABE201C95DA00944EC5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F4674ACA201C965D00944EC5 /* exam-criteria.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "exam-criteria.plist"; sourceTree = "<group>"; };
+		F4674ACC201F0CC700944EC5 /* ExamViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExamViewController.swift; sourceTree = "<group>"; };
+		F4674ACD201F0CC700944EC5 /* ExamViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ExamViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +76,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				82DF936606E5F445A3598B78 /* Pods_CDLExam.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -65,6 +84,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6EF3E77AC8822F14F7F936A7 /* Pods_CDLExamTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -72,12 +92,36 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4D19DB9003BCD64316516A13 /* Pods_CDLExamUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		548F370EFDEF617D6C6F1897 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				DFADD75CBDACF24254B89DFF /* Pods-CDLExam.debug.xcconfig */,
+				57345D0C3CAD412631B9EF31 /* Pods-CDLExam.release.xcconfig */,
+				9BA4DACF9B226CB95A085F5F /* Pods-CDLExamTests.debug.xcconfig */,
+				859B6B05326119180EBA616E /* Pods-CDLExamTests.release.xcconfig */,
+				8B5DA99532A7D8B40B50D334 /* Pods-CDLExamUITests.debug.xcconfig */,
+				48AAC3B449388A0553609A41 /* Pods-CDLExamUITests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		5DCC80DF320D8286205D6D6E /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				E7405E8C0C329D2D7355BC61 /* Pods_CDLExam.framework */,
+				BBD2D0D787777CCADED9EFE6 /* Pods_CDLExamTests.framework */,
+				3B64B9C32CB0D3F5E48B84EB /* Pods_CDLExamUITests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		F4674A8B201C95DA00944EC5 = {
 			isa = PBXGroup;
 			children = (
@@ -85,6 +129,8 @@
 				F4674AB0201C95DA00944EC5 /* CDLExamTests */,
 				F4674ABB201C95DA00944EC5 /* CDLExamUITests */,
 				F4674A95201C95DA00944EC5 /* Products */,
+				548F370EFDEF617D6C6F1897 /* Pods */,
+				5DCC80DF320D8286205D6D6E /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -101,6 +147,7 @@
 		F4674A96201C95DA00944EC5 /* CDLExam */ = {
 			isa = PBXGroup;
 			children = (
+				F4674AD0201F3C5200944EC5 /* Exam */,
 				F4674A97201C95DA00944EC5 /* AppDelegate.swift */,
 				F4674A9C201C95DA00944EC5 /* MasterViewController.swift */,
 				F4674A9E201C95DA00944EC5 /* DetailViewController.swift */,
@@ -109,6 +156,7 @@
 				F4674AA5201C95DA00944EC5 /* LaunchScreen.storyboard */,
 				F4674AA8201C95DA00944EC5 /* Info.plist */,
 				F4674A99201C95DA00944EC5 /* CDLExam.xcdatamodeld */,
+				F4674ACA201C965D00944EC5 /* exam-criteria.plist */,
 			);
 			path = CDLExam;
 			sourceTree = "<group>";
@@ -131,6 +179,16 @@
 			path = CDLExamUITests;
 			sourceTree = "<group>";
 		};
+		F4674AD0201F3C5200944EC5 /* Exam */ = {
+			isa = PBXGroup;
+			children = (
+				F4674ACC201F0CC700944EC5 /* ExamViewController.swift */,
+				F4674ACD201F0CC700944EC5 /* ExamViewController.xib */,
+			);
+			name = Exam;
+			path = "New Group";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -138,9 +196,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = F4674AC1201C95DA00944EC5 /* Build configuration list for PBXNativeTarget "CDLExam" */;
 			buildPhases = (
+				4A85257D49B643754AB81792 /* [CP] Check Pods Manifest.lock */,
 				F4674A90201C95DA00944EC5 /* Sources */,
 				F4674A91201C95DA00944EC5 /* Frameworks */,
 				F4674A92201C95DA00944EC5 /* Resources */,
+				F4A4325E066A0BF483387AC5 /* [CP] Embed Pods Frameworks */,
+				82E3DD34E3A9FF375024B3FB /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -155,9 +216,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = F4674AC4201C95DA00944EC5 /* Build configuration list for PBXNativeTarget "CDLExamTests" */;
 			buildPhases = (
+				F43C4252252AA2572BF20858 /* [CP] Check Pods Manifest.lock */,
 				F4674AA9201C95DA00944EC5 /* Sources */,
 				F4674AAA201C95DA00944EC5 /* Frameworks */,
 				F4674AAB201C95DA00944EC5 /* Resources */,
+				87D88129D261BC4C412CC369 /* [CP] Embed Pods Frameworks */,
+				325930155EDDC807B5F8F543 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -173,9 +237,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = F4674AC7201C95DA00944EC5 /* Build configuration list for PBXNativeTarget "CDLExamUITests" */;
 			buildPhases = (
+				2071BA8A1A5D4964821E0103 /* [CP] Check Pods Manifest.lock */,
 				F4674AB4201C95DA00944EC5 /* Sources */,
 				F4674AB5201C95DA00944EC5 /* Frameworks */,
 				F4674AB6201C95DA00944EC5 /* Resources */,
+				C6A8A621B409EFFB7907B997 /* [CP] Embed Pods Frameworks */,
+				F47549E51F792F46C8B31005 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -238,6 +305,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F4674ACF201F0CC700944EC5 /* ExamViewController.xib in Resources */,
+				F4674ACB201C965D00944EC5 /* exam-criteria.plist in Resources */,
 				F4674AA7201C95DA00944EC5 /* LaunchScreen.storyboard in Resources */,
 				F4674AA4201C95DA00944EC5 /* Assets.xcassets in Resources */,
 				F4674AA2201C95DA00944EC5 /* Main.storyboard in Resources */,
@@ -260,6 +329,144 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		2071BA8A1A5D4964821E0103 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		325930155EDDC807B5F8F543 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-CDLExamTests/Pods-CDLExamTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		4A85257D49B643754AB81792 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		82E3DD34E3A9FF375024B3FB /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-CDLExam/Pods-CDLExam-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		87D88129D261BC4C412CC369 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-CDLExamTests/Pods-CDLExamTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C6A8A621B409EFFB7907B997 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-CDLExamUITests/Pods-CDLExamUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F43C4252252AA2572BF20858 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		F47549E51F792F46C8B31005 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-CDLExamUITests/Pods-CDLExamUITests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F4A4325E066A0BF483387AC5 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-CDLExam/Pods-CDLExam-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		F4674A90201C95DA00944EC5 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -269,6 +476,7 @@
 				F4674A98201C95DA00944EC5 /* AppDelegate.swift in Sources */,
 				F4674A9D201C95DA00944EC5 /* MasterViewController.swift in Sources */,
 				F4674A9F201C95DA00944EC5 /* DetailViewController.swift in Sources */,
+				F4674ACE201F0CC700944EC5 /* ExamViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -432,11 +640,13 @@
 		};
 		F4674AC2201C95DA00944EC5 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = DFADD75CBDACF24254B89DFF /* Pods-CDLExam.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = HJPTQ3N75W;
 				INFOPLIST_FILE = CDLExam/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.nhsa.CDLExam;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -447,11 +657,13 @@
 		};
 		F4674AC3201C95DA00944EC5 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 57345D0C3CAD412631B9EF31 /* Pods-CDLExam.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = HJPTQ3N75W;
 				INFOPLIST_FILE = CDLExam/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.nhsa.CDLExam;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -462,6 +674,7 @@
 		};
 		F4674AC5201C95DA00944EC5 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9BA4DACF9B226CB95A085F5F /* Pods-CDLExamTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -479,6 +692,7 @@
 		};
 		F4674AC6201C95DA00944EC5 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 859B6B05326119180EBA616E /* Pods-CDLExamTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -496,6 +710,7 @@
 		};
 		F4674AC8201C95DA00944EC5 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8B5DA99532A7D8B40B50D334 /* Pods-CDLExamUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -512,6 +727,7 @@
 		};
 		F4674AC9201C95DA00944EC5 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 48AAC3B449388A0553609A41 /* Pods-CDLExamUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;

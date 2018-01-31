@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Vehicle Info</key>
+	<array>
+		<string>Vehicle Axles: - (TWO/THREE)</string>
+		<string>Trailer Axles: - (ONE/TWO)</string>
+		<string>Air Brakes: - (YES/NO)</string>
+		<string>GVWR - INPUT</string>
+	</array>
+	<key>Form A</key>
+	<dict>
+		<key>Front of Vehicle</key>
+		<dict>
+			<key>lights &amp; reflectors (L-R-4-HL-HB-C) - REQUIRES ALL SELECTED</key>
+			<array>
+				<string>L</string>
+				<string>R</string>
+				<string>4</string>
+				<string>HL</string>
+				<string>HB</string>
+				<string>C</string>
+			</array>
+		</dict>
+		<key>Engine Compartment</key>
+		<array>
+			<string>oil level</string>
+			<string>power steering fluid/belt</string>
+			<string>water pump gear/belt</string>
+			<string>leaks &amp; hoses</string>
+		</array>
+		<key>Steering</key>
+		<array>
+			<string>steering box &amp; hoses</string>
+			<string>steering linkage</string>
+		</array>
+		<key>Front Axle</key>
+		<array>
+			<string>tongue or drawbar</string>
+			<dict>
+				<key>tires (T-C-P) - REQUIRES ALL SELECTED</key>
+				<array>
+					<string>T</string>
+					<string>C</string>
+					<string>P</string>
+				</array>
+			</dict>
+			<string>rims</string>
+			<string>lug nuts</string>
+			<string>hub oil seal</string>
+		</array>
+		<key>Front Suspension</key>
+		<array>
+			<string>springs and shocks</string>
+			<string>u-bolts</string>
+			<string>spring mounts</string>
+		</array>
+		<key>Front Brake</key>
+		<array>
+			<string>brake hoses or lines</string>
+			<string>*brake chamber</string>
+			<string>*slack adjuster &amp; push-rod</string>
+			<string>drum &amp; linings or rotor &amp; disk</string>
+		</array>
+	</dict>
+	<key>All Vehicles</key>
+	<array>
+		<string>safety belt</string>
+		<string>emergency equipment(F-E-T)</string>
+		<string>safe start</string>
+		<string>temperature guage</string>
+		<string>oil pressure guage</string>
+		<string>ammeter or motmeter garage</string>
+		<string>air guage</string>
+		<string>lighting indicators (L-R-4-H)</string>
+		<string>horn(s)</string>
+		<string>heater &amp; defroster</string>
+		<string>windshield &amp; mirrors</string>
+		<string>wipers &amp; washers</string>
+		<string>parking brake</string>
+		<string>*air brake check (L-A-B)</string>
+	</array>
+	<key>All Combination Vehicles</key>
+	<dict>
+		<key>Tractor/Semi-Trailer</key>
+		<dict>
+			<key>Tractor - HEADER</key>
+			<array>
+				<string>air &amp; electric connectors &amp; lines</string>
+			</array>
+			<key>Tractor - Coupling System</key>
+			<array>
+				<string>mounting bolts</string>
+				<string>platform</string>
+				<string>locking jaws or lever</string>
+				<string>release arm and safety latch</string>
+				<string>5th wheel skid plate</string>
+				<string>side 5th wheel pins (clearance)</string>
+			</array>
+			<key>Trailer - HEADER</key>
+			<array>
+				<string>air &amp; electric connectors</string>
+			</array>
+			<key>Trailer - Coupling System</key>
+			<array>
+				<string>kingpin</string>
+				<string>apron</string>
+				<string>gap</string>
+			</array>
+		</dict>
+		<key>Truck/Trailer</key>
+		<dict>
+			<key>Trailer - HEADER</key>
+			<array>
+				<string>air &amp; electric connectors &amp; lines</string>
+				<string>tongue storage area</string>
+			</array>
+			<key>Trailer - Coupling System</key>
+			<array>
+				<string>tongue or drawbar</string>
+				<string>mounting bolts</string>
+				<string>safety devices</string>
+				<string>sliding pintle</string>
+			</array>
+			<key>Truck - HEADER</key>
+			<array>
+				<string>air &amp; electric connectors</string>
+			</array>
+			<key>Truck - Coupling System</key>
+			<array>
+				<string>mounting bolts</string>
+				<string>pintle hook</string>
+				<string>hitch release lever</string>
+				<string>safety devices</string>
+			</array>
+		</dict>
+	</dict>
+</dict>
+</plist>
