@@ -4,10 +4,10 @@
 <dict>
 	<key>Vehicle Info</key>
 	<array>
-		<string>Vehicle Axles: - (TWO/THREE)</string>
-		<string>Trailer Axles: - (ONE/TWO)</string>
-		<string>Air Brakes: - (YES/NO)</string>
-		<string>GVWR - INPUT</string>
+		<string>Vehicle Axles|CONTROL:TWO/THREE</string>
+		<string>Trailer Axles|CONTROL:ONE/TWO</string>
+		<string>Air Brakes|CONTROL:YES/NO</string>
+		<string>GVWR|INPUT:GVWR</string>
 	</array>
 	<key>Form A</key>
 	<dict>
