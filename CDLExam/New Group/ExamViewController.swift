@@ -61,31 +61,72 @@ class ExamViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let selectedCell = tableView.cellForRow(at: indexPath);
-        if selectedCell?.textLabel?.text == kVehicleInfo {
-            self.selectedIndexPaths.append(indexPath);
-            self.tableCells[indexPath] = Bundle.main.loadNibNamed("ExamViewController", owner: self, options: nil)?.first as? UITableViewCell
-            tableView.reloadRows(at: self.selectedIndexPaths, with: .fade)
-        }
+        self.selectedIndexPaths.append(indexPath);
+        let key = (selectedCell?.textLabel?.text)!
+        let infoView = Bundle.main.loadNibNamed("ExamViewController", owner: self, options: nil)?.last as! ExamRequirementView
+        infoView.header.text = key;
+        let examSection = self.getExamSection(infoView: infoView, requirementKey: key, dictionary: self.requirements, level: 1)
+        examSection.layoutSections()
+        self.tableCells[indexPath] = examSection;
+        tableView.reloadRows(at: self.selectedIndexPaths, with: .fade)
     }
     
-    func createVehicleInfoScreen (requirements: [String]) -> UIView {
-        let vehicleInfoView = Bundle.main.loadNibNamed("ExamViewController", owner: self, options: nil)?.first as! ExamRequirementView
-        vehicleInfoView.header.text = "Vehicle Info"
-        vehicleInfoView.sectionDescription.text = "Default values from vehicle configuration"
+    func addRequirements (requirements: [String], section: ExamSection) -> ExamSection {
         
+        var criteriaView:ExamCriteriaView!
+        var criteriaViewList = [ExamCriteriaView]()
         for requirementString in requirements {
+            // Create view or requirement type
             let requirement = self.getRequirementInfo(requirement: requirementString) as Requirement
+            criteriaView = Bundle.main.loadNibNamed("ExamViewController", owner: self, options: nil)!.first as! ExamCriteriaView
+            criteriaView.nameLabel.text = requirement.name
+            criteriaView.setup(type: requirement.type!)
+            
             if requirement.type == kTypeControl {
-                let view = Bundle.main.loadNibNamed("ExamViewController", owner: self, options: nil)![1] as! ExamCriteriaView
                 var counter = 0;
                 for value in requirement.values! {
-                    view.segment.insertSegment(withTitle: value, at: counter, animated: true)
-                    counter++;
+                    criteriaView.segment.insertSegment(withTitle: value, at: counter, animated: true)
+                    counter = counter + 1;
                 }
+            } else if requirement.type == kTypeInput {
+                criteriaView.textField.placeholder = requirement.name
             }
+            
+            criteriaViewList.append(criteriaView)
         }
         
-        return UIView()
+        section.addRequirements(criteriaViews: criteriaViewList)
+        return section
+    }
+    
+    /**
+     * - Description Creates an entire exam section based off of self.requirements key value
+     * - Parameter requirementKey - The key for the value in self.requirements
+     * - Parameter dictionary - The dictionary value in which to get the key value pair
+     * - Parameter level - The section level, is it a subsection? Level 0 is base, level 1 is one section level down and so on
+     * - Returns ExamRequirementView
+     */
+    func getExamSection (infoView: ExamRequirementView, requirementKey: String, dictionary: [String:Any]!, level: Int) -> ExamRequirementView {
+        var myInfoView = infoView;
+        let value = dictionary[requirementKey]
+        var examSection = Bundle.main.loadNibNamed("ExamViewController", owner: self, options: nil)?[1] as! ExamSection
+        examSection.header.text = requirementKey
+        examSection.level = level;
+        
+        // Check if the value for this key is an array or a dictionary
+        if value is Dictionary<String, Any> {
+            // Create Section
+            for (key, _) in value as! [String: Any] {
+                myInfoView = self.getExamSection(infoView: myInfoView, requirementKey: key, dictionary: value as! [String : Any], level: level + 1)
+            }
+            
+        } else if value is [String] {
+            // Handle Requirements
+            examSection = self.addRequirements(requirements: value as! [String], section: examSection)
+        }
+        
+        myInfoView.addSection(section: examSection)
+        return myInfoView
     }
     
     /**
