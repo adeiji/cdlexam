@@ -26,6 +26,9 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
             let controllers = split.viewControllers
             detailViewController = (controllers[controllers.count-1] as! UINavigationController).topViewController as? DetailViewController
         }
+        
+        var examSectionsViewController = ExamSectionsTableViewController()
+        self.navigationController?.pushViewController(examSectionsViewController, animated: true)
     }
 
     override func viewWillAppear(_ animated: Bool) {

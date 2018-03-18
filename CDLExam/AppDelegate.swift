@@ -13,20 +13,47 @@ import CoreData
 class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDelegate {
 
     var window: UIWindow?
+    var examSections = [String]();
 
-
-    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {        
         // Override point for customization after application launch.
-        let splitViewController = self.window!.rootViewController as! UISplitViewController
-        let navigationController = splitViewController.viewControllers[splitViewController.viewControllers.count-1] as! UINavigationController
-        navigationController.topViewController!.navigationItem.leftBarButtonItem = splitViewController.displayModeButtonItem
-        splitViewController.delegate = self
 
-        let masterNavigationController = splitViewController.viewControllers[0] as! UINavigationController
-        let controller = masterNavigationController.topViewController as! MasterViewController
-        controller.managedObjectContext = self.persistentContainer.viewContext
+        let splitViewController = UISplitViewController();
+        self.window!.rootViewController = splitViewController;
+        let examSectionsTableViewController = ExamSectionsTableViewController();
+        let navVC = UINavigationController(rootViewController: examSectionsTableViewController)
+        splitViewController.viewControllers.append(navVC);
+        
+        let examViewController = ExamViewController();
+        examViewController.navigationController?.navigationBar.isHidden = false;
+        examSectionsTableViewController.delegate = examViewController;
+        let detailNavVC = UINavigationController(rootViewController: examViewController);
+        splitViewController.delegate = self
+        splitViewController.viewControllers.append(detailNavVC);
+        
+        let result = self.loadExam()
+        examSectionsTableViewController.exam = result
+        examSectionsTableViewController.examSections = self.examSections;        
         return true
     }
+    
+    func loadExam () -> [String:Any] {
+        if let fileUrl = Bundle.main.url(forResource: "exam-criteria", withExtension: "plist"),
+            // Load exam data
+            let data = try? Data(contentsOf: fileUrl) {
+            if let result = try? PropertyListSerialization.propertyList(from: data, options: [], format: nil) as? [String:Any] {
+                for (key, _) in result! {
+                    self.examSections.append(key)
+                }
+                
+                return result!;
+            }
+        }
+        
+        // Handle Error, there should always be a result returned
+        return [String:Any]();
+    }
+
 
     func applicationWillResignActive(_ application: UIApplication) {
         // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.

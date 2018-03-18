@@ -8,32 +8,54 @@
 
 import UIKit
 
-class ExamViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class ExamViewController: UITableViewController, LoadExamInfoDelegate {
     
     var requirements = [String:Any]()
     let kRequireAllSessions = "REQUIRES ALL SESSIONS", kHeader = "HEADER", kInput = "INPUT", kVehicleInfo = "Vehicle Info"
     let kTypeControl = "CONTROL", kTypeInput = "INPUT", kTypeSwitch = "SWITCH"
-    var tableCells = [IndexPath:UITableViewCell]()
-    var examSections = [String]();
     var selectedIndexPaths = [IndexPath]();
+    var criteriaList = [String]()
+    var criteriaDict = [String:Any]();
+    var tableViewHeaders = [String]()
+    var resultKey:String!
+    
+    func reset() {
+        self.criteriaDict = [String:Any]();
+        self.criteriaList = [String]();
+        self.tableViewHeaders = [String]();
+    }
+    
+    func loadExamDetailsArray(info: [String], header: String, resultKey: String) {
+        reset();
+        self.criteriaList = info;
+        self.tableViewHeaders.append(header);
+        self.resultKey = resultKey;
+        self.tableView.reloadData();
+    }
+    
+    func loadExamDetailsDictionary(info: [String : Any], headers: [String], resultKey: String) {
+        reset();
+        self.criteriaDict = info;
+        self.tableViewHeaders = headers;
+        self.resultKey = resultKey;
+        self.tableView.reloadData();
+    }
+    
+    struct Result {
+        var totalRequirements:Int!
+        var numberCorrect:Int!
+    }
     
     struct Requirement {
         var type: String?
         var name: String?
-        var values: [String]?;
+        var values: [String]?
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        if let fileUrl = Bundle.main.url(forResource: "exam-criteria", withExtension: "plist"),
-            let data = try? Data(contentsOf: fileUrl) {
-            if let result = try? PropertyListSerialization.propertyList(from: data, options: [], format: nil) as? [String:Any] {
-                self.requirements = result!
-                for (key, _) in self.requirements {
-                    examSections.append(key);
-                }
-            }
-        }
+        // Make the table view our main view
+        self.tableView.separatorStyle = .none;
     }
 
     override func didReceiveMemoryWarning() {
@@ -41,134 +63,84 @@ class ExamViewController: UIViewController, UITableViewDelegate, UITableViewData
         // Dispose of any resources that can be recreated.
     }
     
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.requirements.keys.count;
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if (self.selectedIndexPaths.contains(indexPath)) {
-            return self.tableCells[indexPath]!
-            
+    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        if (self.tableViewHeaders.count != 0) {
+            return self.tableViewHeaders[section];
         } else {
-            let cell = UITableViewCell();
-            
-            cell.textLabel?.text = self.examSections[indexPath.row]
-            cell.textLabel?.font = UIFont.systemFont(ofSize: 14.0, weight: .bold)
-            
-            return cell;
+            return nil;
         }
     }
     
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let selectedCell = tableView.cellForRow(at: indexPath);
-        self.selectedIndexPaths.append(indexPath);
-        let key = (selectedCell?.textLabel?.text)!
-        let infoView = Bundle.main.loadNibNamed("ExamViewController", owner: self, options: nil)?.last as! ExamRequirementView
-        infoView.header.text = key;
-        let examSection = self.getExamSection(infoView: infoView, requirementKey: key, dictionary: self.requirements, level: 1)
-        examSection.layoutSections()
-        self.tableCells[indexPath] = examSection;
-        tableView.reloadRows(at: self.selectedIndexPaths, with: .fade)
+    override func numberOfSections(in tableView: UITableView) -> Int {
+        return self.tableViewHeaders.count
     }
     
-    func addRequirements (requirements: [String], section: ExamSection) -> ExamSection {
-        
-        var criteriaView:ExamCriteriaView!
-        var criteriaViewList = [ExamCriteriaView]()
-        for requirementString in requirements {
-            // Create view or requirement type
-            let requirement = self.getRequirementInfo(requirement: requirementString) as Requirement
-            criteriaView = Bundle.main.loadNibNamed("ExamViewController", owner: self, options: nil)!.first as! ExamCriteriaView
-            criteriaView.nameLabel.text = requirement.name
-            criteriaView.setup(type: requirement.type!)
-            
-            if requirement.type == kTypeControl {
-                var counter = 0;
-                for value in requirement.values! {
-                    criteriaView.segment.insertSegment(withTitle: value, at: counter, animated: true)
-                    counter = counter + 1;
-                }
-            } else if requirement.type == kTypeInput {
-                criteriaView.textField.placeholder = requirement.name
-            }
-            
-            criteriaViewList.append(criteriaView)
-        }
-        
-        section.addRequirements(criteriaViews: criteriaViewList)
-        return section
-    }
-    
-    /**
-     * - Description Creates an entire exam section based off of self.requirements key value
-     * - Parameter requirementKey - The key for the value in self.requirements
-     * - Parameter dictionary - The dictionary value in which to get the key value pair
-     * - Parameter level - The section level, is it a subsection? Level 0 is base, level 1 is one section level down and so on
-     * - Returns ExamRequirementView
-     */
-    func getExamSection (infoView: ExamRequirementView, requirementKey: String, dictionary: [String:Any]!, level: Int) -> ExamRequirementView {
-        var myInfoView = infoView;
-        let value = dictionary[requirementKey]
-        var examSection = Bundle.main.loadNibNamed("ExamViewController", owner: self, options: nil)?[1] as! ExamSection
-        examSection.header.text = requirementKey
-        examSection.level = level;
-        
-        // Check if the value for this key is an array or a dictionary
-        if value is Dictionary<String, Any> {
-            // Create Section
-            for (key, _) in value as! [String: Any] {
-                myInfoView = self.getExamSection(infoView: myInfoView, requirementKey: key, dictionary: value as! [String : Any], level: level + 1)
-            }
-            
-        } else if value is [String] {
-            // Handle Requirements
-            examSection = self.addRequirements(requirements: value as! [String], section: examSection)
-        }
-        
-        myInfoView.addSection(section: examSection)
-        return myInfoView
-    }
-    
-    /**
-     * - Description Takes a requirement string and seperates it into specific parameters, ex: "Safety Belt|CONTROL:YES/NO"
-     
-     * - Parameter requirement - A string containing the requirement name, type, and values
-     * - Returns Requirement object - A custom struct that consists of necessary parameters to base view creation off of
-     */
-    func getRequirementInfo (requirement: String) -> Requirement {
-        var name:String!
-        
-        if requirement.contains("|")  {
-            var endOfDetailsIndex = requirement.index(of: "|") as! String.Index
-            name = String(requirement[..<endOfDetailsIndex])
-            endOfDetailsIndex = requirement.index(endOfDetailsIndex, offsetBy: 1)
-            let details = String(requirement[endOfDetailsIndex...]);
-            let optionsList = details.split(separator: ":").last
-            var optionStrings = [String]()
-            if (optionsList!.contains("/")) {
-                let options = optionsList?.split(separator: "/")
-                for string in options! {
-                    optionStrings.append(String(string))
-                }
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if (self.criteriaList.count != 0) {
+            return self.criteriaList.count;
+        } else if (self.criteriaDict.keys.count != 0) {
+            // If the values for this specific key are of type Array
+            if let values = self.criteriaDict[self.tableViewHeaders[section]] as? [String] {
+                return values.count;
             } else {
-                optionStrings.append(String(describing: optionsList!))
+                if let _ = self.criteriaDict[self.tableViewHeaders[section]] as? [String:Any] { // If this is an array of dic
+                    return 1
+                } else {
+                    if let array = self.criteriaDict[self.tableViewHeaders[section]] as? [Any] {
+                        return array.count;
+                    }
+                }
             }
-            
-            let requirementInfo = Requirement(type: String(describing: details.split(separator: ":").first!), name: name, values: optionStrings)
-            return requirementInfo
-        } else {
-            return Requirement(type:kTypeSwitch, name: requirement, values: nil);
         }
+        
+        return 0;
     }
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = ExamCriteriaView();
+        let section = self.tableViewHeaders[indexPath.section];
+        
+        if (self.criteriaList.count != 0) {
+            cell.setup(type: "SWITCH", key: self.resultKey + "." + section + "." + self.criteriaList[indexPath.row])
+            cell.nameLabel!.text = self.criteriaList[indexPath.row];
+        } else {
+            if let values = self.criteriaDict[self.tableViewHeaders[indexPath.section]] as? [String] {
+                let resultKey = self.resultKey + "." + section + "." + values[indexPath.row];
+                cell.setup(type: "SWITCH", key: resultKey)
+                cell.nameLabel.text = values[indexPath.row]
+            } else {
+                if let values = self.criteriaDict[self.tableViewHeaders[indexPath.section]] as? [String:Any] {
+                    for (key, value) in values {
+                        let multipleChoiceView = MultipleChoiceView();
+                        multipleChoiceView.setup(headerName: key, criteriaList: value as! [String])
+                        multipleChoiceView.resultKey = key;
+                        return multipleChoiceView;
+                    }
+                } else {
+                    if let values = self.criteriaDict[self.tableViewHeaders[indexPath.section]] as? [Any] {
+                        if let value = values[indexPath.row] as? String {
+                            let resultKey = self.resultKey + "." + section + "." + value;
+                            cell.setup(type: "SWITCH", key: resultKey)
+                            cell.nameLabel.text = value;
+                        } else {
+                            if let value = values[indexPath.row] as? [String: Any] {
+                                for (key, value) in value {
+                                    let multipleChoiceView = MultipleChoiceView();
+                                    multipleChoiceView.setup(headerName: key, criteriaList: value as! [String])
+                                    multipleChoiceView.resultKey = key;
+                                    return multipleChoiceView;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        
+        return cell;
     }
-    */
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 
+    }
 }

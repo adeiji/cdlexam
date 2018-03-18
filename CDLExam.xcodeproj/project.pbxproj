@@ -21,8 +21,10 @@
 		F4674ABD201C95DA00944EC5 /* CDLExamUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4674ABC201C95DA00944EC5 /* CDLExamUITests.swift */; };
 		F4674ACB201C965D00944EC5 /* exam-criteria.plist in Resources */ = {isa = PBXBuildFile; fileRef = F4674ACA201C965D00944EC5 /* exam-criteria.plist */; };
 		F4674ACE201F0CC700944EC5 /* ExamViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4674ACC201F0CC700944EC5 /* ExamViewController.swift */; };
-		F4674ACF201F0CC700944EC5 /* ExamViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F4674ACD201F0CC700944EC5 /* ExamViewController.xib */; };
 		F46A61592021B41300F3D843 /* ExamRequirementView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F46A61582021B41300F3D843 /* ExamRequirementView.swift */; };
+		F4EADDE4205CE5E9008DA8AB /* ExamSectionsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4EADDE3205CE5E9008DA8AB /* ExamSectionsTableViewController.swift */; };
+		F4EADDE6205CEEB6008DA8AB /* LoadExamInfoProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4EADDE5205CEEB6008DA8AB /* LoadExamInfoProtocol.swift */; };
+		F4EADDE9205E3BCD008DA8AB /* ExamResults.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4EADDE8205E3BCD008DA8AB /* ExamResults.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -69,8 +71,10 @@
 		F4674ABE201C95DA00944EC5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F4674ACA201C965D00944EC5 /* exam-criteria.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "exam-criteria.plist"; sourceTree = "<group>"; };
 		F4674ACC201F0CC700944EC5 /* ExamViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExamViewController.swift; sourceTree = "<group>"; };
-		F4674ACD201F0CC700944EC5 /* ExamViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ExamViewController.xib; sourceTree = "<group>"; };
 		F46A61582021B41300F3D843 /* ExamRequirementView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExamRequirementView.swift; sourceTree = "<group>"; };
+		F4EADDE3205CE5E9008DA8AB /* ExamSectionsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExamSectionsTableViewController.swift; sourceTree = "<group>"; };
+		F4EADDE5205CEEB6008DA8AB /* LoadExamInfoProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = LoadExamInfoProtocol.swift; path = Protocols/LoadExamInfoProtocol.swift; sourceTree = "<group>"; };
+		F4EADDE8205E3BCD008DA8AB /* ExamResults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExamResults.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -149,6 +153,7 @@
 		F4674A96201C95DA00944EC5 /* CDLExam */ = {
 			isa = PBXGroup;
 			children = (
+				F4EADDE2205CE5BF008DA8AB /* Exam Sections */,
 				F4674AD0201F3C5200944EC5 /* Exam */,
 				F4674A97201C95DA00944EC5 /* AppDelegate.swift */,
 				F4674A9C201C95DA00944EC5 /* MasterViewController.swift */,
@@ -159,6 +164,7 @@
 				F4674AA8201C95DA00944EC5 /* Info.plist */,
 				F4674A99201C95DA00944EC5 /* CDLExam.xcdatamodeld */,
 				F4674ACA201C965D00944EC5 /* exam-criteria.plist */,
+				F4EADDE5205CEEB6008DA8AB /* LoadExamInfoProtocol.swift */,
 			);
 			path = CDLExam;
 			sourceTree = "<group>";
@@ -184,12 +190,28 @@
 		F4674AD0201F3C5200944EC5 /* Exam */ = {
 			isa = PBXGroup;
 			children = (
+				F4EADDE7205E3BBB008DA8AB /* Results */,
 				F4674ACC201F0CC700944EC5 /* ExamViewController.swift */,
-				F4674ACD201F0CC700944EC5 /* ExamViewController.xib */,
 				F46A61582021B41300F3D843 /* ExamRequirementView.swift */,
 			);
 			name = Exam;
 			path = "New Group";
+			sourceTree = "<group>";
+		};
+		F4EADDE2205CE5BF008DA8AB /* Exam Sections */ = {
+			isa = PBXGroup;
+			children = (
+				F4EADDE3205CE5E9008DA8AB /* ExamSectionsTableViewController.swift */,
+			);
+			path = "Exam Sections";
+			sourceTree = "<group>";
+		};
+		F4EADDE7205E3BBB008DA8AB /* Results */ = {
+			isa = PBXGroup;
+			children = (
+				F4EADDE8205E3BCD008DA8AB /* ExamResults.swift */,
+			);
+			path = Results;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -308,7 +330,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F4674ACF201F0CC700944EC5 /* ExamViewController.xib in Resources */,
 				F4674ACB201C965D00944EC5 /* exam-criteria.plist in Resources */,
 				F4674AA7201C95DA00944EC5 /* LaunchScreen.storyboard in Resources */,
 				F4674AA4201C95DA00944EC5 /* Assets.xcassets in Resources */,
@@ -480,6 +501,9 @@
 				F4674A9D201C95DA00944EC5 /* MasterViewController.swift in Sources */,
 				F46A61592021B41300F3D843 /* ExamRequirementView.swift in Sources */,
 				F4674A9F201C95DA00944EC5 /* DetailViewController.swift in Sources */,
+				F4EADDE9205E3BCD008DA8AB /* ExamResults.swift in Sources */,
+				F4EADDE4205CE5E9008DA8AB /* ExamSectionsTableViewController.swift in Sources */,
+				F4EADDE6205CEEB6008DA8AB /* LoadExamInfoProtocol.swift in Sources */,
 				F4674ACE201F0CC700944EC5 /* ExamViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
