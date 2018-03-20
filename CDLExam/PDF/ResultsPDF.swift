@@ -833,7 +833,7 @@ public class ResultsPDF : NSObject {
 
     }
 
-    @objc dynamic public class func drawAllCombinationVehicles(frame targetFrame: CGRect = CGRect(x: 0, y: 0, width: 815, height: 234), resizing: ResizingBehavior = .aspectFit, acvTrtTruckAirElectricConnectrs: Bool = true, acvTrtTruckCouplingMountingBolts: Bool = true, acvTrtTruckCouplingPintleHook: Bool = true, acvTrtTruckCouplingHitchReleaseLever: Bool = true, acvTrtTruckCouplingSafetyDevices: Bool = true, acvTrtTrailerAirElectricConnectorsLines: Bool = true, acvTrtTrailerTongueStorageArea: Bool = true, acvTrtTrailerCouplingTongueDrawer: Bool = true, acvTrtTrailerCouplingMountingBolts: Bool = true, acvTrtTrailerCouplingSafetyDevices: Bool = true, acvTrtTrailerCouplingSlidingPintle: Bool = true, acvTstTractorAirElectricConnectorsLines: Bool = true, acvTstTractorCouplingMountingBolts: Bool = true, acvTstTractorCouplingPlatform: Bool = true, acvTstTractorCouplingLockingJawsLever: Bool = true, acvTstTractorCouplingReleaseArmSafetyLatch: Bool = true, acvTstTractorCouplingFifthWheelSkidPlate: Bool = true, acvTstTractorCouplingSlideFifthWheelPins: Bool = true, acvTstSemiTrailerAirElectricConnectors: Bool = true, acvTstSemiTrailerCouplingMountingBolts: Bool = true, acvTstSemiTrailerCouplingPlatform: Bool = true, acvTstSemiTrailerCouplingLockingJawsLever: Bool = true, acvTstSemiTrailerCouplingReleaseArmSafetyLatch: Bool = true, acvTstSemiTrailerCouplingFifthWheelSkidPlate: Bool = true, acvTstSemiTrailerCouplingSlideFifthWheelPins: Bool = true) {
+    @objc dynamic public class func drawAllCombinationVehicles(frame targetFrame: CGRect = CGRect(x: 0, y: 0, width: 815, height: 234), resizing: ResizingBehavior = .aspectFit, acvTrtTruckAirElectricConnectrs: Bool = true, acvTrtTruckCouplingMountingBolts: Bool = true, acvTrtTruckCouplingPintleHook: Bool = true, acvTrtTruckCouplingHitchReleaseLever: Bool = true, acvTrtTruckCouplingSafetyDevices: Bool = true, acvTrtTrailerAirElectricConnectorsLines: Bool = true, acvTrtTrailerTongueStorageArea: Bool = true, acvTrtTrailerCouplingTongueDrawer: Bool = true, acvTrtTrailerCouplingMountingBolts: Bool = true, acvTrtTrailerCouplingSafetyDevices: Bool = true, acvTrtTrailerCouplingSlidingPintle: Bool = true, acvTstTractorAirElectricConnectorsLines: Bool = true, acvTstTractorCouplingMountingBolts: Bool = true, acvTstTractorCouplingPlatform: Bool = true, acvTstTractorCouplingLockingJawsLever: Bool = true, acvTstTractorCouplingReleaseArmSafetyLatch: Bool = true, acvTstTractorCouplingFifthWheelSkidPlate: Bool = true, acvTstTractorCouplingSlideFifthWheelPins: Bool = true, acvTstSemiTrailerAirElectricConnectors: Bool = true, acvTstSemiTrailerCouplingKingpin: Bool = true, acvTstSemiTrailerCouplingApron: Bool = true, acvTstSemiTrailerCouplingGap: Bool = true) {
         //// General Declarations
         let context = UIGraphicsGetCurrentContext()!
         
@@ -1475,7 +1475,7 @@ public class ResultsPDF : NSObject {
 
         //// label 20 Drawing
         let label20Rect = CGRect(x: 602, y: 95, width: 177, height: 16)
-        let label20TextContent = "mounting bolts"
+        let label20TextContent = "kingpin"
         let label20Style = NSMutableParagraphStyle()
         label20Style.alignment = .left
         let label20FontAttributes = [
@@ -1491,7 +1491,7 @@ public class ResultsPDF : NSObject {
         context.restoreGState()
 
 
-        if (acvTstSemiTrailerCouplingMountingBolts) {
+        if (acvTstSemiTrailerCouplingKingpin) {
             //// Rectangle 20 Drawing
             let rectangle20Path = UIBezierPath(rect: CGRect(x: 779, y: 98, width: 10, height: 10))
             UIColor.darkGray.setFill()
@@ -1501,7 +1501,7 @@ public class ResultsPDF : NSObject {
 
         //// label 21 Drawing
         let label21Rect = CGRect(x: 602, y: 115, width: 116, height: 16)
-        let label21TextContent = "platform"
+        let label21TextContent = "apron"
         let label21Style = NSMutableParagraphStyle()
         label21Style.alignment = .left
         let label21FontAttributes = [
@@ -1517,7 +1517,7 @@ public class ResultsPDF : NSObject {
         context.restoreGState()
 
 
-        if (acvTstSemiTrailerCouplingPlatform) {
+        if (acvTstSemiTrailerCouplingApron) {
             //// Rectangle 21 Drawing
             let rectangle21Path = UIBezierPath(rect: CGRect(x: 779, y: 118, width: 10, height: 10))
             UIColor.darkGray.setFill()
@@ -1545,7 +1545,7 @@ public class ResultsPDF : NSObject {
 
         //// label 22 Drawing
         let label22Rect = CGRect(x: 602, y: 135, width: 177, height: 16)
-        let label22TextContent = "locking jaws or lever"
+        let label22TextContent = "gap"
         let label22Style = NSMutableParagraphStyle()
         label22Style.alignment = .left
         let label22FontAttributes = [
@@ -1561,89 +1561,11 @@ public class ResultsPDF : NSObject {
         context.restoreGState()
 
 
-        if (acvTstSemiTrailerCouplingLockingJawsLever) {
+        if (acvTstSemiTrailerCouplingGap) {
             //// Rectangle 22 Drawing
             let rectangle22Path = UIBezierPath(rect: CGRect(x: 779, y: 138, width: 10, height: 10))
             UIColor.darkGray.setFill()
             rectangle22Path.fill()
-        }
-
-
-        //// label 23 Drawing
-        let label23Rect = CGRect(x: 602, y: 155, width: 164, height: 16)
-        let label23TextContent = "release arm & safety latch"
-        let label23Style = NSMutableParagraphStyle()
-        label23Style.alignment = .left
-        let label23FontAttributes = [
-            .font: UIFont.systemFont(ofSize: UIFont.smallSystemFontSize),
-            .foregroundColor: UIColor.black,
-            .paragraphStyle: label23Style,
-        ] as [NSAttributedStringKey: Any]
-
-        let label23TextHeight: CGFloat = label23TextContent.boundingRect(with: CGSize(width: label23Rect.width, height: CGFloat.infinity), options: .usesLineFragmentOrigin, attributes: label23FontAttributes, context: nil).height
-        context.saveGState()
-        context.clip(to: label23Rect)
-        label23TextContent.draw(in: CGRect(x: label23Rect.minX, y: label23Rect.minY + (label23Rect.height - label23TextHeight) / 2, width: label23Rect.width, height: label23TextHeight), withAttributes: label23FontAttributes)
-        context.restoreGState()
-
-
-        if (acvTstSemiTrailerCouplingReleaseArmSafetyLatch) {
-            //// Rectangle 23 Drawing
-            let rectangle23Path = UIBezierPath(rect: CGRect(x: 779, y: 158, width: 10, height: 10))
-            UIColor.darkGray.setFill()
-            rectangle23Path.fill()
-        }
-
-
-        //// label 24 Drawing
-        let label24Rect = CGRect(x: 602, y: 175, width: 164, height: 16)
-        let label24TextContent = "5th wheel skid plate"
-        let label24Style = NSMutableParagraphStyle()
-        label24Style.alignment = .left
-        let label24FontAttributes = [
-            .font: UIFont.systemFont(ofSize: UIFont.smallSystemFontSize),
-            .foregroundColor: UIColor.black,
-            .paragraphStyle: label24Style,
-        ] as [NSAttributedStringKey: Any]
-
-        let label24TextHeight: CGFloat = label24TextContent.boundingRect(with: CGSize(width: label24Rect.width, height: CGFloat.infinity), options: .usesLineFragmentOrigin, attributes: label24FontAttributes, context: nil).height
-        context.saveGState()
-        context.clip(to: label24Rect)
-        label24TextContent.draw(in: CGRect(x: label24Rect.minX, y: label24Rect.minY + (label24Rect.height - label24TextHeight) / 2, width: label24Rect.width, height: label24TextHeight), withAttributes: label24FontAttributes)
-        context.restoreGState()
-
-
-        if (acvTstSemiTrailerCouplingFifthWheelSkidPlate) {
-            //// Rectangle 24 Drawing
-            let rectangle24Path = UIBezierPath(rect: CGRect(x: 779, y: 178, width: 10, height: 10))
-            UIColor.darkGray.setFill()
-            rectangle24Path.fill()
-        }
-
-
-        //// label 25 Drawing
-        let label25Rect = CGRect(x: 602, y: 195, width: 164, height: 29)
-        let label25TextContent = "slide 5th wheel pins (clearance)"
-        let label25Style = NSMutableParagraphStyle()
-        label25Style.alignment = .left
-        let label25FontAttributes = [
-            .font: UIFont.systemFont(ofSize: UIFont.smallSystemFontSize),
-            .foregroundColor: UIColor.black,
-            .paragraphStyle: label25Style,
-        ] as [NSAttributedStringKey: Any]
-
-        let label25TextHeight: CGFloat = label25TextContent.boundingRect(with: CGSize(width: label25Rect.width, height: CGFloat.infinity), options: .usesLineFragmentOrigin, attributes: label25FontAttributes, context: nil).height
-        context.saveGState()
-        context.clip(to: label25Rect)
-        label25TextContent.draw(in: CGRect(x: label25Rect.minX, y: label25Rect.minY + (label25Rect.height - label25TextHeight) / 2, width: label25Rect.width, height: label25TextHeight), withAttributes: label25FontAttributes)
-        context.restoreGState()
-
-
-        if (acvTstSemiTrailerCouplingSlideFifthWheelPins) {
-            //// Rectangle 25 Drawing
-            let rectangle25Path = UIBezierPath(rect: CGRect(x: 779, y: 210, width: 10, height: 10))
-            UIColor.darkGray.setFill()
-            rectangle25Path.fill()
         }
 
 

@@ -111,7 +111,7 @@
 		</dict>
 		<key>Truck/Trailer</key>
 		<dict>
-			<key>Trailer - HEADER</key>
+			<key>Trailer</key>
 			<array>
 				<string>air &amp; electric connectors &amp; lines</string>
 				<string>tongue storage area</string>
@@ -123,7 +123,7 @@
 				<string>safety devices</string>
 				<string>sliding pintle</string>
 			</array>
-			<key>Truck - HEADER</key>
+			<key>Truck</key>
 			<array>
 				<string>air &amp; electric connectors</string>
 			</array>

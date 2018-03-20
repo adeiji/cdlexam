@@ -28,26 +28,23 @@ class PDFAllCombinationVehiclesSection : UIView {
                                               acvTrtTruckCouplingPintleHook: UtilityFunctions.toBool(value: self.results[kAcvTrtTruckCouplingPintleHook]),
                                               acvTrtTruckCouplingHitchReleaseLever: UtilityFunctions.toBool(value: self.results[kAcvTrtTruckCouplingHitchReleaseLever]),
                                               acvTrtTruckCouplingSafetyDevices: UtilityFunctions.toBool(value: self.results[kAcvTrtTruckCouplingSafetyDevices]),
-                                              acvTrtTrailerAirElectricConnectorsLines: UtilityFunctions.toBool(value: self.results[kAcvTrtTrailerAirElectricConnectors]),
+                                              acvTrtTrailerAirElectricConnectorsLines: UtilityFunctions.toBool(value: self.results[kAcvTrtTrailerAirElectricConnectorsLines]),
                                               acvTrtTrailerTongueStorageArea: UtilityFunctions.toBool(value: self.results[kAcvTrtTrailerTongueStorageArea]),
                                               acvTrtTrailerCouplingTongueDrawer: UtilityFunctions.toBool(value: self.results[kAcvTrtTrailerCouplingTongueDrawbar]),
                                               acvTrtTrailerCouplingMountingBolts: UtilityFunctions.toBool(value: self.results[kAcvTrtTrailerCouplingMountingBolts]),
                                               acvTrtTrailerCouplingSafetyDevices: UtilityFunctions.toBool(value: self.results[kAcvTrtTrailerCouplingSafetyDevices]),
                                               acvTrtTrailerCouplingSlidingPintle: UtilityFunctions.toBool(value: self.results[kAcvTrtTrailerCouplingSlidingPintle]),
-                                              acvTstTractorAirElectricConnectorsLines: UtilityFunctions.toBool(value: self.results[kAcvTstTractorAirElectricConnectors]),
+                                              acvTstTractorAirElectricConnectorsLines: UtilityFunctions.toBool(value: self.results[kAcvTstTractorAirElectricConnectorsLines]),
                                               acvTstTractorCouplingMountingBolts: UtilityFunctions.toBool(value: self.results[kAcvTstTractorCouplingMountingBolts]),
                                               acvTstTractorCouplingPlatform: UtilityFunctions.toBool(value: self.results[kAcvTstTractorCouplingPlatform]),
                                               acvTstTractorCouplingLockingJawsLever: UtilityFunctions.toBool(value: self.results[kAcvTstTractorCouplingLockingJawsLever]),
                                               acvTstTractorCouplingReleaseArmSafetyLatch: UtilityFunctions.toBool(value: self.results[kAcvTstTractorCouplingReleaseArmSafetyLatch]),
                                               acvTstTractorCouplingFifthWheelSkidPlate: UtilityFunctions.toBool(value: self.results[kAcvTstTractorCouplingFifthWheelSkidPlate]),
                                               acvTstTractorCouplingSlideFifthWheelPins: UtilityFunctions.toBool(value: self.results[kAcvTstTractorCouplingSideFifthWheelPins]),
-                                              acvTstSemiTrailerAirElectricConnectors: false,
-                                              acvTstSemiTrailerCouplingMountingBolts: false,
-                                              acvTstSemiTrailerCouplingPlatform: false,
-                                              acvTstSemiTrailerCouplingLockingJawsLever: false,
-                                              acvTstSemiTrailerCouplingReleaseArmSafetyLatch: false,
-                                              acvTstSemiTrailerCouplingFifthWheelSkidPlate: false,
-                                              acvTstSemiTrailerCouplingSlideFifthWheelPins: false)
+                                              acvTstSemiTrailerAirElectricConnectors: UtilityFunctions.toBool(value: self.results[kAcvTstTrailerAirElectricConnectors]),
+                                              acvTstSemiTrailerCouplingKingpin: UtilityFunctions.toBool(value: self.results[kAcvTstTrailerCouplingKingpin]),
+                                              acvTstSemiTrailerCouplingApron: UtilityFunctions.toBool(value: self.results[kAcvTstTrailerCouplingApron]),
+                                              acvTstSemiTrailerCouplingGap: UtilityFunctions.toBool(value: self.results[kAcvTstTrailerCouplingGap]))
     }
 }
 

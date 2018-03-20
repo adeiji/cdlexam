@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import PDFGenerator
 
 class ExamCriteriaViewController: UITableViewController, LoadExamInfoDelegate, UIDocumentInteractionControllerDelegate {
     
@@ -19,6 +20,7 @@ class ExamCriteriaViewController: UITableViewController, LoadExamInfoDelegate, U
     var tableViewHeaders = [String]()
     var resultKey:String!
     var exam:Exam!
+    var documentInteractionController:UIDocumentInteractionController!
     
     func reset() {
         self.criteriaDict = [String:Any]();
@@ -97,7 +99,7 @@ class ExamCriteriaViewController: UITableViewController, LoadExamInfoDelegate, U
                 viewController.view.addSubview(header)
                 viewController.view.addSubview(allVehicles);
                 viewController.view.addSubview(allCombinationVehicles);
-                self.navigationController?.pushViewController(viewController, animated: true)
+                self.generatePDF(view: viewController.view)
             } else {
                 // Handle error showing that the exam did not save
             }
@@ -110,6 +112,23 @@ class ExamCriteriaViewController: UITableViewController, LoadExamInfoDelegate, U
         self.present(alert, animated: true, completion: nil);
     }
 
+    func generatePDF (view: UIView) {
+        let dst = URL(fileURLWithPath: NSTemporaryDirectory().appending("sample1.pdf"))
+        // outputs as Data
+        do {
+            let data = try PDFGenerator.generated(by: [view])
+            try! data.write(to: dst, options: .atomic)
+            self.documentInteractionController = UIDocumentInteractionController.init(url: dst);
+            self.documentInteractionController.delegate = self;
+            self.documentInteractionController.presentPreview(animated: true)
+            
+        } catch (let error) {
+            print(error)
+        }
+        
+        
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.

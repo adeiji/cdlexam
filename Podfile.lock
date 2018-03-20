@@ -1,23 +1,23 @@
 PODS:
+  - PDFGenerator (2.1)
   - Realm (3.1.0):
     - Realm/Headers (= 3.1.0)
   - Realm/Headers (3.1.0)
   - RealmSwift (3.1.0):
     - Realm (= 3.1.0)
-  - SimplePDF (3.0.0)
   - SnapKit (4.0.0)
 
 DEPENDENCIES:
+  - PDFGenerator (~> 2.1)
   - RealmSwift
-  - SimplePDF
   - SnapKit (~> 4.0.0)
 
 SPEC CHECKSUMS:
+  PDFGenerator: 4fd5db4972465679f4846a9a36d53e8826536a6d
   Realm: 09513d7c054678d65cd02ce09871f805b0d758ac
   RealmSwift: e868fee9b10e5490ad94b6b6ecd9027944da1824
-  SimplePDF: 903143ede36965886997a5c1bc6b8940b082ba20
   SnapKit: a42d492c16e80209130a3379f73596c3454b7694
 
-PODFILE CHECKSUM: 1f00841daf06338f31998b885d8019305a8249a0
+PODFILE CHECKSUM: 48be380adb6f236e3dbe94a1a026f028e8137298
 
 COCOAPODS: 1.1.1

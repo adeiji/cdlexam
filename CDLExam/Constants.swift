@@ -63,15 +63,21 @@ let kAcvTrtTruckCouplingPintleHook = kAllCombinationVehicles + kTruckTrailer + k
 let kAcvTrtTruckCouplingHitchReleaseLever = kAllCombinationVehicles + kTruckTrailer + kTruckCoupling + ".hitch release lever"
 let kAcvTrtTruckCouplingSafetyDevices = kAllCombinationVehicles + kTruckTrailer + kTruckCoupling + ".safety devices"
 
+// Truck/Trailer.Truck
+let kAcvTrtTruckAirElectricConnectors = kAllCombinationVehicles + kTruckTrailer + kTruck + ".air & electric connectors"
+
 // Truck/Trailer.Trailer - Coupling System
 let kAcvTrtTrailerCouplingTongueDrawbar = kAllCombinationVehicles + kTruckTrailer + kTrailerCoupling + ".tongue or drawbar"
 let kAcvTrtTrailerCouplingMountingBolts = kAllCombinationVehicles + kTruckTrailer + kTrailerCoupling + ".mounting bolts"
 let kAcvTrtTrailerCouplingSafetyDevices = kAllCombinationVehicles + kTruckTrailer + kTrailerCoupling + ".safety devices"
 let kAcvTrtTrailerCouplingSlidingPintle = kAllCombinationVehicles + kTruckTrailer + kTrailerCoupling + ".sliding pintle"
 
-// Truck/Trailer.Truck
-let kAcvTrtTruckAirElectricConnectors = kAllCombinationVehicles + kTruckTrailer + kTruck + ".air & electric connectors"
-
 // Truck/Trailer.Trailer
-let kAcvTrtTrailerAirElectricConnectors = kAllCombinationVehicles + kTruckTrailer + kTrailer + ".air & electric connectors & lines"
+let kAcvTrtTrailerAirElectricConnectorsLines = kAllCombinationVehicles + kTruckTrailer + kTrailer + ".air & electric connectors & lines"
 let kAcvTrtTrailerTongueStorageArea = kAllCombinationVehicles + kTruckTrailer + kTrailer + ".tongue storage area"
+
+// Tractor/Semi-Trailer.Trailer
+let kAcvTstTrailerAirElectricConnectors = kAllCombinationVehicles + kTractorSemiTrailer + kTrailer + ".air & electric connectors"
+
+// Tractor/Semi-Trailer.Tractor
+let kAcvTstTractorAirElectricConnectorsLines = kAllCombinationVehicles + kTractorSemiTrailer + kTractor + ".air & electric connectors & lines"

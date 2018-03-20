@@ -8,7 +8,7 @@ target 'CDLExam' do
   # Pods for CDLExam
   pod 'SnapKit', '~> 4.0.0'
   pod 'RealmSwift'
-  pod 'SimplePDF'
+  pod 'PDFGenerator', '~> 2.1'
 
   target 'CDLExamTests' do
     inherit! :search_paths
