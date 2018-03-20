@@ -82,24 +82,35 @@ class ExamCriteriaViewController: UITableViewController, LoadExamInfoDelegate, U
             if didSave {
                 let viewController = UIViewController()
                 let width = viewController.view.frame.width;
+                let pdfView = UIView(frame: CGRect(x: 0, y: 0, width: Int(width), height: 2000))
                 var yPos = 0;
+                
                 let header = PDFHeader(frame: CGRect(x: 0, y: 0, width: width, height: 180))
                 yPos = yPos + 180;
+                
                 let allVehicles = PDFAllVehiclesSection(frame: CGRect(x: 0, y: yPos, width: Int(width), height: 167))
                 yPos = yPos + 167
+                
                 let allCombinationVehicles = PDFAllCombinationVehiclesSection(frame: CGRect(x: 0, y: yPos, width: Int(width), height: 234))
+                yPos = yPos + 234
+                
+                let formA = PDFFormASection(frame: CGRect(x: 0, y: yPos, width: 203, height: 629))
+                
                 header.clearsContextBeforeDrawing = false;
                 allVehicles.clearsContextBeforeDrawing = false;
                 allCombinationVehicles.clearsContextBeforeDrawing = false;
+                formA.clearsContextBeforeDrawing = false;
                 
                 header.backgroundColor = .white;
                 allVehicles.backgroundColor = .white
                 allCombinationVehicles.backgroundColor = .white
+                formA.backgroundColor = .white
                 
-                viewController.view.addSubview(header)
-                viewController.view.addSubview(allVehicles);
-                viewController.view.addSubview(allCombinationVehicles);
-                self.generatePDF(view: viewController.view)
+                pdfView.addSubview(header)
+                pdfView.addSubview(allVehicles)
+                pdfView.addSubview(allCombinationVehicles)
+                pdfView.addSubview(formA)
+                self.generatePDF(view: pdfView)
             } else {
                 // Handle error showing that the exam did not save
             }

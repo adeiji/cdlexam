@@ -11,6 +11,11 @@ import Foundation
 // We need to write a unit test for this most certainly
 
 // All Vehicles
+// ------------------------------------------------------------------------------------------------------------------------
+//
+//                                              All Vehicles
+//
+// ------------------------------------------------------------------------------------------------------------------------
 let kAllVehicles = "All Vehicles"
 let kSafetyBelt = kAllVehicles + ".safety belt"
 let kEmergencyEquipment = kAllVehicles + ".emergency equipment(F-E-T)"
@@ -27,7 +32,11 @@ let kWipersWashers = kAllVehicles + ".wipers & washers"
 let kParkingBrake = kAllVehicles + ".parking brake"
 let kAirBrakeCheck = kAllVehicles + ".*air brake check (L-A-B)"
 
-// All Combination Vehicles
+// ------------------------------------------------------------------------------------------------------------------------
+//
+//                                              All Combination Vehicles
+//
+// ------------------------------------------------------------------------------------------------------------------------
 let kAllCombinationVehicles = "All Combination Vehicles"
 let kTractorSemiTrailer = ".Tractor/Semi-Trailer"
 let kTruckTrailer = ".Truck/Trailer"
@@ -81,3 +90,45 @@ let kAcvTstTrailerAirElectricConnectors = kAllCombinationVehicles + kTractorSemi
 
 // Tractor/Semi-Trailer.Tractor
 let kAcvTstTractorAirElectricConnectorsLines = kAllCombinationVehicles + kTractorSemiTrailer + kTractor + ".air & electric connectors & lines"
+
+
+// ------------------------------------------------------------------------------------------------------------------------
+//
+//                                              Form A
+//
+// ------------------------------------------------------------------------------------------------------------------------
+let kFormA = "Form A"
+let kFrontOfVehicle = ".Front of Vehicle"
+let kFormAFovLightsReflectors = kFormA + kFrontOfVehicle + ".lights & reflectors (L-R-4-HL-HB-C)"
+
+let kSteering = ".Steering"
+let kFormAStBoxHoses = kFormA + kSteering + ".steering box & hoses"
+let kFormAStLinkage = kFormA + kSteering + ".steering linkage"
+
+let kFrontAxle = ".Front Axle"
+let kFormAFrontAxleTongueDrawbar = kFormA + kFrontAxle + ".tongue or drawbar"
+let kFormAFrontAxleRims = kFormA + kFrontAxle + ".rims"
+let kFormAFrontAxleLugNuts = kFormA + kFrontAxle + ".lug nuts"
+let kFormAFrontAxleHubOilSeal = kFormA + kFrontAxle + ".hub oil seal"
+
+// Need to add for the multiple choice section
+
+let kFrontSuspension = kFormA + ".Front Suspension"
+let kFormAFrontSuspensionSpringsShocks = kFrontSuspension + ".springs and shocks"
+let kFormAFrontSuspensionUbolts = kFrontSuspension + ".u-bolts"
+let kFormAFrontSuspensionSpringMounts = kFrontSuspension + ".spring mounts"
+
+let kFrontBrake = kFormA + ".Front Brake"
+let kFormAFrontBrakeHosesLines = kFrontBrake + ".brake hoses or lines"
+let kFormAFrontBrakeChamber = kFrontBrake + ".*brake chamber"
+let kFormAFrontBrakeSlackAdjusterPushRod = kFrontBrake + ".*slack adjuster & push-rod"
+let kFormAFrontBrakeDrumLingsRotorDisk = kFrontBrake + ".drum & linings or rotor & disk"
+
+let kEngineComparment = kFormA + ".Engine Compartment"
+let kFormAEngineCompartmentOilLevel = kEngineComparment + ".oil level"
+let kFormAEngineCompartmentPowerSteeringFluidBelt = kEngineComparment + ".power steering fluid/belt"
+let kFormAEngineCompartmentWaterPumpGearBelt = kEngineComparment + ".water pump gear/belt"
+let kFormAEngineCompartmentLeaksHoses = kEngineComparment + ".leaks & hoses"
+let kFormAEngineCompartmentCoolantLevel = kEngineComparment + ".coolant level"
+let kFormAEngineCompartmentAlternatorGearBelt = kEngineComparment + ".alternator gear/belt"
+let kFormAEngineCompartmentAirCompressorGearBelt = kEngineComparment + ".air compressor gear/belt"

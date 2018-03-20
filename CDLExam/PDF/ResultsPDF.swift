@@ -1590,6 +1590,710 @@ public class ResultsPDF : NSObject {
 
     }
 
+    @objc dynamic public class func drawFormA(frame targetFrame: CGRect = CGRect(x: 0, y: 0, width: 203, height: 629), resizing: ResizingBehavior = .aspectFit, formAFovLightsReflectors: Bool = true, formAEcOilLevel: Bool = true, formAEcCoolantLevel: Bool = true, formAEcPowerSteeringFluidBelt: Bool = true, formAEcWaterPumpGearBelt: Bool = true, formAEcAlternatorgearBelt: Bool = true, formAEcAirCompressorGearBelt: Bool = true, formAEcLeaksHoses: Bool = true, formASteeringBoxHoses: Bool = true, formASteeringLinkage: Bool = true, formAFrontAxleFrontWheelTires: Bool = true, formAFrontAxleFrontWheelRims: Bool = true, formAFrontAxleFrontWheelLugNuts: Bool = true, formAFrontAxleFrontWheelHubOilSeal: Bool = true, formAFrontAxleFrontSuspensionSpringsShocks: Bool = true, formAFrontAxleFrontSuspensionUbolts: Bool = true, formAFrontAxleFrontSuspensionSpringMounts: Bool = true, formAFrontAxleFrontBrakeHosesLines: Bool = true, formAFrontAxleFrontBrakeChamber: Bool = true, formAFrontAxleFrontBrakeSlackAdjustorPushRod: Bool = true, formAFrontAxleFrontBrakeDrumLiningsRoterDisk: Bool = true) {
+        //// General Declarations
+        let context = UIGraphicsGetCurrentContext()!
+        
+        //// Resize to Target Frame
+        context.saveGState()
+        let resizedFrame: CGRect = resizing.apply(rect: CGRect(x: 0, y: 0, width: 203, height: 629), target: targetFrame)
+        context.translateBy(x: resizedFrame.minX, y: resizedFrame.minY)
+        context.scaleBy(x: resizedFrame.width / 203, y: resizedFrame.height / 629)
+
+
+        //// label Drawing
+        let labelRect = CGRect(x: 23, y: 45, width: 166, height: 33)
+        let labelTextContent = "lights & reflectors (L-R-4-HL-HB-C)"
+        let labelStyle = NSMutableParagraphStyle()
+        labelStyle.alignment = .left
+        let labelFontAttributes = [
+            .font: UIFont.systemFont(ofSize: UIFont.smallSystemFontSize),
+            .foregroundColor: UIColor.black,
+            .paragraphStyle: labelStyle,
+        ] as [NSAttributedStringKey: Any]
+
+        let labelTextHeight: CGFloat = labelTextContent.boundingRect(with: CGSize(width: labelRect.width, height: CGFloat.infinity), options: .usesLineFragmentOrigin, attributes: labelFontAttributes, context: nil).height
+        context.saveGState()
+        context.clip(to: labelRect)
+        labelTextContent.draw(in: CGRect(x: labelRect.minX, y: labelRect.minY + (labelRect.height - labelTextHeight) / 2, width: labelRect.width, height: labelTextHeight), withAttributes: labelFontAttributes)
+        context.restoreGState()
+
+
+        if (formAFovLightsReflectors) {
+            //// Rectangle Drawing
+            let rectanglePath = UIBezierPath(rect: CGRect(x: 191, y: 64, width: 10, height: 10))
+            UIColor.darkGray.setFill()
+            rectanglePath.fill()
+        }
+
+
+        //// label 7 Drawing
+        let label7Rect = CGRect(x: 23, y: 106, width: 116, height: 16)
+        let label7TextContent = "oil level"
+        let label7Style = NSMutableParagraphStyle()
+        label7Style.alignment = .left
+        let label7FontAttributes = [
+            .font: UIFont.systemFont(ofSize: UIFont.smallSystemFontSize),
+            .foregroundColor: UIColor.black,
+            .paragraphStyle: label7Style,
+        ] as [NSAttributedStringKey: Any]
+
+        let label7TextHeight: CGFloat = label7TextContent.boundingRect(with: CGSize(width: label7Rect.width, height: CGFloat.infinity), options: .usesLineFragmentOrigin, attributes: label7FontAttributes, context: nil).height
+        context.saveGState()
+        context.clip(to: label7Rect)
+        label7TextContent.draw(in: CGRect(x: label7Rect.minX, y: label7Rect.minY + (label7Rect.height - label7TextHeight) / 2, width: label7Rect.width, height: label7TextHeight), withAttributes: label7FontAttributes)
+        context.restoreGState()
+
+
+        if (formAEcOilLevel) {
+            //// Rectangle 7 Drawing
+            let rectangle7Path = UIBezierPath(rect: CGRect(x: 191, y: 109, width: 10, height: 10))
+            UIColor.darkGray.setFill()
+            rectangle7Path.fill()
+        }
+
+
+        //// label 8 Drawing
+        let label8Rect = CGRect(x: 23, y: 126, width: 153, height: 16)
+        let label8TextContent = "coolant level"
+        let label8Style = NSMutableParagraphStyle()
+        label8Style.alignment = .left
+        let label8FontAttributes = [
+            .font: UIFont.systemFont(ofSize: UIFont.smallSystemFontSize),
+            .foregroundColor: UIColor.black,
+            .paragraphStyle: label8Style,
+        ] as [NSAttributedStringKey: Any]
+
+        let label8TextHeight: CGFloat = label8TextContent.boundingRect(with: CGSize(width: label8Rect.width, height: CGFloat.infinity), options: .usesLineFragmentOrigin, attributes: label8FontAttributes, context: nil).height
+        context.saveGState()
+        context.clip(to: label8Rect)
+        label8TextContent.draw(in: CGRect(x: label8Rect.minX, y: label8Rect.minY + (label8Rect.height - label8TextHeight) / 2, width: label8Rect.width, height: label8TextHeight), withAttributes: label8FontAttributes)
+        context.restoreGState()
+
+
+        if (formAEcCoolantLevel) {
+            //// Rectangle 8 Drawing
+            let rectangle8Path = UIBezierPath(rect: CGRect(x: 191, y: 129, width: 10, height: 10))
+            UIColor.darkGray.setFill()
+            rectangle8Path.fill()
+        }
+
+
+        //// label 13 Drawing
+        let label13Rect = CGRect(x: 23, y: 146, width: 152, height: 16)
+        let label13TextContent = "power steering fluid/belt"
+        let label13Style = NSMutableParagraphStyle()
+        label13Style.alignment = .left
+        let label13FontAttributes = [
+            .font: UIFont.systemFont(ofSize: UIFont.smallSystemFontSize),
+            .foregroundColor: UIColor.black,
+            .paragraphStyle: label13Style,
+        ] as [NSAttributedStringKey: Any]
+
+        let label13TextHeight: CGFloat = label13TextContent.boundingRect(with: CGSize(width: label13Rect.width, height: CGFloat.infinity), options: .usesLineFragmentOrigin, attributes: label13FontAttributes, context: nil).height
+        context.saveGState()
+        context.clip(to: label13Rect)
+        label13TextContent.draw(in: CGRect(x: label13Rect.minX, y: label13Rect.minY + (label13Rect.height - label13TextHeight) / 2, width: label13Rect.width, height: label13TextHeight), withAttributes: label13FontAttributes)
+        context.restoreGState()
+
+
+        if (formAEcPowerSteeringFluidBelt) {
+            //// Rectangle 13 Drawing
+            let rectangle13Path = UIBezierPath(rect: CGRect(x: 191, y: 149, width: 10, height: 10))
+            UIColor.darkGray.setFill()
+            rectangle13Path.fill()
+        }
+
+
+        //// label 14 Drawing
+        let label14Rect = CGRect(x: 23, y: 166, width: 166, height: 16)
+        let label14TextContent = "water pump gear/belt"
+        let label14Style = NSMutableParagraphStyle()
+        label14Style.alignment = .left
+        let label14FontAttributes = [
+            .font: UIFont.systemFont(ofSize: UIFont.smallSystemFontSize),
+            .foregroundColor: UIColor.black,
+            .paragraphStyle: label14Style,
+        ] as [NSAttributedStringKey: Any]
+
+        let label14TextHeight: CGFloat = label14TextContent.boundingRect(with: CGSize(width: label14Rect.width, height: CGFloat.infinity), options: .usesLineFragmentOrigin, attributes: label14FontAttributes, context: nil).height
+        context.saveGState()
+        context.clip(to: label14Rect)
+        label14TextContent.draw(in: CGRect(x: label14Rect.minX, y: label14Rect.minY + (label14Rect.height - label14TextHeight) / 2, width: label14Rect.width, height: label14TextHeight), withAttributes: label14FontAttributes)
+        context.restoreGState()
+
+
+        if (formAEcWaterPumpGearBelt) {
+            //// Rectangle 14 Drawing
+            let rectangle14Path = UIBezierPath(rect: CGRect(x: 191, y: 169, width: 10, height: 10))
+            UIColor.darkGray.setFill()
+            rectangle14Path.fill()
+        }
+
+
+        //// Text Drawing
+        let textRect = CGRect(x: 55, y: 3, width: 100, height: 18)
+        let textTextContent = "Form A"
+        let textStyle = NSMutableParagraphStyle()
+        textStyle.alignment = .center
+        let textFontAttributes = [
+            .font: UIFont.systemFont(ofSize: UIFont.systemFontSize, weight: .bold),
+            .foregroundColor: UIColor.black,
+            .paragraphStyle: textStyle,
+        ] as [NSAttributedStringKey: Any]
+
+        let textTextHeight: CGFloat = textTextContent.boundingRect(with: CGSize(width: textRect.width, height: CGFloat.infinity), options: .usesLineFragmentOrigin, attributes: textFontAttributes, context: nil).height
+        context.saveGState()
+        context.clip(to: textRect)
+        textTextContent.draw(in: CGRect(x: textRect.minX, y: textRect.minY + (textRect.height - textTextHeight) / 2, width: textRect.width, height: textTextHeight), withAttributes: textFontAttributes)
+        context.restoreGState()
+
+
+        //// Text 3 Drawing
+        let text3Rect = CGRect(x: 22, y: 86, width: 153, height: 18)
+        let text3TextContent = "Engine Compartment"
+        let text3Style = NSMutableParagraphStyle()
+        text3Style.alignment = .left
+        let text3FontAttributes = [
+            .font: UIFont.systemFont(ofSize: UIFont.systemFontSize, weight: .bold),
+            .foregroundColor: UIColor.black,
+            .paragraphStyle: text3Style,
+        ] as [NSAttributedStringKey: Any]
+
+        let text3TextHeight: CGFloat = text3TextContent.boundingRect(with: CGSize(width: text3Rect.width, height: CGFloat.infinity), options: .usesLineFragmentOrigin, attributes: text3FontAttributes, context: nil).height
+        context.saveGState()
+        context.clip(to: text3Rect)
+        text3TextContent.draw(in: CGRect(x: text3Rect.minX, y: text3Rect.minY + (text3Rect.height - text3TextHeight) / 2, width: text3Rect.width, height: text3TextHeight), withAttributes: text3FontAttributes)
+        context.restoreGState()
+
+
+        //// Text 2 Drawing
+        let text2Rect = CGRect(x: 25, y: 26, width: 114, height: 18)
+        let text2TextContent = "Front of Vehicle"
+        let text2Style = NSMutableParagraphStyle()
+        text2Style.alignment = .left
+        let text2FontAttributes = [
+            .font: UIFont.systemFont(ofSize: UIFont.systemFontSize, weight: .bold),
+            .foregroundColor: UIColor.black,
+            .paragraphStyle: text2Style,
+        ] as [NSAttributedStringKey: Any]
+
+        let text2TextHeight: CGFloat = text2TextContent.boundingRect(with: CGSize(width: text2Rect.width, height: CGFloat.infinity), options: .usesLineFragmentOrigin, attributes: text2FontAttributes, context: nil).height
+        context.saveGState()
+        context.clip(to: text2Rect)
+        text2TextContent.draw(in: CGRect(x: text2Rect.minX, y: text2Rect.minY + (text2Rect.height - text2TextHeight) / 2, width: text2Rect.width, height: text2TextHeight), withAttributes: text2FontAttributes)
+        context.restoreGState()
+
+
+        //// label 2 Drawing
+        let label2Rect = CGRect(x: 23, y: 186, width: 116, height: 16)
+        let label2TextContent = "alternator gear/belt"
+        let label2Style = NSMutableParagraphStyle()
+        label2Style.alignment = .left
+        let label2FontAttributes = [
+            .font: UIFont.systemFont(ofSize: UIFont.smallSystemFontSize),
+            .foregroundColor: UIColor.black,
+            .paragraphStyle: label2Style,
+        ] as [NSAttributedStringKey: Any]
+
+        let label2TextHeight: CGFloat = label2TextContent.boundingRect(with: CGSize(width: label2Rect.width, height: CGFloat.infinity), options: .usesLineFragmentOrigin, attributes: label2FontAttributes, context: nil).height
+        context.saveGState()
+        context.clip(to: label2Rect)
+        label2TextContent.draw(in: CGRect(x: label2Rect.minX, y: label2Rect.minY + (label2Rect.height - label2TextHeight) / 2, width: label2Rect.width, height: label2TextHeight), withAttributes: label2FontAttributes)
+        context.restoreGState()
+
+
+        if (formAEcAlternatorgearBelt) {
+            //// Rectangle 2 Drawing
+            let rectangle2Path = UIBezierPath(rect: CGRect(x: 191, y: 189, width: 10, height: 10))
+            UIColor.darkGray.setFill()
+            rectangle2Path.fill()
+        }
+
+
+        //// label 3 Drawing
+        let label3Rect = CGRect(x: 23, y: 206, width: 166, height: 16)
+        let label3TextContent = "*air compressor gear/belt"
+        let label3Style = NSMutableParagraphStyle()
+        label3Style.alignment = .left
+        let label3FontAttributes = [
+            .font: UIFont.systemFont(ofSize: UIFont.smallSystemFontSize),
+            .foregroundColor: UIColor.black,
+            .paragraphStyle: label3Style,
+        ] as [NSAttributedStringKey: Any]
+
+        let label3TextHeight: CGFloat = label3TextContent.boundingRect(with: CGSize(width: label3Rect.width, height: CGFloat.infinity), options: .usesLineFragmentOrigin, attributes: label3FontAttributes, context: nil).height
+        context.saveGState()
+        context.clip(to: label3Rect)
+        label3TextContent.draw(in: CGRect(x: label3Rect.minX, y: label3Rect.minY + (label3Rect.height - label3TextHeight) / 2, width: label3Rect.width, height: label3TextHeight), withAttributes: label3FontAttributes)
+        context.restoreGState()
+
+
+        if (formAEcAirCompressorGearBelt) {
+            //// Rectangle 3 Drawing
+            let rectangle3Path = UIBezierPath(rect: CGRect(x: 191, y: 209, width: 10, height: 10))
+            UIColor.darkGray.setFill()
+            rectangle3Path.fill()
+        }
+
+
+        //// label 4 Drawing
+        let label4Rect = CGRect(x: 23, y: 226, width: 152, height: 16)
+        let label4TextContent = "leaks & hoses"
+        let label4Style = NSMutableParagraphStyle()
+        label4Style.alignment = .left
+        let label4FontAttributes = [
+            .font: UIFont.systemFont(ofSize: UIFont.smallSystemFontSize),
+            .foregroundColor: UIColor.black,
+            .paragraphStyle: label4Style,
+        ] as [NSAttributedStringKey: Any]
+
+        let label4TextHeight: CGFloat = label4TextContent.boundingRect(with: CGSize(width: label4Rect.width, height: CGFloat.infinity), options: .usesLineFragmentOrigin, attributes: label4FontAttributes, context: nil).height
+        context.saveGState()
+        context.clip(to: label4Rect)
+        label4TextContent.draw(in: CGRect(x: label4Rect.minX, y: label4Rect.minY + (label4Rect.height - label4TextHeight) / 2, width: label4Rect.width, height: label4TextHeight), withAttributes: label4FontAttributes)
+        context.restoreGState()
+
+
+        if (formAEcLeaksHoses) {
+            //// Rectangle 4 Drawing
+            let rectangle4Path = UIBezierPath(rect: CGRect(x: 191, y: 229, width: 10, height: 10))
+            UIColor.darkGray.setFill()
+            rectangle4Path.fill()
+        }
+
+
+        //// label 5 Drawing
+        let label5Rect = CGRect(x: 23, y: 268, width: 152, height: 16)
+        let label5TextContent = "steering box & hoses"
+        let label5Style = NSMutableParagraphStyle()
+        label5Style.alignment = .left
+        let label5FontAttributes = [
+            .font: UIFont.systemFont(ofSize: UIFont.smallSystemFontSize),
+            .foregroundColor: UIColor.black,
+            .paragraphStyle: label5Style,
+        ] as [NSAttributedStringKey: Any]
+
+        let label5TextHeight: CGFloat = label5TextContent.boundingRect(with: CGSize(width: label5Rect.width, height: CGFloat.infinity), options: .usesLineFragmentOrigin, attributes: label5FontAttributes, context: nil).height
+        context.saveGState()
+        context.clip(to: label5Rect)
+        label5TextContent.draw(in: CGRect(x: label5Rect.minX, y: label5Rect.minY + (label5Rect.height - label5TextHeight) / 2, width: label5Rect.width, height: label5TextHeight), withAttributes: label5FontAttributes)
+        context.restoreGState()
+
+
+        if (formASteeringBoxHoses) {
+            //// Rectangle 5 Drawing
+            let rectangle5Path = UIBezierPath(rect: CGRect(x: 191, y: 271, width: 10, height: 10))
+            UIColor.darkGray.setFill()
+            rectangle5Path.fill()
+        }
+
+
+        //// label 6 Drawing
+        let label6Rect = CGRect(x: 23, y: 288, width: 177, height: 16)
+        let label6TextContent = "steering linkage"
+        let label6Style = NSMutableParagraphStyle()
+        label6Style.alignment = .left
+        let label6FontAttributes = [
+            .font: UIFont.systemFont(ofSize: UIFont.smallSystemFontSize),
+            .foregroundColor: UIColor.black,
+            .paragraphStyle: label6Style,
+        ] as [NSAttributedStringKey: Any]
+
+        let label6TextHeight: CGFloat = label6TextContent.boundingRect(with: CGSize(width: label6Rect.width, height: CGFloat.infinity), options: .usesLineFragmentOrigin, attributes: label6FontAttributes, context: nil).height
+        context.saveGState()
+        context.clip(to: label6Rect)
+        label6TextContent.draw(in: CGRect(x: label6Rect.minX, y: label6Rect.minY + (label6Rect.height - label6TextHeight) / 2, width: label6Rect.width, height: label6TextHeight), withAttributes: label6FontAttributes)
+        context.restoreGState()
+
+
+        if (formASteeringLinkage) {
+            //// Rectangle 6 Drawing
+            let rectangle6Path = UIBezierPath(rect: CGRect(x: 191, y: 291, width: 10, height: 10))
+            UIColor.darkGray.setFill()
+            rectangle6Path.fill()
+        }
+
+
+        //// label 9 Drawing
+        let label9Rect = CGRect(x: 23, y: 345, width: 152, height: 16)
+        let label9TextContent = "tires (T-C-P)"
+        let label9Style = NSMutableParagraphStyle()
+        label9Style.alignment = .left
+        let label9FontAttributes = [
+            .font: UIFont.systemFont(ofSize: UIFont.smallSystemFontSize),
+            .foregroundColor: UIColor.black,
+            .paragraphStyle: label9Style,
+        ] as [NSAttributedStringKey: Any]
+
+        let label9TextHeight: CGFloat = label9TextContent.boundingRect(with: CGSize(width: label9Rect.width, height: CGFloat.infinity), options: .usesLineFragmentOrigin, attributes: label9FontAttributes, context: nil).height
+        context.saveGState()
+        context.clip(to: label9Rect)
+        label9TextContent.draw(in: CGRect(x: label9Rect.minX, y: label9Rect.minY + (label9Rect.height - label9TextHeight) / 2, width: label9Rect.width, height: label9TextHeight), withAttributes: label9FontAttributes)
+        context.restoreGState()
+
+
+        if (formAFrontAxleFrontWheelTires) {
+            //// Rectangle 9 Drawing
+            let rectangle9Path = UIBezierPath(rect: CGRect(x: 191, y: 348, width: 10, height: 10))
+            UIColor.darkGray.setFill()
+            rectangle9Path.fill()
+        }
+
+
+        //// label 10 Drawing
+        let label10Rect = CGRect(x: 23, y: 365, width: 166, height: 16)
+        let label10TextContent = "rims"
+        let label10Style = NSMutableParagraphStyle()
+        label10Style.alignment = .left
+        let label10FontAttributes = [
+            .font: UIFont.systemFont(ofSize: UIFont.smallSystemFontSize),
+            .foregroundColor: UIColor.black,
+            .paragraphStyle: label10Style,
+        ] as [NSAttributedStringKey: Any]
+
+        let label10TextHeight: CGFloat = label10TextContent.boundingRect(with: CGSize(width: label10Rect.width, height: CGFloat.infinity), options: .usesLineFragmentOrigin, attributes: label10FontAttributes, context: nil).height
+        context.saveGState()
+        context.clip(to: label10Rect)
+        label10TextContent.draw(in: CGRect(x: label10Rect.minX, y: label10Rect.minY + (label10Rect.height - label10TextHeight) / 2, width: label10Rect.width, height: label10TextHeight), withAttributes: label10FontAttributes)
+        context.restoreGState()
+
+
+        if (formAFrontAxleFrontWheelRims) {
+            //// Rectangle 10 Drawing
+            let rectangle10Path = UIBezierPath(rect: CGRect(x: 191, y: 368, width: 10, height: 10))
+            UIColor.darkGray.setFill()
+            rectangle10Path.fill()
+        }
+
+
+        //// Text 4 Drawing
+        let text4Rect = CGRect(x: 22, y: 248, width: 153, height: 18)
+        let text4TextContent = "Steering"
+        let text4Style = NSMutableParagraphStyle()
+        text4Style.alignment = .left
+        let text4FontAttributes = [
+            .font: UIFont.systemFont(ofSize: UIFont.systemFontSize, weight: .bold),
+            .foregroundColor: UIColor.black,
+            .paragraphStyle: text4Style,
+        ] as [NSAttributedStringKey: Any]
+
+        let text4TextHeight: CGFloat = text4TextContent.boundingRect(with: CGSize(width: text4Rect.width, height: CGFloat.infinity), options: .usesLineFragmentOrigin, attributes: text4FontAttributes, context: nil).height
+        context.saveGState()
+        context.clip(to: text4Rect)
+        text4TextContent.draw(in: CGRect(x: text4Rect.minX, y: text4Rect.minY + (text4Rect.height - text4TextHeight) / 2, width: text4Rect.width, height: text4TextHeight), withAttributes: text4FontAttributes)
+        context.restoreGState()
+
+
+        //// label 11 Drawing
+        let label11Rect = CGRect(x: 23, y: 385, width: 116, height: 16)
+        let label11TextContent = "lug nuts"
+        let label11Style = NSMutableParagraphStyle()
+        label11Style.alignment = .left
+        let label11FontAttributes = [
+            .font: UIFont.systemFont(ofSize: UIFont.smallSystemFontSize),
+            .foregroundColor: UIColor.black,
+            .paragraphStyle: label11Style,
+        ] as [NSAttributedStringKey: Any]
+
+        let label11TextHeight: CGFloat = label11TextContent.boundingRect(with: CGSize(width: label11Rect.width, height: CGFloat.infinity), options: .usesLineFragmentOrigin, attributes: label11FontAttributes, context: nil).height
+        context.saveGState()
+        context.clip(to: label11Rect)
+        label11TextContent.draw(in: CGRect(x: label11Rect.minX, y: label11Rect.minY + (label11Rect.height - label11TextHeight) / 2, width: label11Rect.width, height: label11TextHeight), withAttributes: label11FontAttributes)
+        context.restoreGState()
+
+
+        if (formAFrontAxleFrontWheelLugNuts) {
+            //// Rectangle 11 Drawing
+            let rectangle11Path = UIBezierPath(rect: CGRect(x: 191, y: 388, width: 10, height: 10))
+            UIColor.darkGray.setFill()
+            rectangle11Path.fill()
+        }
+
+
+        //// label 12 Drawing
+        let label12Rect = CGRect(x: 23, y: 405, width: 166, height: 16)
+        let label12TextContent = "hub oil seal"
+        let label12Style = NSMutableParagraphStyle()
+        label12Style.alignment = .left
+        let label12FontAttributes = [
+            .font: UIFont.systemFont(ofSize: UIFont.smallSystemFontSize),
+            .foregroundColor: UIColor.black,
+            .paragraphStyle: label12Style,
+        ] as [NSAttributedStringKey: Any]
+
+        let label12TextHeight: CGFloat = label12TextContent.boundingRect(with: CGSize(width: label12Rect.width, height: CGFloat.infinity), options: .usesLineFragmentOrigin, attributes: label12FontAttributes, context: nil).height
+        context.saveGState()
+        context.clip(to: label12Rect)
+        label12TextContent.draw(in: CGRect(x: label12Rect.minX, y: label12Rect.minY + (label12Rect.height - label12TextHeight) / 2, width: label12Rect.width, height: label12TextHeight), withAttributes: label12FontAttributes)
+        context.restoreGState()
+
+
+        if (formAFrontAxleFrontWheelHubOilSeal) {
+            //// Rectangle 12 Drawing
+            let rectangle12Path = UIBezierPath(rect: CGRect(x: 191, y: 408, width: 10, height: 10))
+            UIColor.darkGray.setFill()
+            rectangle12Path.fill()
+        }
+
+
+        //// Text 5 Drawing
+        let text5Rect = CGRect(x: 23, y: 311, width: 153, height: 18)
+        let text5TextContent = "Front Axle"
+        let text5Style = NSMutableParagraphStyle()
+        text5Style.alignment = .left
+        let text5FontAttributes = [
+            .font: UIFont.systemFont(ofSize: UIFont.systemFontSize, weight: .bold),
+            .foregroundColor: UIColor.black,
+            .paragraphStyle: text5Style,
+        ] as [NSAttributedStringKey: Any]
+
+        let text5TextHeight: CGFloat = text5TextContent.boundingRect(with: CGSize(width: text5Rect.width, height: CGFloat.infinity), options: .usesLineFragmentOrigin, attributes: text5FontAttributes, context: nil).height
+        context.saveGState()
+        context.clip(to: text5Rect)
+        text5TextContent.draw(in: CGRect(x: text5Rect.minX, y: text5Rect.minY + (text5Rect.height - text5TextHeight) / 2, width: text5Rect.width, height: text5TextHeight), withAttributes: text5FontAttributes)
+        context.restoreGState()
+
+
+        //// Text 6 Drawing
+        let text6Rect = CGRect(x: 23, y: 328, width: 153, height: 18)
+        let text6TextContent = "Front Wheel"
+        let text6Style = NSMutableParagraphStyle()
+        text6Style.alignment = .left
+        let text6FontAttributes = [
+            .font: UIFont.systemFont(ofSize: UIFont.smallSystemFontSize, weight: .bold),
+            .foregroundColor: UIColor.black,
+            .paragraphStyle: text6Style,
+        ] as [NSAttributedStringKey: Any]
+
+        let text6TextHeight: CGFloat = text6TextContent.boundingRect(with: CGSize(width: text6Rect.width, height: CGFloat.infinity), options: .usesLineFragmentOrigin, attributes: text6FontAttributes, context: nil).height
+        context.saveGState()
+        context.clip(to: text6Rect)
+        text6TextContent.draw(in: CGRect(x: text6Rect.minX, y: text6Rect.minY + (text6Rect.height - text6TextHeight) / 2, width: text6Rect.width, height: text6TextHeight), withAttributes: text6FontAttributes)
+        context.restoreGState()
+
+
+        //// label 15 Drawing
+        let label15Rect = CGRect(x: 23, y: 445, width: 152, height: 16)
+        let label15TextContent = "springs & shocks"
+        let label15Style = NSMutableParagraphStyle()
+        label15Style.alignment = .left
+        let label15FontAttributes = [
+            .font: UIFont.systemFont(ofSize: UIFont.smallSystemFontSize),
+            .foregroundColor: UIColor.black,
+            .paragraphStyle: label15Style,
+        ] as [NSAttributedStringKey: Any]
+
+        let label15TextHeight: CGFloat = label15TextContent.boundingRect(with: CGSize(width: label15Rect.width, height: CGFloat.infinity), options: .usesLineFragmentOrigin, attributes: label15FontAttributes, context: nil).height
+        context.saveGState()
+        context.clip(to: label15Rect)
+        label15TextContent.draw(in: CGRect(x: label15Rect.minX, y: label15Rect.minY + (label15Rect.height - label15TextHeight) / 2, width: label15Rect.width, height: label15TextHeight), withAttributes: label15FontAttributes)
+        context.restoreGState()
+
+
+        if (formAFrontAxleFrontSuspensionSpringsShocks) {
+            //// Rectangle 15 Drawing
+            let rectangle15Path = UIBezierPath(rect: CGRect(x: 191, y: 448, width: 10, height: 10))
+            UIColor.darkGray.setFill()
+            rectangle15Path.fill()
+        }
+
+
+        //// label 16 Drawing
+        let label16Rect = CGRect(x: 23, y: 465, width: 166, height: 16)
+        let label16TextContent = "u-bolts"
+        let label16Style = NSMutableParagraphStyle()
+        label16Style.alignment = .left
+        let label16FontAttributes = [
+            .font: UIFont.systemFont(ofSize: UIFont.smallSystemFontSize),
+            .foregroundColor: UIColor.black,
+            .paragraphStyle: label16Style,
+        ] as [NSAttributedStringKey: Any]
+
+        let label16TextHeight: CGFloat = label16TextContent.boundingRect(with: CGSize(width: label16Rect.width, height: CGFloat.infinity), options: .usesLineFragmentOrigin, attributes: label16FontAttributes, context: nil).height
+        context.saveGState()
+        context.clip(to: label16Rect)
+        label16TextContent.draw(in: CGRect(x: label16Rect.minX, y: label16Rect.minY + (label16Rect.height - label16TextHeight) / 2, width: label16Rect.width, height: label16TextHeight), withAttributes: label16FontAttributes)
+        context.restoreGState()
+
+
+        if (formAFrontAxleFrontSuspensionUbolts) {
+            //// Rectangle 16 Drawing
+            let rectangle16Path = UIBezierPath(rect: CGRect(x: 191, y: 468, width: 10, height: 10))
+            UIColor.darkGray.setFill()
+            rectangle16Path.fill()
+        }
+
+
+        //// label 17 Drawing
+        let label17Rect = CGRect(x: 23, y: 485, width: 116, height: 16)
+        let label17TextContent = "spring mounts"
+        let label17Style = NSMutableParagraphStyle()
+        label17Style.alignment = .left
+        let label17FontAttributes = [
+            .font: UIFont.systemFont(ofSize: UIFont.smallSystemFontSize),
+            .foregroundColor: UIColor.black,
+            .paragraphStyle: label17Style,
+        ] as [NSAttributedStringKey: Any]
+
+        let label17TextHeight: CGFloat = label17TextContent.boundingRect(with: CGSize(width: label17Rect.width, height: CGFloat.infinity), options: .usesLineFragmentOrigin, attributes: label17FontAttributes, context: nil).height
+        context.saveGState()
+        context.clip(to: label17Rect)
+        label17TextContent.draw(in: CGRect(x: label17Rect.minX, y: label17Rect.minY + (label17Rect.height - label17TextHeight) / 2, width: label17Rect.width, height: label17TextHeight), withAttributes: label17FontAttributes)
+        context.restoreGState()
+
+
+        if (formAFrontAxleFrontSuspensionSpringMounts) {
+            //// Rectangle 17 Drawing
+            let rectangle17Path = UIBezierPath(rect: CGRect(x: 191, y: 488, width: 10, height: 10))
+            UIColor.darkGray.setFill()
+            rectangle17Path.fill()
+        }
+
+
+        //// Text 8 Drawing
+        let text8Rect = CGRect(x: 23, y: 428, width: 153, height: 18)
+        let text8TextContent = "Front Suspension"
+        let text8Style = NSMutableParagraphStyle()
+        text8Style.alignment = .left
+        let text8FontAttributes = [
+            .font: UIFont.systemFont(ofSize: UIFont.smallSystemFontSize, weight: .bold),
+            .foregroundColor: UIColor.black,
+            .paragraphStyle: text8Style,
+        ] as [NSAttributedStringKey: Any]
+
+        let text8TextHeight: CGFloat = text8TextContent.boundingRect(with: CGSize(width: text8Rect.width, height: CGFloat.infinity), options: .usesLineFragmentOrigin, attributes: text8FontAttributes, context: nil).height
+        context.saveGState()
+        context.clip(to: text8Rect)
+        text8TextContent.draw(in: CGRect(x: text8Rect.minX, y: text8Rect.minY + (text8Rect.height - text8TextHeight) / 2, width: text8Rect.width, height: text8TextHeight), withAttributes: text8FontAttributes)
+        context.restoreGState()
+
+
+        //// label 18 Drawing
+        let label18Rect = CGRect(x: 23, y: 525, width: 152, height: 16)
+        let label18TextContent = "brake hoses or lines"
+        let label18Style = NSMutableParagraphStyle()
+        label18Style.alignment = .left
+        let label18FontAttributes = [
+            .font: UIFont.systemFont(ofSize: UIFont.smallSystemFontSize),
+            .foregroundColor: UIColor.black,
+            .paragraphStyle: label18Style,
+        ] as [NSAttributedStringKey: Any]
+
+        let label18TextHeight: CGFloat = label18TextContent.boundingRect(with: CGSize(width: label18Rect.width, height: CGFloat.infinity), options: .usesLineFragmentOrigin, attributes: label18FontAttributes, context: nil).height
+        context.saveGState()
+        context.clip(to: label18Rect)
+        label18TextContent.draw(in: CGRect(x: label18Rect.minX, y: label18Rect.minY + (label18Rect.height - label18TextHeight) / 2, width: label18Rect.width, height: label18TextHeight), withAttributes: label18FontAttributes)
+        context.restoreGState()
+
+
+        if (formAFrontAxleFrontBrakeHosesLines) {
+            //// Rectangle 18 Drawing
+            let rectangle18Path = UIBezierPath(rect: CGRect(x: 191, y: 528, width: 10, height: 10))
+            UIColor.darkGray.setFill()
+            rectangle18Path.fill()
+        }
+
+
+        //// label 19 Drawing
+        let label19Rect = CGRect(x: 23, y: 545, width: 166, height: 16)
+        let label19TextContent = "*brake chamber"
+        let label19Style = NSMutableParagraphStyle()
+        label19Style.alignment = .left
+        let label19FontAttributes = [
+            .font: UIFont.systemFont(ofSize: UIFont.smallSystemFontSize),
+            .foregroundColor: UIColor.black,
+            .paragraphStyle: label19Style,
+        ] as [NSAttributedStringKey: Any]
+
+        let label19TextHeight: CGFloat = label19TextContent.boundingRect(with: CGSize(width: label19Rect.width, height: CGFloat.infinity), options: .usesLineFragmentOrigin, attributes: label19FontAttributes, context: nil).height
+        context.saveGState()
+        context.clip(to: label19Rect)
+        label19TextContent.draw(in: CGRect(x: label19Rect.minX, y: label19Rect.minY + (label19Rect.height - label19TextHeight) / 2, width: label19Rect.width, height: label19TextHeight), withAttributes: label19FontAttributes)
+        context.restoreGState()
+
+
+        if (formAFrontAxleFrontBrakeChamber) {
+            //// Rectangle 19 Drawing
+            let rectangle19Path = UIBezierPath(rect: CGRect(x: 191, y: 548, width: 10, height: 10))
+            UIColor.darkGray.setFill()
+            rectangle19Path.fill()
+        }
+
+
+        //// label 20 Drawing
+        let label20Rect = CGRect(x: 23, y: 565, width: 166, height: 16)
+        let label20TextContent = "* slack adjustor & push rod"
+        let label20Style = NSMutableParagraphStyle()
+        label20Style.alignment = .left
+        let label20FontAttributes = [
+            .font: UIFont.systemFont(ofSize: UIFont.smallSystemFontSize),
+            .foregroundColor: UIColor.black,
+            .paragraphStyle: label20Style,
+        ] as [NSAttributedStringKey: Any]
+
+        let label20TextHeight: CGFloat = label20TextContent.boundingRect(with: CGSize(width: label20Rect.width, height: CGFloat.infinity), options: .usesLineFragmentOrigin, attributes: label20FontAttributes, context: nil).height
+        context.saveGState()
+        context.clip(to: label20Rect)
+        label20TextContent.draw(in: CGRect(x: label20Rect.minX, y: label20Rect.minY + (label20Rect.height - label20TextHeight) / 2, width: label20Rect.width, height: label20TextHeight), withAttributes: label20FontAttributes)
+        context.restoreGState()
+
+
+        if (formAFrontAxleFrontBrakeSlackAdjustorPushRod) {
+            //// Rectangle 20 Drawing
+            let rectangle20Path = UIBezierPath(rect: CGRect(x: 191, y: 568, width: 10, height: 10))
+            UIColor.darkGray.setFill()
+            rectangle20Path.fill()
+        }
+
+
+        //// Text 7 Drawing
+        let text7Rect = CGRect(x: 23, y: 508, width: 153, height: 18)
+        let text7TextContent = "Front Brake"
+        let text7Style = NSMutableParagraphStyle()
+        text7Style.alignment = .left
+        let text7FontAttributes = [
+            .font: UIFont.systemFont(ofSize: UIFont.smallSystemFontSize, weight: .bold),
+            .foregroundColor: UIColor.black,
+            .paragraphStyle: text7Style,
+        ] as [NSAttributedStringKey: Any]
+
+        let text7TextHeight: CGFloat = text7TextContent.boundingRect(with: CGSize(width: text7Rect.width, height: CGFloat.infinity), options: .usesLineFragmentOrigin, attributes: text7FontAttributes, context: nil).height
+        context.saveGState()
+        context.clip(to: text7Rect)
+        text7TextContent.draw(in: CGRect(x: text7Rect.minX, y: text7Rect.minY + (text7Rect.height - text7TextHeight) / 2, width: text7Rect.width, height: text7TextHeight), withAttributes: text7FontAttributes)
+        context.restoreGState()
+
+
+        //// label 21 Drawing
+        let label21Rect = CGRect(x: 23, y: 585, width: 152, height: 31)
+        let label21TextContent = "drum & linings or rotor & disk"
+        let label21Style = NSMutableParagraphStyle()
+        label21Style.alignment = .left
+        let label21FontAttributes = [
+            .font: UIFont.systemFont(ofSize: UIFont.smallSystemFontSize),
+            .foregroundColor: UIColor.black,
+            .paragraphStyle: label21Style,
+        ] as [NSAttributedStringKey: Any]
+
+        let label21TextHeight: CGFloat = label21TextContent.boundingRect(with: CGSize(width: label21Rect.width, height: CGFloat.infinity), options: .usesLineFragmentOrigin, attributes: label21FontAttributes, context: nil).height
+        context.saveGState()
+        context.clip(to: label21Rect)
+        label21TextContent.draw(in: CGRect(x: label21Rect.minX, y: label21Rect.minY + (label21Rect.height - label21TextHeight) / 2, width: label21Rect.width, height: label21TextHeight), withAttributes: label21FontAttributes)
+        context.restoreGState()
+
+
+        if (formAFrontAxleFrontBrakeDrumLiningsRoterDisk) {
+            //// Rectangle 21 Drawing
+            let rectangle21Path = UIBezierPath(rect: CGRect(x: 191, y: 603, width: 10, height: 10))
+            UIColor.darkGray.setFill()
+            rectangle21Path.fill()
+        }
+        
+        context.restoreGState()
+
+    }
+
 
 
 

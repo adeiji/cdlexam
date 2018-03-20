@@ -17,6 +17,36 @@ class PDFHeader: UIView {
     
 }
 
+class PDFFormASection : UIView {
+    let results = ExamResults.sharedInstance.results
+    
+    override func draw(_ rect: CGRect) {
+        ResultsPDF.drawFormA(frame: rect,
+                             resizing: .stretch,
+                             formAFovLightsReflectors: UtilityFunctions.toBool(value: self.results[kFormAFovLightsReflectors]),
+                             formAEcOilLevel: UtilityFunctions.toBool(value: self.results[kFormAEngineCompartmentOilLevel]),
+                             formAEcCoolantLevel: UtilityFunctions.toBool(value: self.results[kFormAEngineCompartmentCoolantLevel]),
+                             formAEcPowerSteeringFluidBelt: UtilityFunctions.toBool(value: self.results[kFormAEngineCompartmentPowerSteeringFluidBelt]),
+                             formAEcWaterPumpGearBelt: UtilityFunctions.toBool(value: self.results[kFormAEngineCompartmentWaterPumpGearBelt]),
+                             formAEcAlternatorgearBelt: UtilityFunctions.toBool(value: self.results[kFormAEngineCompartmentAlternatorGearBelt]),
+                             formAEcAirCompressorGearBelt: UtilityFunctions.toBool(value: self.results[kFormAEngineCompartmentAirCompressorGearBelt]),
+                             formAEcLeaksHoses: UtilityFunctions.toBool(value: self.results[kFormAEngineCompartmentLeaksHoses]),
+                             formASteeringBoxHoses: UtilityFunctions.toBool(value: self.results[kFormAStBoxHoses]),
+                             formASteeringLinkage: UtilityFunctions.toBool(value: self.results[kFormAStLinkage]),
+                             formAFrontAxleFrontWheelTires: false,
+                             formAFrontAxleFrontWheelRims: UtilityFunctions.toBool(value: self.results[kFormAFrontAxleRims]),
+                             formAFrontAxleFrontWheelLugNuts: UtilityFunctions.toBool(value: self.results[kFormAFrontAxleRims]),
+                             formAFrontAxleFrontWheelHubOilSeal: UtilityFunctions.toBool(value: self.results[kFormAFrontAxleLugNuts]),
+                             formAFrontAxleFrontSuspensionSpringsShocks: UtilityFunctions.toBool(value: self.results[kFormAFrontAxleHubOilSeal]),
+                             formAFrontAxleFrontSuspensionUbolts: UtilityFunctions.toBool(value: self.results[kFormAFrontSuspensionUbolts]),
+                             formAFrontAxleFrontSuspensionSpringMounts: UtilityFunctions.toBool(value: self.results[kFormAFrontSuspensionSpringMounts]),
+                             formAFrontAxleFrontBrakeHosesLines: UtilityFunctions.toBool(value: self.results[kFormAFrontBrakeHosesLines]),
+                             formAFrontAxleFrontBrakeChamber: UtilityFunctions.toBool(value: self.results[kFormAFrontBrakeChamber]),
+                             formAFrontAxleFrontBrakeSlackAdjustorPushRod: UtilityFunctions.toBool(value: self.results[kFormAFrontBrakeSlackAdjusterPushRod]),
+                             formAFrontAxleFrontBrakeDrumLiningsRoterDisk: UtilityFunctions.toBool(value: self.results[kFormAFrontBrakeDrumLingsRotorDisk]))
+    }
+}
+
 class PDFAllCombinationVehiclesSection : UIView {
     let results = ExamResults.sharedInstance.results
 

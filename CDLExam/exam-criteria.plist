@@ -29,6 +29,9 @@
 			<string>power steering fluid/belt</string>
 			<string>water pump gear/belt</string>
 			<string>leaks &amp; hoses</string>
+			<string>coolant level</string>
+			<string>alternator gear/belt</string>
+			<string>*air compressor gear/belt</string>
 		</array>
 		<key>Steering</key>
 		<array>
