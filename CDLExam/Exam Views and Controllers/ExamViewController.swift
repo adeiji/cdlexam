@@ -84,7 +84,7 @@ class ExamCriteriaViewController: UITableViewController, LoadExamInfoDelegate, U
                 let width = viewController.view.frame.width;
                 let pdfView = UIView(frame: CGRect(x: 0, y: 0, width: Int(width), height: 2000))
                 var yPos = 0;
-                
+                var xPos = 0;
                 let header = PDFHeader(frame: CGRect(x: 0, y: 0, width: width, height: 180))
                 yPos = yPos + 180;
                 
@@ -95,21 +95,35 @@ class ExamCriteriaViewController: UITableViewController, LoadExamInfoDelegate, U
                 yPos = yPos + 234
                 
                 let formA = PDFFormASection(frame: CGRect(x: 0, y: yPos, width: 203, height: 629))
+                xPos = xPos + 203
+                
+                let formB = PDFFormBSection(frame: CGRect(x: xPos, y: yPos, width: 203, height: 674))
+                xPos = xPos + 203
+                
+                let formC = PDFFormBSection(frame: CGRect(x: xPos, y: yPos, width: 203, height: 655))
+                xPos = xPos + 203
                 
                 header.clearsContextBeforeDrawing = false;
                 allVehicles.clearsContextBeforeDrawing = false;
                 allCombinationVehicles.clearsContextBeforeDrawing = false;
                 formA.clearsContextBeforeDrawing = false;
+                formB.clearsContextBeforeDrawing = false;
+                formC.clearsContextBeforeDrawing = false;
                 
                 header.backgroundColor = .white;
                 allVehicles.backgroundColor = .white
                 allCombinationVehicles.backgroundColor = .white
                 formA.backgroundColor = .white
+                formB.backgroundColor = .white
+                formC.backgroundColor = .white
                 
                 pdfView.addSubview(header)
                 pdfView.addSubview(allVehicles)
                 pdfView.addSubview(allCombinationVehicles)
                 pdfView.addSubview(formA)
+                pdfView.addSubview(formB)
+                pdfView.addSubview(formC)
+                
                 self.generatePDF(view: pdfView)
             } else {
                 // Handle error showing that the exam did not save

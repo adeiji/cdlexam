@@ -17,6 +17,65 @@ class PDFHeader: UIView {
     
 }
 
+class PDFFormCSection : UIView {
+    let results = ExamResults.sharedInstance.results
+    override func draw(_ rect: CGRect) {
+        ResultsPDF.drawFormC(frame: rect, resizing: .stretch,
+                             formCTrailerHeaderBoardBulkhead: UtilityFunctions.toBool(value: self.results[kFormCTrailerFrontHeaderBoardBulkhead]),
+                             formCTrailerLightsReflectors: UtilityFunctions.toBool(value: self.results[kFormCSideOfTrailerLightsReflectors]),
+                             formCSideTrailerLandingGear: UtilityFunctions.toBool(value: self.results[kFormCSideOfTrailerLandingGear]),
+                             formCSideTrailerFrameTandemRelease: UtilityFunctions.toBool(value: self.results[kFormCSideOfTrailerFrameTandemRelease]),
+                             formCSideTrailerDoorsTiesLifts: UtilityFunctions.toBool(value: self.results[kFormCSideOfTrailerDoorsTiesLifts]),
+                             formCSideTrailerLightsReflectors: UtilityFunctions.toBool(value: self.results[kFormCSideOfTrailerLightsReflectors]),
+                             formCWheelsTires: UtilityFunctions.toBool(value: self.results[kFormCTrailerAxlesWheels]),
+                             formCWheelsRims: UtilityFunctions.toBool(value: self.results[kFormCTrailerAxlesRims]),
+                             formCWheelsLugNuts: UtilityFunctions.toBool(value: self.results[kFormCTrailerAxlesLugNuts]),
+                             formCWheelsAxleHubOilSeal: UtilityFunctions.toBool(value: self.results[kFormCTrailerAxlesAxleHubOilSeal]),
+                             formCWheelsSpacersBudSpacing: UtilityFunctions.toBool(value: self.results[kFormBRearAxlesSpacersBudSpacing]),
+                             formCSuspensionSpringsAirbagsShocks: UtilityFunctions.toBool(value: self.results[kFormCRearSuspensionSpringsAirbagsShocks]),
+                             formCSuspensionUbolts: UtilityFunctions.toBool(value: self.results[kFormCRearSuspensionUbolts]),
+                             formCSuspensionSpringAirMountsTorqueArm: UtilityFunctions.toBool(value: self.results[kFormCRearSuspensionSpringsAirMountsTorqueArm]),
+                             formCBrakesHosesLines: UtilityFunctions.toBool(value: self.results[kFormCRearBrakesHosesLines]),
+                             formCBrakesChamber: UtilityFunctions.toBool(value: self.results[kFormCRearBrakesChamber]),
+                             formCBrakesSlackAdjustorPushRod: UtilityFunctions.toBool(value: self.results[kFormCRearBrakesSlackAdjustorPushRod]),
+                             formCBrakesDrumLiningsRotorDisk: UtilityFunctions.toBool(value: self.results[kFormCRearBrakesDrumLiningsRotorDisk]),
+                             formCRearOfVehicleDoorTiesLift: UtilityFunctions.toBool(value: self.results[kFormCRearOfVehicleDoorsTiesLift]),
+                             formCRearOfVehicleSplashGuards: UtilityFunctions.toBool(value: self.results[kFormCRearOfVehicleSplashGuards]),
+                             formCRearOfVehicleLightsReflectorsReflectiveTapeABS: UtilityFunctions.toBool(value: self.results[kFormCRearOfVehicleLightsReflectorsReflectiveTape]))
+    }
+}
+
+class PDFFormBSection : UIView {
+    let results = ExamResults.sharedInstance.results
+    
+    override func draw(_ rect: CGRect) {
+        ResultsPDF.drawFormB(frame: rect,
+                             resizing: .stretch,
+                             formBFuelAreaDoorMirror: UtilityFunctions.toBool(value: self.results[kFormBDriverFuelAreaDoorMirror]) ,
+                             formBFuelAreaFuelTankCapLeaks: UtilityFunctions.toBool(value: self.results[kFormBDriverFuelAreaFuelTankCapsLeaks]),
+                             formBFuelAreaCatwalkSteps: UtilityFunctions.toBool(value: self.results[kFormBDriverFuelAreaCatwalkSteps]),
+                             formBFuelAreaLightsReflectors: UtilityFunctions.toBool(value: self.results[kFormBDriverFuelAreaLightsReflectors]),
+                             formBUnderVehicleDriveShaft:UtilityFunctions.toBool(value: self.results[kFormBUnderVehicleDriveShaft]),
+                             formBUnderVehicleExhaustSystem: UtilityFunctions.toBool(value: self.results[kFormBUnderVehicleExhaustSystem]),
+                             formBUnderVehicleFrame: UtilityFunctions.toBool(value: self.results[kFormBUnderVehicleFrame]),
+                             formBRearAxleTires: UtilityFunctions.toBool(value: self.results[kFormBRearAxlesTires]),
+                             formBRearAxleRims: UtilityFunctions.toBool(value: self.results[kFormBRearAxlesRims]),
+                             formBRearAxleLugNuts: UtilityFunctions.toBool(value: self.results[kFormBRearAxlesLugNuts]),
+                             formBRearAxleSeals: UtilityFunctions.toBool(value: self.results[kFormBRearAxlesAxleSeal]),
+                             formBRearAxleSpacersBudSpacing: UtilityFunctions.toBool(value: self.results[kFormBRearAxlesSpacersBudSpacing]),
+                             formBRearSuspensionSpringsAirbagsShocks: UtilityFunctions.toBool(value: self.results[kFormBRearSuspensionSpringsAirbagsShocks]),
+                             formBRearSuspensionUbolts: UtilityFunctions.toBool(value: self.results[kFormBRearSuspensionUbolts]),
+                             formBRearSuspensionSpringAirMountsTorqueArm: UtilityFunctions.toBool(value: self.results[kFormBRearSuspensionSpringsAirMountsTorqueArm]),
+                             formBRearBrakeHosesLines: UtilityFunctions.toBool(value: self.results[kFormBRearBrakesHosesLines]),
+                             formBRearBrakeChamber: UtilityFunctions.toBool(value: self.results[kFormBRearBrakesChamber]),
+                             formBRearBrakeSlackAdjustorPushRod: UtilityFunctions.toBool(value: self.results[kFormBRearBrakesSlackAdjustorPushRod]),
+                             formBRearBrakeDrumLiningsRotorDisk: UtilityFunctions.toBool(value: self.results[kFormBRearBrakesDrumLiningsRotorDisk]),
+                             formBRearOfVehicleDoorTiesLift: UtilityFunctions.toBool(value: self.results[kFormBRearOfVehicleDoorsTiesLifts]),
+                             formBRearOfVehicleSplashGuards: UtilityFunctions.toBool(value: self.results[kFormBRearOfVehicleSplashGuards]),
+                             formBRearOfVehicleLightsReflectorsReflectiveTape: UtilityFunctions.toBool(value: self.results[kFormBRearOfVehicleLightsReflectorsReflectiveTape]))
+    }
+}
+
 class PDFFormASection : UIView {
     let results = ExamResults.sharedInstance.results
     

@@ -12,17 +12,9 @@
 	<key>Form A</key>
 	<dict>
 		<key>Front of Vehicle</key>
-		<dict>
-			<key>lights &amp; reflectors (L-R-4-HL-HB-C)</key>
-			<array>
-				<string>L</string>
-				<string>R</string>
-				<string>4</string>
-				<string>HL</string>
-				<string>HB</string>
-				<string>C</string>
-			</array>
-		</dict>
+		<array>
+			<string>lights &amp; reflectors (L-R-4-HL-HB-C)</string>
+		</array>
 		<key>Engine Compartment</key>
 		<array>
 			<string>oil level</string>
@@ -41,14 +33,7 @@
 		<key>Front Axle</key>
 		<array>
 			<string>tongue or drawbar</string>
-			<dict>
-				<key>tires (T-C-P)</key>
-				<array>
-					<string>T</string>
-					<string>C</string>
-					<string>P</string>
-				</array>
-			</dict>
+			<string>tires (T-C-P)</string>
 			<string>rims</string>
 			<string>lug nuts</string>
 			<string>hub oil seal</string>
@@ -139,5 +124,123 @@
 			</array>
 		</dict>
 	</dict>
+	<key>Form B</key>
+	<dict>
+        <key>Rear Axles</key>
+        <array>
+            <string>rear wheels (F / R)</string>
+            <string>tires (T-C-P)</string>
+            <string>rims</string>
+            <string>lug nuts</string>
+            <string>axle seal</string>
+            <string>spacers or bud spacing</string>
+        </array>
+        <key>Driver/Fuel Area</key>
+        <array>
+            <string>door &amp; mirror</string>
+            <string>fuel tank &amp; caps &amp; leaks</string>
+            <string>catwalk &amp; steps</string>
+            <string>lights and reflectors (L-E-4-C)</string>
+        </array>
+        <key>Under Vehicle</key>
+        <array>
+            <string>drive shaft</string>
+            <string>exhaust system</string>
+            <string>frame</string>
+        </array>
+        <key>Rear Suspension</key>
+        <array>
+            <string>springs &amp; airbags &amp; shocks</string>
+            <string>u-bolts</string>
+            <string>springs/air mounts &amp; torque arm</string>
+        </array>
+        <key>Rear Brakes</key>
+        <array>
+            <string>brake hoses or lines</string>
+            <string>*brake chamber</string>
+            <string>*slack adjustor &amp; push-rod</string>
+            <string>drum &amp; linings or rotor &amp; disk</string>
+        </array>
+        <key>Rear of Vehicle</key>
+        <array>
+            <string>doors &amp; ties &amp; lift</string>
+            <string>splash guards</string>
+            <string>lights, reflectors, reflective tape (L-R-4-TL-BL-C)</string>
+        </array>
+	</dict>
+    <key>Form C (Combinations)</key>
+    <dict>
+        <key>Trailer Front</key>
+        <array>
+            <string>header board or bulkhead</string>
+            <string>lights &amp; reflectors (C)</string>
+        </array>
+        <key>Side of Trailer</key>
+        <array>
+            <string>landing gear</string>
+            <string>doors &amp; ties &amp; lifts</string>
+            <string>lights &amp; reflectors (L-R-4-C)</string>
+            <string>frame &amp; tandem release</string>
+        </array>
+        <key>Trailer Axles</key>
+        <array>
+            <string>wheels (F/R)</string>
+            <string>tires (T-C-P)</string>
+            <string>rims</string>
+            <string>lug nuts</string>
+            <string>axle or hub oil seal</string>
+            <string>spacers or bud spacing</string>
+        </array>
+        <key>Rear Suspension</key>
+        <array>
+            <string>springs &amp; airbags &amp; shocks</string>
+            <string>u-bolts</string>
+            <string>springs/air mounts &amp; torque arm</string>
+        </array>
+        <key>Rear Brakes</key>
+        <array>
+            <string>brake hoses or lines</string>
+            <string>*brake chamber</string>
+            <string>*slack adjustor &amp; push-rod</string>
+            <string>drum &amp; linings or rotor &amp; disk</string>
+        </array>
+        <key>Rear of Vehicle</key>
+        <array>
+            <string>doors &amp; ties &amp; lift</string>
+            <string>splash guards</string>
+            <string>lights, reflectors, reflective tape (L-R-4-TL-BL-C)</string>
+        </array>
+    </dict>
+    <key>All Passenger Vehicles</key>
+    <dict>
+        <key>Passenger Items Only</key>
+        <dict>
+            <key>Passenger Items</key>
+            <array>
+                <string>passenger entry &amp; lift</string>
+                <string>emergency exits</string>
+                <string>seating</string>
+            </array>
+            <key>Baggage Compartment</key>
+            <array>
+                <string>doors secure (baggage)</string>
+                <string>steering linkage</string>
+            </array>
+        </dict>
+        <key>School Bus Only</key>
+        <dict>
+            <key>Front Suspension</key>
+            <array>
+                <string>student lights (front, back)</string>
+            </array>
+            <key>Student Safety Items</key>
+            <array>
+                <string>stop arm &amp; safety arm</string>
+                <string>student mirror</string>
+                <string>emergency kit &amp; body fluid kit</string>
+            </array>            
+        </dict>
+    </dict>
+    
 </dict>
 </plist>

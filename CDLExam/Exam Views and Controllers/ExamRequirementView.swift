@@ -168,6 +168,7 @@ class ExamCriteriaView: UITableViewCell {
         nameLabel.snp.makeConstraints { (make) in
             make.left.equalTo(self.contentView).offset(75)
             make.centerY.equalTo(self.contentView)
+            make.bottom.equalTo(self.contentView).offset(-10)
         }
         
         self.contentView.addSubview(dividerView);
@@ -180,6 +181,8 @@ class ExamCriteriaView: UITableViewCell {
         }
         
         self.nameLabel = nameLabel;
+        self.nameLabel.preferredMaxLayoutWidth = 250;
+        self.nameLabel.numberOfLines = 0;
         self.dividerView = dividerView;
         
         switch type {

@@ -12,9 +12,7 @@ import Foundation
 
 // All Vehicles
 // ------------------------------------------------------------------------------------------------------------------------
-//
 //                                              All Vehicles
-//
 // ------------------------------------------------------------------------------------------------------------------------
 let kAllVehicles = "All Vehicles"
 let kSafetyBelt = kAllVehicles + ".safety belt"
@@ -33,9 +31,7 @@ let kParkingBrake = kAllVehicles + ".parking brake"
 let kAirBrakeCheck = kAllVehicles + ".*air brake check (L-A-B)"
 
 // ------------------------------------------------------------------------------------------------------------------------
-//
 //                                              All Combination Vehicles
-//
 // ------------------------------------------------------------------------------------------------------------------------
 let kAllCombinationVehicles = "All Combination Vehicles"
 let kTractorSemiTrailer = ".Tractor/Semi-Trailer"
@@ -93,9 +89,7 @@ let kAcvTstTractorAirElectricConnectorsLines = kAllCombinationVehicles + kTracto
 
 
 // ------------------------------------------------------------------------------------------------------------------------
-//
 //                                              Form A
-//
 // ------------------------------------------------------------------------------------------------------------------------
 let kFormA = "Form A"
 let kFrontOfVehicle = ".Front of Vehicle"
@@ -132,3 +126,98 @@ let kFormAEngineCompartmentLeaksHoses = kEngineComparment + ".leaks & hoses"
 let kFormAEngineCompartmentCoolantLevel = kEngineComparment + ".coolant level"
 let kFormAEngineCompartmentAlternatorGearBelt = kEngineComparment + ".alternator gear/belt"
 let kFormAEngineCompartmentAirCompressorGearBelt = kEngineComparment + ".air compressor gear/belt"
+
+// ------------------------------------------------------------------------------------------------------------------------
+//                                              Form B
+// ------------------------------------------------------------------------------------------------------------------------
+let kFormB = "Form B"
+
+// Under Vehicle Section
+let kUnderVehicle = kFormB + ".Under Vehicle"
+let kFormBUnderVehicleDriveShaft = kUnderVehicle + ".drive shaft"
+let kFormBUnderVehicleExhaustSystem = kUnderVehicle + ".exhaust system"
+let kFormBUnderVehicleFrame = kUnderVehicle + ".frame"
+
+// Rear Axles Section
+let kRearAxles = kFormB + ".Rear Axles"
+let kFormBRearAxlesRearWheels = kRearAxles + ".rear wheels (F/R)"
+let kFormBRearAxlesTires = kRearAxles + ".tires (T-C-P)"
+let kFormBRearAxlesRims = kRearAxles + ".rims"
+let kFormBRearAxlesLugNuts = kRearAxles + ".lug nuts"
+let kFormBRearAxlesAxleSeal = kRearAxles + ".axle seal"
+let kFormBRearAxlesSpacersBudSpacing = kRearAxles + ".spacers or bud spacing"
+
+// Driver/Fuel Area Section
+let kDriverFuelArea = kFormB + ".Driver/Fuel Area"
+let kFormBDriverFuelAreaDoorMirror = kDriverFuelArea + ".door & mirror"
+let kFormBDriverFuelAreaFuelTankCapsLeaks = kDriverFuelArea + ".fuel tank & caps & leaks"
+let kFormBDriverFuelAreaCatwalkSteps = kDriverFuelArea + ".catwalk & steps"
+let kFormBDriverFuelAreaLightsReflectors = kDriverFuelArea + ".lights and reflectors (L-E-4-C)"
+
+//Rear of Vehicle
+let kRearOfVehicle = kFormB + ".Rear of Vehicle"
+let kFormBRearOfVehicleDoorsTiesLifts = kRearOfVehicle + ".doors & ties & lift"
+let kFormBRearOfVehicleSplashGuards = kRearOfVehicle + ".splash guards"
+let kFormBRearOfVehicleLightsReflectorsReflectiveTape = kRearOfVehicle + ".lights, reflectors, reflective tape (L-R-4-TL-BL-C)"
+
+//Rear Brakes
+let kRearBrakes = kFormB + ".Rear Brakes"
+let kFormBRearBrakesHosesLines = kRearBrakes + ".brake hoses or lines"
+let kFormBRearBrakesChamber = kRearBrakes + ".*brake chamber"
+let kFormBRearBrakesSlackAdjustorPushRod = kRearBrakes + ".*slack adjustor & push-rod"
+let kFormBRearBrakesDrumLiningsRotorDisk = kRearBrakes + ".drum & linings or rotor & disk"
+
+//Rear Suspension
+let kRearSuspension = kFormB + ".Rear Suspension"
+let kFormBRearSuspensionSpringsAirbagsShocks = kRearSuspension + ".springs & airbags & shocks"
+let kFormBRearSuspensionUbolts = kRearSuspension + ".u-bolts"
+let kFormBRearSuspensionSpringsAirMountsTorqueArm = kRearSuspension + ".springs/air mounts & torque arm"
+
+// ------------------------------------------------------------------------------------------------------------------------
+//                                              Form C
+// ------------------------------------------------------------------------------------------------------------------------
+
+let kFormC = "Form C"
+// Trailer Front
+let kTrailerFront = kFormC + ".Trailer Front"
+let kFormCTrailerFrontHeaderBoardBulkhead = kTrailerFront + ".header board or bulkhead"
+let kFormCTrailerFrontLightsReflectors = kTrailerFront + ".lights & reflectors (C)"
+
+// Side of Trailer
+let kSideOfTrailer = kFormC + ".Side of Trailer"
+let kFormCSideOfTrailerLightsReflectors = ".lights & reflectors (L-R-4-C)"
+let kFormCSideOfTrailerLandingGear = ".landing gear"
+let kFormCSideOfTrailerFrameTandemRelease = ".frame & tandem release"
+let kFormCSideOfTrailerDoorsTiesLifts = ".doors & ties & lifts"
+
+// Rear of Vehicle
+let kFormCRearOfVehicle = kFormC + ".Rear of Vehicle"
+let kFormCRearOfVehicleDoorsTiesLift = kFormC + ".doors & ties & lift"
+let kFormCRearOfVehicleSplashGuards = kFormC + ".splash guards"
+let kFormCRearOfVehicleLightsReflectorsReflectiveTape = kFormC + ".lights, reflectors, reflective tape (L-R-4-TL-BL-C)"
+
+// Rear Brakes
+let kFormCRearBrakes = kFormC + ".Rear Brakes"
+let kFormCRearBrakesHosesLines = kFormCRearBrakes + ".brake hoses or lines"
+let kFormCRearBrakesChamber = kFormCRearBrakes + ".brake chamber"
+let kFormCRearBrakesSlackAdjustorPushRod = kFormCRearBrakes + ".slack adjustor & push-rod"
+let kFormCRearBrakesDrumLiningsRotorDisk = kFormCRearBrakes + ".drum & linings or rotor & disk"
+
+// Trailer Axles
+let kFormCTrailerAxles = kFormC + ".Trailer Axles"
+let kFormCTrailerAxlesWheels = kFormCTrailerAxles + ".wheels (F/R)"
+let kFormCTrailerAxlesTires = kFormCTrailerAxles + ".tires (T-C-P)"
+let kFormCTrailerAxlesRims = kFormCTrailerAxles + ".rims"
+let kFormCTrailerAxlesLugNuts = kFormCTrailerAxles + ".lug nuts"
+let kFormCTrailerAxlesAxleHubOilSeal = kFormCTrailerAxles + ".axle or hub oil seal"
+let kFormCTrailerAxlesSpacersBudSpacing = kFormCTrailerAxles + ".spacers or bud spacing"
+
+// Rear Suspension
+let kFormCRearSuspension = kFormC + ".Rear Suspension"
+let kFormCRearSuspensionSpringsAirbagsShocks = kFormCRearSuspension + ".springs & airbags & shocks"
+let kFormCRearSuspensionUbolts = kFormCRearSuspension + ".u-bolts"
+let kFormCRearSuspensionSpringsAirMountsTorqueArm = kFormCRearSuspension + ".springs/air mounts & torque arm"
+
+
+
+
