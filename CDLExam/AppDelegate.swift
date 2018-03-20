@@ -20,40 +20,33 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
 
         let splitViewController = UISplitViewController();
         self.window!.rootViewController = splitViewController;
-        let examSectionsTableViewController = ExamSectionsTableViewController();
-        let navVC = UINavigationController(rootViewController: examSectionsTableViewController)
+        
+        // Load the Menu
+        let menuTableViewController = ExamMenuTableViewController();
+        menuTableViewController.title = "Menu";
+        
+        // ------------------  LOAD MENU ---------------------------------------------
+        let navVC = UINavigationController(rootViewController: menuTableViewController)
         splitViewController.viewControllers.append(navVC);
         
-        let examViewController = ExamViewController();
-        examViewController.navigationController?.navigationBar.isHidden = false;
-        examSectionsTableViewController.delegate = examViewController;
-        let detailNavVC = UINavigationController(rootViewController: examViewController);
+        let examScheduleViewController = ExamScheduleTableViewController()
+        let exams = [
+                    Exam(name: "Adebayo Ijidakinro", date: Date(), driversLicense: "Open Class C", vehicle: "18 Wheeler Four Ton", type: "Class Exam Type", examClass: "Class 1"),
+                    Exam(name: "Adebayo Ijidakinro", date: Date(), driversLicense: "Open Class C", vehicle: "18 Wheeler Four Ton", type: "Class Exam Type", examClass: "Class 1")
+        ]
+        examScheduleViewController.menuViewController = menuTableViewController;
+        examScheduleViewController.exams = exams;        
+        let detailNavVC = UINavigationController(rootViewController: examScheduleViewController);
         splitViewController.delegate = self
         splitViewController.viewControllers.append(detailNavVC);
         
-        let result = self.loadExam()
-        examSectionsTableViewController.exam = result
-        examSectionsTableViewController.examSections = self.examSections;        
         return true
     }
     
-    func loadExam () -> [String:Any] {
-        if let fileUrl = Bundle.main.url(forResource: "exam-criteria", withExtension: "plist"),
-            // Load exam data
-            let data = try? Data(contentsOf: fileUrl) {
-            if let result = try? PropertyListSerialization.propertyList(from: data, options: [], format: nil) as? [String:Any] {
-                for (key, _) in result! {
-                    self.examSections.append(key)
-                }
-                
-                return result!;
-            }
-        }
+    func generateKeys () {
         
-        // Handle Error, there should always be a result returned
-        return [String:Any]();
     }
-
+    
 
     func applicationWillResignActive(_ application: UIApplication) {
         // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.

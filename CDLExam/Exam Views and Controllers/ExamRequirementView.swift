@@ -211,13 +211,26 @@ class ExamCriteriaView: UITableViewCell {
             })
             self.mySwitch.addTarget(self, action: #selector(switchChanged), for: .touchUpInside)
             self.resultKey = key;
-            self.mySwitch.isOn = ExamResults.sharedInstance.getResult(key: self.resultKey)
+            let value = ExamResults.sharedInstance.getResult(key: self.resultKey);
+            var boolValue:Bool;
+            if value == "true" {
+                boolValue = true
+            } else {
+                boolValue = false
+            }
+            self.mySwitch.isOn = boolValue
         default:break
         }
     }
     
     @objc func switchChanged(_ resultSwitch: UISwitch) {
-        ExamResults.sharedInstance.addResult(key: self.resultKey, value: resultSwitch.isOn);
+        var value:String!
+        if resultSwitch.isOn {
+            value = "true"
+        } else {
+            value = "false"
+        }
+        ExamResults.sharedInstance.addResult(key: self.resultKey, value: value);
     }
     
 }

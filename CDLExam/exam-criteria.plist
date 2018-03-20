@@ -85,7 +85,7 @@
 	<dict>
 		<key>Tractor/Semi-Trailer</key>
 		<dict>
-			<key>Tractor - HEADER</key>
+			<key>Tractor</key>
 			<array>
 				<string>air &amp; electric connectors &amp; lines</string>
 			</array>
@@ -98,7 +98,7 @@
 				<string>5th wheel skid plate</string>
 				<string>side 5th wheel pins (clearance)</string>
 			</array>
-			<key>Trailer - HEADER</key>
+			<key>Trailer</key>
 			<array>
 				<string>air &amp; electric connectors</string>
 			</array>
