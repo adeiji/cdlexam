@@ -177,7 +177,7 @@ let kFormBRearSuspensionSpringsAirMountsTorqueArm = kRearSuspension + ".springs/
 //                                              Form C
 // ------------------------------------------------------------------------------------------------------------------------
 
-let kFormC = "Form C"
+let kFormC = "Form C (Combinations)"
 // Trailer Front
 let kTrailerFront = kFormC + ".Trailer Front"
 let kFormCTrailerFrontHeaderBoardBulkhead = kTrailerFront + ".header board or bulkhead"
@@ -185,22 +185,22 @@ let kFormCTrailerFrontLightsReflectors = kTrailerFront + ".lights & reflectors (
 
 // Side of Trailer
 let kSideOfTrailer = kFormC + ".Side of Trailer"
-let kFormCSideOfTrailerLightsReflectors = ".lights & reflectors (L-R-4-C)"
-let kFormCSideOfTrailerLandingGear = ".landing gear"
-let kFormCSideOfTrailerFrameTandemRelease = ".frame & tandem release"
-let kFormCSideOfTrailerDoorsTiesLifts = ".doors & ties & lifts"
+let kFormCSideOfTrailerLightsReflectors = kSideOfTrailer + ".lights & reflectors (L-R-4-C)"
+let kFormCSideOfTrailerLandingGear = kSideOfTrailer + ".landing gear"
+let kFormCSideOfTrailerFrameTandemRelease = kSideOfTrailer + ".frame & tandem release"
+let kFormCSideOfTrailerDoorsTiesLifts = kSideOfTrailer + ".doors & ties & lifts"
 
 // Rear of Vehicle
 let kFormCRearOfVehicle = kFormC + ".Rear of Vehicle"
-let kFormCRearOfVehicleDoorsTiesLift = kFormC + ".doors & ties & lift"
-let kFormCRearOfVehicleSplashGuards = kFormC + ".splash guards"
-let kFormCRearOfVehicleLightsReflectorsReflectiveTape = kFormC + ".lights, reflectors, reflective tape (L-R-4-TL-BL-C)"
+let kFormCRearOfVehicleDoorsTiesLift = kFormCRearOfVehicle + ".doors & ties & lift"
+let kFormCRearOfVehicleSplashGuards = kFormCRearOfVehicle + ".splash guards"
+let kFormCRearOfVehicleLightsReflectorsReflectiveTape = kFormCRearOfVehicle + ".lights, reflectors, reflective tape (L-R-4-TL-BL-C)"
 
 // Rear Brakes
 let kFormCRearBrakes = kFormC + ".Rear Brakes"
 let kFormCRearBrakesHosesLines = kFormCRearBrakes + ".brake hoses or lines"
-let kFormCRearBrakesChamber = kFormCRearBrakes + ".brake chamber"
-let kFormCRearBrakesSlackAdjustorPushRod = kFormCRearBrakes + ".slack adjustor & push-rod"
+let kFormCRearBrakesChamber = kFormCRearBrakes + ".*brake chamber"
+let kFormCRearBrakesSlackAdjustorPushRod = kFormCRearBrakes + ".*slack adjustor & push-rod"
 let kFormCRearBrakesDrumLiningsRotorDisk = kFormCRearBrakes + ".drum & linings or rotor & disk"
 
 // Trailer Axles
@@ -218,6 +218,25 @@ let kFormCRearSuspensionSpringsAirbagsShocks = kFormCRearSuspension + ".springs 
 let kFormCRearSuspensionUbolts = kFormCRearSuspension + ".u-bolts"
 let kFormCRearSuspensionSpringsAirMountsTorqueArm = kFormCRearSuspension + ".springs/air mounts & torque arm"
 
+// ------------------------------------------------------------------------------------------------------------------------
+//                                              ALL PASSENGER VEHICLES
+// ------------------------------------------------------------------------------------------------------------------------
+let kAllPassengerVehicles = "All Passenger Vehicles"
+let kPassengerItemsOnly = kAllPassengerVehicles + ".Passenger Items Only"
+let kPassengerItemsBaggageCompartment = kPassengerItemsOnly + ".Baggage Compartment"
+let kPassengerItemsBaggageCompartmentDoorsSecure = kPassengerItemsBaggageCompartment + ".doors secure (baggage)"
+let kPassengerItemsBaggageCompartmentSteeringLinkage = kPassengerItemsBaggageCompartment + ".steering linkage"
 
+let kPassengerItemsSection = kPassengerItemsOnly + ".Passenger Items"
+let kPassengerItemsEntryLift = kPassengerItemsSection + ".passenger entry & lift"
+let kPassengerItemsEmergencyExits = kPassengerItemsSection + ".emergency exits"
+let kPassengerItemsSeating = kPassengerItemsSection + ".seating"
 
+let kSchoolBusOnly = kAllPassengerVehicles + ".School Bus Only"
+let kSchoolBusFrontSuspension = kSchoolBusOnly + ".Front Suspension"
+let kSchoolBusFrontSuspensionStudentLights = kSchoolBusFrontSuspension + ".student lights (front, back)"
 
+let kSchoolBusStudentSafetyItems = kSchoolBusOnly + ".Student Safety Items"
+let kSchoolBusStudentSafetyItemsStopArmSafetyArm = kSchoolBusStudentSafetyItems + ".stop arm & safety arm"
+let kSchoolBusStudentSafetyItemsStudentMirror = kSchoolBusStudentSafetyItems + ".student mirror"
+let kSchoolBusStudentSafetyItemsEmergencyKitBodyFluidKit = kSchoolBusStudentSafetyItems + ".emergency kit & body fluid kit"

@@ -17,6 +17,22 @@ class PDFHeader: UIView {
     
 }
 
+class PDFAllPassengerVehiclesSection : UIView {
+    let results = ExamResults.sharedInstance.results
+    override func draw(_ rect: CGRect) {
+        ResultsPDF.drawAllPassengerVehicles(frame: rect,
+                                            resizing: .stretch,
+                                            apvPassengerItemsEntryLift: UtilityFunctions.toBool(value: self.results[kPassengerItemsEntryLift]),
+                                            apvPassengerItemsEmergencyExits: UtilityFunctions.toBool(value: self.results[kPassengerItemsEmergencyExits]),
+                                            apvPassengerItemsSeating: UtilityFunctions.toBool(value: self.results[kPassengerItemsSeating]),
+                                            apvBaggageCompartmentDoorsSecure: UtilityFunctions.toBool(value: self.results[kPassengerItemsBaggageCompartmentDoorsSecure]),
+                                            apvStudentLights: UtilityFunctions.toBool(value: self.results[kSchoolBusFrontSuspensionStudentLights]),
+                                            apvStudentSafetyStopArmSafetArm: UtilityFunctions.toBool(value: self.results[kSchoolBusStudentSafetyItemsStopArmSafetyArm]),
+                                            apvStudentSafetyMirror: UtilityFunctions.toBool(value: self.results[kSchoolBusStudentSafetyItemsStudentMirror]),
+                                            apvStudentSafetyKits: UtilityFunctions.toBool(value: self.results[kSchoolBusStudentSafetyItemsEmergencyKitBodyFluidKit]))
+    }
+}
+
 class PDFFormCSection : UIView {
     let results = ExamResults.sharedInstance.results
     override func draw(_ rect: CGRect) {

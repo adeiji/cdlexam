@@ -84,7 +84,7 @@ class ExamCriteriaViewController: UITableViewController, LoadExamInfoDelegate, U
                 let width = viewController.view.frame.width;
                 let pdfView = UIView(frame: CGRect(x: 0, y: 0, width: Int(width), height: 2000))
                 var yPos = 0;
-                var xPos = 0;
+                var xPos = 13;
                 let header = PDFHeader(frame: CGRect(x: 0, y: 0, width: width, height: 180))
                 yPos = yPos + 180;
                 
@@ -94,14 +94,17 @@ class ExamCriteriaViewController: UITableViewController, LoadExamInfoDelegate, U
                 let allCombinationVehicles = PDFAllCombinationVehiclesSection(frame: CGRect(x: 0, y: yPos, width: Int(width), height: 234))
                 yPos = yPos + 234
                 
-                let formA = PDFFormASection(frame: CGRect(x: 0, y: yPos, width: 203, height: 629))
-                xPos = xPos + 203
+                let formA = PDFFormASection(frame: CGRect(x: xPos, y: yPos, width: 181, height: 629))
+                xPos = xPos + 181
                 
-                let formB = PDFFormBSection(frame: CGRect(x: xPos, y: yPos, width: 203, height: 674))
-                xPos = xPos + 203
+                let formB = PDFFormBSection(frame: CGRect(x: xPos, y: yPos, width: 181, height: 674))
+                xPos = xPos + 181
                 
-                let formC = PDFFormBSection(frame: CGRect(x: xPos, y: yPos, width: 203, height: 655))
-                xPos = xPos + 203
+                let formC = PDFFormCSection(frame: CGRect(x: xPos, y: yPos, width: 181, height: 655))
+                xPos = xPos + 181
+                
+                let allPassengerVehicles = PDFAllPassengerVehiclesSection(frame: CGRect(x: xPos, y: yPos, width: 181, height: 357))
+                xPos = 0;
                 
                 header.clearsContextBeforeDrawing = false;
                 allVehicles.clearsContextBeforeDrawing = false;
@@ -109,6 +112,7 @@ class ExamCriteriaViewController: UITableViewController, LoadExamInfoDelegate, U
                 formA.clearsContextBeforeDrawing = false;
                 formB.clearsContextBeforeDrawing = false;
                 formC.clearsContextBeforeDrawing = false;
+                allPassengerVehicles.clearsContextBeforeDrawing = false;
                 
                 header.backgroundColor = .white;
                 allVehicles.backgroundColor = .white
@@ -116,6 +120,7 @@ class ExamCriteriaViewController: UITableViewController, LoadExamInfoDelegate, U
                 formA.backgroundColor = .white
                 formB.backgroundColor = .white
                 formC.backgroundColor = .white
+                allPassengerVehicles.backgroundColor = .white
                 
                 pdfView.addSubview(header)
                 pdfView.addSubview(allVehicles)
@@ -123,6 +128,7 @@ class ExamCriteriaViewController: UITableViewController, LoadExamInfoDelegate, U
                 pdfView.addSubview(formA)
                 pdfView.addSubview(formB)
                 pdfView.addSubview(formC)
+                pdfView.addSubview(allPassengerVehicles)
                 
                 self.generatePDF(view: pdfView)
             } else {

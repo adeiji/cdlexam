@@ -1590,19 +1590,19 @@ public class ResultsPDF : NSObject {
 
     }
 
-    @objc dynamic public class func drawFormA(frame targetFrame: CGRect = CGRect(x: 0, y: 0, width: 203, height: 629), resizing: ResizingBehavior = .aspectFit, formAFovLightsReflectors: Bool = true, formAEcOilLevel: Bool = true, formAEcCoolantLevel: Bool = true, formAEcPowerSteeringFluidBelt: Bool = true, formAEcWaterPumpGearBelt: Bool = true, formAEcAlternatorgearBelt: Bool = true, formAEcAirCompressorGearBelt: Bool = true, formAEcLeaksHoses: Bool = true, formASteeringBoxHoses: Bool = true, formASteeringLinkage: Bool = true, formAFrontAxleFrontWheelTires: Bool = true, formAFrontAxleFrontWheelRims: Bool = true, formAFrontAxleFrontWheelLugNuts: Bool = true, formAFrontAxleFrontWheelHubOilSeal: Bool = true, formAFrontAxleFrontSuspensionSpringsShocks: Bool = true, formAFrontAxleFrontSuspensionUbolts: Bool = true, formAFrontAxleFrontSuspensionSpringMounts: Bool = true, formAFrontAxleFrontBrakeHosesLines: Bool = true, formAFrontAxleFrontBrakeChamber: Bool = true, formAFrontAxleFrontBrakeSlackAdjustorPushRod: Bool = true, formAFrontAxleFrontBrakeDrumLiningsRoterDisk: Bool = true) {
+    @objc dynamic public class func drawFormA(frame targetFrame: CGRect = CGRect(x: 0, y: 0, width: 181, height: 629), resizing: ResizingBehavior = .aspectFit, formAFovLightsReflectors: Bool = true, formAEcOilLevel: Bool = true, formAEcCoolantLevel: Bool = true, formAEcPowerSteeringFluidBelt: Bool = true, formAEcWaterPumpGearBelt: Bool = true, formAEcAlternatorgearBelt: Bool = true, formAEcAirCompressorGearBelt: Bool = true, formAEcLeaksHoses: Bool = true, formASteeringBoxHoses: Bool = true, formASteeringLinkage: Bool = true, formAFrontAxleFrontWheelTires: Bool = true, formAFrontAxleFrontWheelRims: Bool = true, formAFrontAxleFrontWheelLugNuts: Bool = true, formAFrontAxleFrontWheelHubOilSeal: Bool = true, formAFrontAxleFrontSuspensionSpringsShocks: Bool = true, formAFrontAxleFrontSuspensionUbolts: Bool = true, formAFrontAxleFrontSuspensionSpringMounts: Bool = true, formAFrontAxleFrontBrakeHosesLines: Bool = true, formAFrontAxleFrontBrakeChamber: Bool = true, formAFrontAxleFrontBrakeSlackAdjustorPushRod: Bool = true, formAFrontAxleFrontBrakeDrumLiningsRoterDisk: Bool = true) {
         //// General Declarations
         let context = UIGraphicsGetCurrentContext()!
         
         //// Resize to Target Frame
         context.saveGState()
-        let resizedFrame: CGRect = resizing.apply(rect: CGRect(x: 0, y: 0, width: 203, height: 629), target: targetFrame)
+        let resizedFrame: CGRect = resizing.apply(rect: CGRect(x: 0, y: 0, width: 181, height: 629), target: targetFrame)
         context.translateBy(x: resizedFrame.minX, y: resizedFrame.minY)
-        context.scaleBy(x: resizedFrame.width / 203, y: resizedFrame.height / 629)
+        context.scaleBy(x: resizedFrame.width / 181, y: resizedFrame.height / 629)
 
 
         //// label Drawing
-        let labelRect = CGRect(x: 23, y: 45, width: 166, height: 33)
+        let labelRect = CGRect(x: 10, y: 45, width: 166, height: 33)
         let labelTextContent = "lights & reflectors (L-R-4-HL-HB-C)"
         let labelStyle = NSMutableParagraphStyle()
         labelStyle.alignment = .left
@@ -1621,14 +1621,14 @@ public class ResultsPDF : NSObject {
 
         if (formAFovLightsReflectors) {
             //// Rectangle Drawing
-            let rectanglePath = UIBezierPath(rect: CGRect(x: 191, y: 64, width: 10, height: 10))
+            let rectanglePath = UIBezierPath(rect: CGRect(x: 171, y: 64, width: 10, height: 10))
             UIColor.darkGray.setFill()
             rectanglePath.fill()
         }
 
 
         //// label 7 Drawing
-        let label7Rect = CGRect(x: 23, y: 106, width: 116, height: 16)
+        let label7Rect = CGRect(x: 10, y: 106, width: 116, height: 16)
         let label7TextContent = "oil level"
         let label7Style = NSMutableParagraphStyle()
         label7Style.alignment = .left
@@ -1647,14 +1647,14 @@ public class ResultsPDF : NSObject {
 
         if (formAEcOilLevel) {
             //// Rectangle 7 Drawing
-            let rectangle7Path = UIBezierPath(rect: CGRect(x: 191, y: 109, width: 10, height: 10))
+            let rectangle7Path = UIBezierPath(rect: CGRect(x: 171, y: 109, width: 10, height: 10))
             UIColor.darkGray.setFill()
             rectangle7Path.fill()
         }
 
 
         //// label 8 Drawing
-        let label8Rect = CGRect(x: 23, y: 126, width: 153, height: 16)
+        let label8Rect = CGRect(x: 10, y: 126, width: 153, height: 16)
         let label8TextContent = "coolant level"
         let label8Style = NSMutableParagraphStyle()
         label8Style.alignment = .left
@@ -1673,14 +1673,14 @@ public class ResultsPDF : NSObject {
 
         if (formAEcCoolantLevel) {
             //// Rectangle 8 Drawing
-            let rectangle8Path = UIBezierPath(rect: CGRect(x: 191, y: 129, width: 10, height: 10))
+            let rectangle8Path = UIBezierPath(rect: CGRect(x: 171, y: 129, width: 10, height: 10))
             UIColor.darkGray.setFill()
             rectangle8Path.fill()
         }
 
 
         //// label 13 Drawing
-        let label13Rect = CGRect(x: 23, y: 146, width: 152, height: 16)
+        let label13Rect = CGRect(x: 10, y: 146, width: 152, height: 16)
         let label13TextContent = "power steering fluid/belt"
         let label13Style = NSMutableParagraphStyle()
         label13Style.alignment = .left
@@ -1699,14 +1699,14 @@ public class ResultsPDF : NSObject {
 
         if (formAEcPowerSteeringFluidBelt) {
             //// Rectangle 13 Drawing
-            let rectangle13Path = UIBezierPath(rect: CGRect(x: 191, y: 149, width: 10, height: 10))
+            let rectangle13Path = UIBezierPath(rect: CGRect(x: 171, y: 149, width: 10, height: 10))
             UIColor.darkGray.setFill()
             rectangle13Path.fill()
         }
 
 
         //// label 14 Drawing
-        let label14Rect = CGRect(x: 23, y: 166, width: 166, height: 16)
+        let label14Rect = CGRect(x: 10, y: 166, width: 166, height: 16)
         let label14TextContent = "water pump gear/belt"
         let label14Style = NSMutableParagraphStyle()
         label14Style.alignment = .left
@@ -1725,14 +1725,14 @@ public class ResultsPDF : NSObject {
 
         if (formAEcWaterPumpGearBelt) {
             //// Rectangle 14 Drawing
-            let rectangle14Path = UIBezierPath(rect: CGRect(x: 191, y: 169, width: 10, height: 10))
+            let rectangle14Path = UIBezierPath(rect: CGRect(x: 171, y: 169, width: 10, height: 10))
             UIColor.darkGray.setFill()
             rectangle14Path.fill()
         }
 
 
         //// Text Drawing
-        let textRect = CGRect(x: 55, y: 3, width: 100, height: 18)
+        let textRect = CGRect(x: 42, y: 3, width: 100, height: 18)
         let textTextContent = "Form A"
         let textStyle = NSMutableParagraphStyle()
         textStyle.alignment = .center
@@ -1750,7 +1750,7 @@ public class ResultsPDF : NSObject {
 
 
         //// Text 3 Drawing
-        let text3Rect = CGRect(x: 23, y: 86, width: 153, height: 18)
+        let text3Rect = CGRect(x: 10, y: 86, width: 153, height: 18)
         let text3TextContent = "Engine Compartment"
         let text3Style = NSMutableParagraphStyle()
         text3Style.alignment = .left
@@ -1768,7 +1768,7 @@ public class ResultsPDF : NSObject {
 
 
         //// Text 2 Drawing
-        let text2Rect = CGRect(x: 24, y: 26, width: 114, height: 18)
+        let text2Rect = CGRect(x: 11, y: 26, width: 114, height: 18)
         let text2TextContent = "Front of Vehicle"
         let text2Style = NSMutableParagraphStyle()
         text2Style.alignment = .left
@@ -1786,7 +1786,7 @@ public class ResultsPDF : NSObject {
 
 
         //// label 2 Drawing
-        let label2Rect = CGRect(x: 23, y: 186, width: 116, height: 16)
+        let label2Rect = CGRect(x: 10, y: 186, width: 116, height: 16)
         let label2TextContent = "alternator gear/belt"
         let label2Style = NSMutableParagraphStyle()
         label2Style.alignment = .left
@@ -1805,14 +1805,14 @@ public class ResultsPDF : NSObject {
 
         if (formAEcAlternatorgearBelt) {
             //// Rectangle 2 Drawing
-            let rectangle2Path = UIBezierPath(rect: CGRect(x: 191, y: 189, width: 10, height: 10))
+            let rectangle2Path = UIBezierPath(rect: CGRect(x: 171, y: 189, width: 10, height: 10))
             UIColor.darkGray.setFill()
             rectangle2Path.fill()
         }
 
 
         //// label 3 Drawing
-        let label3Rect = CGRect(x: 23, y: 206, width: 166, height: 16)
+        let label3Rect = CGRect(x: 10, y: 206, width: 166, height: 16)
         let label3TextContent = "*air compressor gear/belt"
         let label3Style = NSMutableParagraphStyle()
         label3Style.alignment = .left
@@ -1831,14 +1831,14 @@ public class ResultsPDF : NSObject {
 
         if (formAEcAirCompressorGearBelt) {
             //// Rectangle 3 Drawing
-            let rectangle3Path = UIBezierPath(rect: CGRect(x: 191, y: 209, width: 10, height: 10))
+            let rectangle3Path = UIBezierPath(rect: CGRect(x: 171, y: 209, width: 10, height: 10))
             UIColor.darkGray.setFill()
             rectangle3Path.fill()
         }
 
 
         //// label 4 Drawing
-        let label4Rect = CGRect(x: 23, y: 226, width: 152, height: 16)
+        let label4Rect = CGRect(x: 10, y: 226, width: 152, height: 16)
         let label4TextContent = "leaks & hoses"
         let label4Style = NSMutableParagraphStyle()
         label4Style.alignment = .left
@@ -1857,14 +1857,14 @@ public class ResultsPDF : NSObject {
 
         if (formAEcLeaksHoses) {
             //// Rectangle 4 Drawing
-            let rectangle4Path = UIBezierPath(rect: CGRect(x: 191, y: 229, width: 10, height: 10))
+            let rectangle4Path = UIBezierPath(rect: CGRect(x: 171, y: 229, width: 10, height: 10))
             UIColor.darkGray.setFill()
             rectangle4Path.fill()
         }
 
 
         //// label 5 Drawing
-        let label5Rect = CGRect(x: 23, y: 268, width: 152, height: 16)
+        let label5Rect = CGRect(x: 10, y: 268, width: 152, height: 16)
         let label5TextContent = "steering box & hoses"
         let label5Style = NSMutableParagraphStyle()
         label5Style.alignment = .left
@@ -1883,14 +1883,14 @@ public class ResultsPDF : NSObject {
 
         if (formASteeringBoxHoses) {
             //// Rectangle 5 Drawing
-            let rectangle5Path = UIBezierPath(rect: CGRect(x: 191, y: 271, width: 10, height: 10))
+            let rectangle5Path = UIBezierPath(rect: CGRect(x: 171, y: 271, width: 10, height: 10))
             UIColor.darkGray.setFill()
             rectangle5Path.fill()
         }
 
 
         //// label 6 Drawing
-        let label6Rect = CGRect(x: 23, y: 288, width: 177, height: 16)
+        let label6Rect = CGRect(x: 10, y: 288, width: 152, height: 16)
         let label6TextContent = "steering linkage"
         let label6Style = NSMutableParagraphStyle()
         label6Style.alignment = .left
@@ -1909,14 +1909,14 @@ public class ResultsPDF : NSObject {
 
         if (formASteeringLinkage) {
             //// Rectangle 6 Drawing
-            let rectangle6Path = UIBezierPath(rect: CGRect(x: 191, y: 291, width: 10, height: 10))
+            let rectangle6Path = UIBezierPath(rect: CGRect(x: 171, y: 291, width: 10, height: 10))
             UIColor.darkGray.setFill()
             rectangle6Path.fill()
         }
 
 
         //// label 9 Drawing
-        let label9Rect = CGRect(x: 23, y: 345, width: 152, height: 16)
+        let label9Rect = CGRect(x: 10, y: 345, width: 152, height: 16)
         let label9TextContent = "tires (T-C-P)"
         let label9Style = NSMutableParagraphStyle()
         label9Style.alignment = .left
@@ -1935,14 +1935,14 @@ public class ResultsPDF : NSObject {
 
         if (formAFrontAxleFrontWheelTires) {
             //// Rectangle 9 Drawing
-            let rectangle9Path = UIBezierPath(rect: CGRect(x: 191, y: 348, width: 10, height: 10))
+            let rectangle9Path = UIBezierPath(rect: CGRect(x: 171, y: 348, width: 10, height: 10))
             UIColor.darkGray.setFill()
             rectangle9Path.fill()
         }
 
 
         //// label 10 Drawing
-        let label10Rect = CGRect(x: 23, y: 365, width: 166, height: 16)
+        let label10Rect = CGRect(x: 10, y: 365, width: 166, height: 16)
         let label10TextContent = "rims"
         let label10Style = NSMutableParagraphStyle()
         label10Style.alignment = .left
@@ -1961,14 +1961,14 @@ public class ResultsPDF : NSObject {
 
         if (formAFrontAxleFrontWheelRims) {
             //// Rectangle 10 Drawing
-            let rectangle10Path = UIBezierPath(rect: CGRect(x: 191, y: 368, width: 10, height: 10))
+            let rectangle10Path = UIBezierPath(rect: CGRect(x: 171, y: 368, width: 10, height: 10))
             UIColor.darkGray.setFill()
             rectangle10Path.fill()
         }
 
 
         //// Text 4 Drawing
-        let text4Rect = CGRect(x: 23, y: 249, width: 153, height: 18)
+        let text4Rect = CGRect(x: 10, y: 249, width: 153, height: 18)
         let text4TextContent = "Steering"
         let text4Style = NSMutableParagraphStyle()
         text4Style.alignment = .left
@@ -1986,7 +1986,7 @@ public class ResultsPDF : NSObject {
 
 
         //// label 11 Drawing
-        let label11Rect = CGRect(x: 23, y: 385, width: 116, height: 16)
+        let label11Rect = CGRect(x: 10, y: 385, width: 116, height: 16)
         let label11TextContent = "lug nuts"
         let label11Style = NSMutableParagraphStyle()
         label11Style.alignment = .left
@@ -2005,14 +2005,14 @@ public class ResultsPDF : NSObject {
 
         if (formAFrontAxleFrontWheelLugNuts) {
             //// Rectangle 11 Drawing
-            let rectangle11Path = UIBezierPath(rect: CGRect(x: 191, y: 388, width: 10, height: 10))
+            let rectangle11Path = UIBezierPath(rect: CGRect(x: 171, y: 388, width: 10, height: 10))
             UIColor.darkGray.setFill()
             rectangle11Path.fill()
         }
 
 
         //// label 12 Drawing
-        let label12Rect = CGRect(x: 23, y: 405, width: 166, height: 16)
+        let label12Rect = CGRect(x: 10, y: 405, width: 166, height: 16)
         let label12TextContent = "hub oil seal"
         let label12Style = NSMutableParagraphStyle()
         label12Style.alignment = .left
@@ -2031,14 +2031,14 @@ public class ResultsPDF : NSObject {
 
         if (formAFrontAxleFrontWheelHubOilSeal) {
             //// Rectangle 12 Drawing
-            let rectangle12Path = UIBezierPath(rect: CGRect(x: 191, y: 408, width: 10, height: 10))
+            let rectangle12Path = UIBezierPath(rect: CGRect(x: 171, y: 408, width: 10, height: 10))
             UIColor.darkGray.setFill()
             rectangle12Path.fill()
         }
 
 
         //// Text 5 Drawing
-        let text5Rect = CGRect(x: 23, y: 311, width: 153, height: 18)
+        let text5Rect = CGRect(x: 10, y: 311, width: 153, height: 18)
         let text5TextContent = "Front Axle"
         let text5Style = NSMutableParagraphStyle()
         text5Style.alignment = .left
@@ -2056,7 +2056,7 @@ public class ResultsPDF : NSObject {
 
 
         //// Text 6 Drawing
-        let text6Rect = CGRect(x: 23, y: 328, width: 153, height: 18)
+        let text6Rect = CGRect(x: 10, y: 328, width: 153, height: 18)
         let text6TextContent = "Front Wheel"
         let text6Style = NSMutableParagraphStyle()
         text6Style.alignment = .left
@@ -2074,7 +2074,7 @@ public class ResultsPDF : NSObject {
 
 
         //// label 15 Drawing
-        let label15Rect = CGRect(x: 23, y: 445, width: 152, height: 16)
+        let label15Rect = CGRect(x: 10, y: 445, width: 152, height: 16)
         let label15TextContent = "springs & shocks"
         let label15Style = NSMutableParagraphStyle()
         label15Style.alignment = .left
@@ -2093,14 +2093,14 @@ public class ResultsPDF : NSObject {
 
         if (formAFrontAxleFrontSuspensionSpringsShocks) {
             //// Rectangle 15 Drawing
-            let rectangle15Path = UIBezierPath(rect: CGRect(x: 191, y: 448, width: 10, height: 10))
+            let rectangle15Path = UIBezierPath(rect: CGRect(x: 171, y: 448, width: 10, height: 10))
             UIColor.darkGray.setFill()
             rectangle15Path.fill()
         }
 
 
         //// label 16 Drawing
-        let label16Rect = CGRect(x: 23, y: 465, width: 166, height: 16)
+        let label16Rect = CGRect(x: 10, y: 465, width: 166, height: 16)
         let label16TextContent = "u-bolts"
         let label16Style = NSMutableParagraphStyle()
         label16Style.alignment = .left
@@ -2119,14 +2119,14 @@ public class ResultsPDF : NSObject {
 
         if (formAFrontAxleFrontSuspensionUbolts) {
             //// Rectangle 16 Drawing
-            let rectangle16Path = UIBezierPath(rect: CGRect(x: 191, y: 468, width: 10, height: 10))
+            let rectangle16Path = UIBezierPath(rect: CGRect(x: 171, y: 468, width: 10, height: 10))
             UIColor.darkGray.setFill()
             rectangle16Path.fill()
         }
 
 
         //// label 17 Drawing
-        let label17Rect = CGRect(x: 23, y: 485, width: 116, height: 16)
+        let label17Rect = CGRect(x: 10, y: 485, width: 116, height: 16)
         let label17TextContent = "spring mounts"
         let label17Style = NSMutableParagraphStyle()
         label17Style.alignment = .left
@@ -2145,14 +2145,14 @@ public class ResultsPDF : NSObject {
 
         if (formAFrontAxleFrontSuspensionSpringMounts) {
             //// Rectangle 17 Drawing
-            let rectangle17Path = UIBezierPath(rect: CGRect(x: 191, y: 488, width: 10, height: 10))
+            let rectangle17Path = UIBezierPath(rect: CGRect(x: 171, y: 488, width: 10, height: 10))
             UIColor.darkGray.setFill()
             rectangle17Path.fill()
         }
 
 
         //// Text 8 Drawing
-        let text8Rect = CGRect(x: 23, y: 428, width: 153, height: 18)
+        let text8Rect = CGRect(x: 10, y: 428, width: 153, height: 18)
         let text8TextContent = "Front Suspension"
         let text8Style = NSMutableParagraphStyle()
         text8Style.alignment = .left
@@ -2170,7 +2170,7 @@ public class ResultsPDF : NSObject {
 
 
         //// label 18 Drawing
-        let label18Rect = CGRect(x: 23, y: 525, width: 152, height: 16)
+        let label18Rect = CGRect(x: 10, y: 525, width: 152, height: 16)
         let label18TextContent = "brake hoses or lines"
         let label18Style = NSMutableParagraphStyle()
         label18Style.alignment = .left
@@ -2189,14 +2189,14 @@ public class ResultsPDF : NSObject {
 
         if (formAFrontAxleFrontBrakeHosesLines) {
             //// Rectangle 18 Drawing
-            let rectangle18Path = UIBezierPath(rect: CGRect(x: 191, y: 528, width: 10, height: 10))
+            let rectangle18Path = UIBezierPath(rect: CGRect(x: 171, y: 528, width: 10, height: 10))
             UIColor.darkGray.setFill()
             rectangle18Path.fill()
         }
 
 
         //// label 19 Drawing
-        let label19Rect = CGRect(x: 23, y: 545, width: 166, height: 16)
+        let label19Rect = CGRect(x: 10, y: 545, width: 166, height: 16)
         let label19TextContent = "*brake chamber"
         let label19Style = NSMutableParagraphStyle()
         label19Style.alignment = .left
@@ -2215,14 +2215,14 @@ public class ResultsPDF : NSObject {
 
         if (formAFrontAxleFrontBrakeChamber) {
             //// Rectangle 19 Drawing
-            let rectangle19Path = UIBezierPath(rect: CGRect(x: 191, y: 548, width: 10, height: 10))
+            let rectangle19Path = UIBezierPath(rect: CGRect(x: 171, y: 548, width: 10, height: 10))
             UIColor.darkGray.setFill()
             rectangle19Path.fill()
         }
 
 
         //// label 20 Drawing
-        let label20Rect = CGRect(x: 23, y: 565, width: 166, height: 16)
+        let label20Rect = CGRect(x: 10, y: 565, width: 166, height: 16)
         let label20TextContent = "* slack adjustor & push rod"
         let label20Style = NSMutableParagraphStyle()
         label20Style.alignment = .left
@@ -2241,14 +2241,14 @@ public class ResultsPDF : NSObject {
 
         if (formAFrontAxleFrontBrakeSlackAdjustorPushRod) {
             //// Rectangle 20 Drawing
-            let rectangle20Path = UIBezierPath(rect: CGRect(x: 191, y: 568, width: 10, height: 10))
+            let rectangle20Path = UIBezierPath(rect: CGRect(x: 171, y: 568, width: 10, height: 10))
             UIColor.darkGray.setFill()
             rectangle20Path.fill()
         }
 
 
         //// Text 7 Drawing
-        let text7Rect = CGRect(x: 23, y: 508, width: 153, height: 18)
+        let text7Rect = CGRect(x: 10, y: 508, width: 153, height: 18)
         let text7TextContent = "Front Brake"
         let text7Style = NSMutableParagraphStyle()
         text7Style.alignment = .left
@@ -2266,7 +2266,7 @@ public class ResultsPDF : NSObject {
 
 
         //// label 21 Drawing
-        let label21Rect = CGRect(x: 23, y: 585, width: 152, height: 31)
+        let label21Rect = CGRect(x: 10, y: 585, width: 152, height: 31)
         let label21TextContent = "drum & linings or rotor & disk"
         let label21Style = NSMutableParagraphStyle()
         label21Style.alignment = .left
@@ -2285,7 +2285,7 @@ public class ResultsPDF : NSObject {
 
         if (formAFrontAxleFrontBrakeDrumLiningsRoterDisk) {
             //// Rectangle 21 Drawing
-            let rectangle21Path = UIBezierPath(rect: CGRect(x: 191, y: 603, width: 10, height: 10))
+            let rectangle21Path = UIBezierPath(rect: CGRect(x: 171, y: 603, width: 10, height: 10))
             UIColor.darkGray.setFill()
             rectangle21Path.fill()
         }
@@ -2294,19 +2294,19 @@ public class ResultsPDF : NSObject {
 
     }
 
-    @objc dynamic public class func drawFormB(frame targetFrame: CGRect = CGRect(x: 0, y: 0, width: 203, height: 674), resizing: ResizingBehavior = .aspectFit, formBFuelAreaDoorMirror: Bool = true, formBFuelAreaFuelTankCapLeaks: Bool = true, formBFuelAreaCatwalkSteps: Bool = true, formBFuelAreaLightsReflectors: Bool = true, formBUnderVehicleDriveShaft: Bool = true, formBUnderVehicleExhaustSystem: Bool = true, formBUnderVehicleFrame: Bool = true, formBRearAxleTires: Bool = true, formBRearAxleRims: Bool = true, formBRearAxleLugNuts: Bool = true, formBRearAxleSeals: Bool = true, formBRearAxleSpacersBudSpacing: Bool = true, formBRearSuspensionSpringsAirbagsShocks: Bool = true, formBRearSuspensionUbolts: Bool = true, formBRearSuspensionSpringAirMountsTorqueArm: Bool = true, formBRearBrakeHosesLines: Bool = true, formBRearBrakeChamber: Bool = true, formBRearBrakeSlackAdjustorPushRod: Bool = true, formBRearBrakeDrumLiningsRotorDisk: Bool = true, formBRearOfVehicleDoorTiesLift: Bool = true, formBRearOfVehicleSplashGuards: Bool = true, formBRearOfVehicleLightsReflectorsReflectiveTape: Bool = true) {
+    @objc dynamic public class func drawFormB(frame targetFrame: CGRect = CGRect(x: 0, y: 0, width: 181, height: 674), resizing: ResizingBehavior = .aspectFit, formBFuelAreaDoorMirror: Bool = true, formBFuelAreaFuelTankCapLeaks: Bool = true, formBFuelAreaCatwalkSteps: Bool = true, formBFuelAreaLightsReflectors: Bool = true, formBUnderVehicleDriveShaft: Bool = true, formBUnderVehicleExhaustSystem: Bool = true, formBUnderVehicleFrame: Bool = true, formBRearAxleTires: Bool = true, formBRearAxleRims: Bool = true, formBRearAxleLugNuts: Bool = true, formBRearAxleSeals: Bool = true, formBRearAxleSpacersBudSpacing: Bool = true, formBRearSuspensionSpringsAirbagsShocks: Bool = true, formBRearSuspensionUbolts: Bool = true, formBRearSuspensionSpringAirMountsTorqueArm: Bool = true, formBRearBrakeHosesLines: Bool = true, formBRearBrakeChamber: Bool = true, formBRearBrakeSlackAdjustorPushRod: Bool = true, formBRearBrakeDrumLiningsRotorDisk: Bool = true, formBRearOfVehicleDoorTiesLift: Bool = true, formBRearOfVehicleSplashGuards: Bool = true, formBRearOfVehicleLightsReflectorsReflectiveTape: Bool = true) {
         //// General Declarations
         let context = UIGraphicsGetCurrentContext()!
         
         //// Resize to Target Frame
         context.saveGState()
-        let resizedFrame: CGRect = resizing.apply(rect: CGRect(x: 0, y: 0, width: 203, height: 674), target: targetFrame)
+        let resizedFrame: CGRect = resizing.apply(rect: CGRect(x: 0, y: 0, width: 181, height: 674), target: targetFrame)
         context.translateBy(x: resizedFrame.minX, y: resizedFrame.minY)
-        context.scaleBy(x: resizedFrame.width / 203, y: resizedFrame.height / 674)
+        context.scaleBy(x: resizedFrame.width / 181, y: resizedFrame.height / 674)
 
 
         //// label Drawing
-        let labelRect = CGRect(x: 23, y: 64, width: 166, height: 14)
+        let labelRect = CGRect(x: 10, y: 64, width: 166, height: 14)
         let labelTextContent = "door & mirror"
         let labelStyle = NSMutableParagraphStyle()
         labelStyle.alignment = .left
@@ -2325,14 +2325,14 @@ public class ResultsPDF : NSObject {
 
         if (formBFuelAreaDoorMirror) {
             //// Rectangle Drawing
-            let rectanglePath = UIBezierPath(rect: CGRect(x: 191, y: 66, width: 10, height: 10))
+            let rectanglePath = UIBezierPath(rect: CGRect(x: 171, y: 66, width: 10, height: 10))
             UIColor.darkGray.setFill()
             rectanglePath.fill()
         }
 
 
         //// label 7 Drawing
-        let label7Rect = CGRect(x: 23, y: 82, width: 132, height: 16)
+        let label7Rect = CGRect(x: 10, y: 82, width: 132, height: 16)
         let label7TextContent = "fuel tank & cap & leaks"
         let label7Style = NSMutableParagraphStyle()
         label7Style.alignment = .left
@@ -2351,14 +2351,14 @@ public class ResultsPDF : NSObject {
 
         if (formBFuelAreaFuelTankCapLeaks) {
             //// Rectangle 7 Drawing
-            let rectangle7Path = UIBezierPath(rect: CGRect(x: 191, y: 85, width: 10, height: 10))
+            let rectangle7Path = UIBezierPath(rect: CGRect(x: 171, y: 85, width: 10, height: 10))
             UIColor.darkGray.setFill()
             rectangle7Path.fill()
         }
 
 
         //// label 8 Drawing
-        let label8Rect = CGRect(x: 23, y: 102, width: 153, height: 16)
+        let label8Rect = CGRect(x: 10, y: 102, width: 153, height: 16)
         let label8TextContent = "catwalk & steps"
         let label8Style = NSMutableParagraphStyle()
         label8Style.alignment = .left
@@ -2377,14 +2377,14 @@ public class ResultsPDF : NSObject {
 
         if (formBFuelAreaCatwalkSteps) {
             //// Rectangle 8 Drawing
-            let rectangle8Path = UIBezierPath(rect: CGRect(x: 191, y: 105, width: 10, height: 10))
+            let rectangle8Path = UIBezierPath(rect: CGRect(x: 171, y: 105, width: 10, height: 10))
             UIColor.darkGray.setFill()
             rectangle8Path.fill()
         }
 
 
         //// label 13 Drawing
-        let label13Rect = CGRect(x: 23, y: 122, width: 166, height: 16)
+        let label13Rect = CGRect(x: 10, y: 122, width: 166, height: 16)
         let label13TextContent = "lights & reflectors (L-R-4-C)"
         let label13Style = NSMutableParagraphStyle()
         label13Style.alignment = .left
@@ -2403,14 +2403,14 @@ public class ResultsPDF : NSObject {
 
         if (formBFuelAreaLightsReflectors) {
             //// Rectangle 13 Drawing
-            let rectangle13Path = UIBezierPath(rect: CGRect(x: 191, y: 125, width: 10, height: 10))
+            let rectangle13Path = UIBezierPath(rect: CGRect(x: 171, y: 125, width: 10, height: 10))
             UIColor.darkGray.setFill()
             rectangle13Path.fill()
         }
 
 
         //// label 14 Drawing
-        let label14Rect = CGRect(x: 23, y: 591, width: 166, height: 16)
+        let label14Rect = CGRect(x: 10, y: 591, width: 166, height: 16)
         let label14TextContent = "door & ties & lift"
         let label14Style = NSMutableParagraphStyle()
         label14Style.alignment = .left
@@ -2429,14 +2429,14 @@ public class ResultsPDF : NSObject {
 
         if (formBRearOfVehicleDoorTiesLift) {
             //// Rectangle 14 Drawing
-            let rectangle14Path = UIBezierPath(rect: CGRect(x: 191, y: 594, width: 10, height: 10))
+            let rectangle14Path = UIBezierPath(rect: CGRect(x: 171, y: 594, width: 10, height: 10))
             UIColor.darkGray.setFill()
             rectangle14Path.fill()
         }
 
 
         //// Text Drawing
-        let textRect = CGRect(x: 55, y: 3, width: 100, height: 18)
+        let textRect = CGRect(x: 42, y: 3, width: 100, height: 18)
         let textTextContent = "Form B"
         let textStyle = NSMutableParagraphStyle()
         textStyle.alignment = .center
@@ -2454,7 +2454,7 @@ public class ResultsPDF : NSObject {
 
 
         //// Text 2 Drawing
-        let text2Rect = CGRect(x: 24, y: 26, width: 152, height: 18)
+        let text2Rect = CGRect(x: 11, y: 26, width: 152, height: 18)
         let text2TextContent = "Fuel Area/Under/Side"
         let text2Style = NSMutableParagraphStyle()
         text2Style.alignment = .left
@@ -2472,7 +2472,7 @@ public class ResultsPDF : NSObject {
 
 
         //// label 2 Drawing
-        let label2Rect = CGRect(x: 23, y: 611, width: 116, height: 16)
+        let label2Rect = CGRect(x: 10, y: 611, width: 116, height: 16)
         let label2TextContent = "splash guards"
         let label2Style = NSMutableParagraphStyle()
         label2Style.alignment = .left
@@ -2491,14 +2491,14 @@ public class ResultsPDF : NSObject {
 
         if (formBRearOfVehicleSplashGuards) {
             //// Rectangle 2 Drawing
-            let rectangle2Path = UIBezierPath(rect: CGRect(x: 191, y: 614, width: 10, height: 10))
+            let rectangle2Path = UIBezierPath(rect: CGRect(x: 171, y: 614, width: 10, height: 10))
             UIColor.darkGray.setFill()
             rectangle2Path.fill()
         }
 
 
         //// label 3 Drawing
-        let label3Rect = CGRect(x: 23, y: 631, width: 166, height: 32)
+        let label3Rect = CGRect(x: 10, y: 631, width: 166, height: 32)
         let label3TextContent = "lights, reflectors, reflective tape (L-R-4-TL-BL-C)"
         let label3Style = NSMutableParagraphStyle()
         label3Style.alignment = .left
@@ -2517,14 +2517,14 @@ public class ResultsPDF : NSObject {
 
         if (formBRearOfVehicleLightsReflectorsReflectiveTape) {
             //// Rectangle 3 Drawing
-            let rectangle3Path = UIBezierPath(rect: CGRect(x: 191, y: 650, width: 10, height: 10))
+            let rectangle3Path = UIBezierPath(rect: CGRect(x: 171, y: 650, width: 10, height: 10))
             UIColor.darkGray.setFill()
             rectangle3Path.fill()
         }
 
 
         //// label 5 Drawing
-        let label5Rect = CGRect(x: 23, y: 168, width: 152, height: 16)
+        let label5Rect = CGRect(x: 10, y: 168, width: 152, height: 16)
         let label5TextContent = "drive shaft"
         let label5Style = NSMutableParagraphStyle()
         label5Style.alignment = .left
@@ -2543,14 +2543,14 @@ public class ResultsPDF : NSObject {
 
         if (formBUnderVehicleDriveShaft) {
             //// Rectangle 5 Drawing
-            let rectangle5Path = UIBezierPath(rect: CGRect(x: 191, y: 171, width: 10, height: 10))
+            let rectangle5Path = UIBezierPath(rect: CGRect(x: 171, y: 171, width: 10, height: 10))
             UIColor.darkGray.setFill()
             rectangle5Path.fill()
         }
 
 
         //// label 6 Drawing
-        let label6Rect = CGRect(x: 23, y: 188, width: 177, height: 16)
+        let label6Rect = CGRect(x: 10, y: 188, width: 153, height: 16)
         let label6TextContent = "exhaust system"
         let label6Style = NSMutableParagraphStyle()
         label6Style.alignment = .left
@@ -2569,14 +2569,14 @@ public class ResultsPDF : NSObject {
 
         if (formBUnderVehicleExhaustSystem) {
             //// Rectangle 6 Drawing
-            let rectangle6Path = UIBezierPath(rect: CGRect(x: 191, y: 191, width: 10, height: 10))
+            let rectangle6Path = UIBezierPath(rect: CGRect(x: 171, y: 191, width: 10, height: 10))
             UIColor.darkGray.setFill()
             rectangle6Path.fill()
         }
 
 
         //// label 9 Drawing
-        let label9Rect = CGRect(x: 23, y: 265, width: 152, height: 16)
+        let label9Rect = CGRect(x: 10, y: 265, width: 152, height: 16)
         let label9TextContent = "tires (T-C-P)"
         let label9Style = NSMutableParagraphStyle()
         label9Style.alignment = .left
@@ -2595,14 +2595,14 @@ public class ResultsPDF : NSObject {
 
         if (formBRearAxleTires) {
             //// Rectangle 9 Drawing
-            let rectangle9Path = UIBezierPath(rect: CGRect(x: 191, y: 268, width: 10, height: 10))
+            let rectangle9Path = UIBezierPath(rect: CGRect(x: 171, y: 268, width: 10, height: 10))
             UIColor.darkGray.setFill()
             rectangle9Path.fill()
         }
 
 
         //// label 10 Drawing
-        let label10Rect = CGRect(x: 23, y: 285, width: 166, height: 16)
+        let label10Rect = CGRect(x: 10, y: 285, width: 166, height: 16)
         let label10TextContent = "rims"
         let label10Style = NSMutableParagraphStyle()
         label10Style.alignment = .left
@@ -2621,14 +2621,14 @@ public class ResultsPDF : NSObject {
 
         if (formBRearAxleRims) {
             //// Rectangle 10 Drawing
-            let rectangle10Path = UIBezierPath(rect: CGRect(x: 191, y: 288, width: 10, height: 10))
+            let rectangle10Path = UIBezierPath(rect: CGRect(x: 171, y: 288, width: 10, height: 10))
             UIColor.darkGray.setFill()
             rectangle10Path.fill()
         }
 
 
         //// Text 4 Drawing
-        let text4Rect = CGRect(x: 23, y: 149, width: 153, height: 18)
+        let text4Rect = CGRect(x: 10, y: 149, width: 153, height: 18)
         let text4TextContent = "Under Vehicle"
         let text4Style = NSMutableParagraphStyle()
         text4Style.alignment = .left
@@ -2646,7 +2646,7 @@ public class ResultsPDF : NSObject {
 
 
         //// label 11 Drawing
-        let label11Rect = CGRect(x: 23, y: 305, width: 116, height: 16)
+        let label11Rect = CGRect(x: 10, y: 305, width: 116, height: 16)
         let label11TextContent = "lug nuts"
         let label11Style = NSMutableParagraphStyle()
         label11Style.alignment = .left
@@ -2665,14 +2665,14 @@ public class ResultsPDF : NSObject {
 
         if (formBRearAxleLugNuts) {
             //// Rectangle 11 Drawing
-            let rectangle11Path = UIBezierPath(rect: CGRect(x: 191, y: 308, width: 10, height: 10))
+            let rectangle11Path = UIBezierPath(rect: CGRect(x: 171, y: 308, width: 10, height: 10))
             UIColor.darkGray.setFill()
             rectangle11Path.fill()
         }
 
 
         //// label 12 Drawing
-        let label12Rect = CGRect(x: 23, y: 325, width: 166, height: 16)
+        let label12Rect = CGRect(x: 10, y: 325, width: 166, height: 16)
         let label12TextContent = "axle seal"
         let label12Style = NSMutableParagraphStyle()
         label12Style.alignment = .left
@@ -2691,14 +2691,14 @@ public class ResultsPDF : NSObject {
 
         if (formBRearAxleSeals) {
             //// Rectangle 12 Drawing
-            let rectangle12Path = UIBezierPath(rect: CGRect(x: 191, y: 328, width: 10, height: 10))
+            let rectangle12Path = UIBezierPath(rect: CGRect(x: 171, y: 328, width: 10, height: 10))
             UIColor.darkGray.setFill()
             rectangle12Path.fill()
         }
 
 
         //// Text 5 Drawing
-        let text5Rect = CGRect(x: 23, y: 231, width: 153, height: 18)
+        let text5Rect = CGRect(x: 10, y: 231, width: 153, height: 18)
         let text5TextContent = "Rear Axle"
         let text5Style = NSMutableParagraphStyle()
         text5Style.alignment = .left
@@ -2716,7 +2716,7 @@ public class ResultsPDF : NSObject {
 
 
         //// Text 6 Drawing
-        let text6Rect = CGRect(x: 23, y: 248, width: 153, height: 18)
+        let text6Rect = CGRect(x: 10, y: 248, width: 153, height: 18)
         let text6TextContent = "Rear Wheels          F     R"
         let text6Style = NSMutableParagraphStyle()
         text6Style.alignment = .left
@@ -2734,7 +2734,7 @@ public class ResultsPDF : NSObject {
 
 
         //// label 15 Drawing
-        let label15Rect = CGRect(x: 23, y: 385, width: 166, height: 16)
+        let label15Rect = CGRect(x: 10, y: 385, width: 166, height: 16)
         let label15TextContent = "springs & airbags & shocks"
         let label15Style = NSMutableParagraphStyle()
         label15Style.alignment = .left
@@ -2753,14 +2753,14 @@ public class ResultsPDF : NSObject {
 
         if (formBRearSuspensionSpringsAirbagsShocks) {
             //// Rectangle 15 Drawing
-            let rectangle15Path = UIBezierPath(rect: CGRect(x: 191, y: 388, width: 10, height: 10))
+            let rectangle15Path = UIBezierPath(rect: CGRect(x: 171, y: 388, width: 10, height: 10))
             UIColor.darkGray.setFill()
             rectangle15Path.fill()
         }
 
 
         //// label 16 Drawing
-        let label16Rect = CGRect(x: 23, y: 405, width: 166, height: 16)
+        let label16Rect = CGRect(x: 10, y: 405, width: 166, height: 16)
         let label16TextContent = "u-bolts"
         let label16Style = NSMutableParagraphStyle()
         label16Style.alignment = .left
@@ -2779,14 +2779,14 @@ public class ResultsPDF : NSObject {
 
         if (formBRearSuspensionUbolts) {
             //// Rectangle 16 Drawing
-            let rectangle16Path = UIBezierPath(rect: CGRect(x: 191, y: 408, width: 10, height: 10))
+            let rectangle16Path = UIBezierPath(rect: CGRect(x: 171, y: 408, width: 10, height: 10))
             UIColor.darkGray.setFill()
             rectangle16Path.fill()
         }
 
 
         //// label 17 Drawing
-        let label17Rect = CGRect(x: 23, y: 425, width: 153, height: 26)
+        let label17Rect = CGRect(x: 10, y: 425, width: 153, height: 26)
         let label17TextContent = "spring/air mounts & torque arm"
         let label17Style = NSMutableParagraphStyle()
         label17Style.alignment = .left
@@ -2805,14 +2805,14 @@ public class ResultsPDF : NSObject {
 
         if (formBRearSuspensionSpringAirMountsTorqueArm) {
             //// Rectangle 17 Drawing
-            let rectangle17Path = UIBezierPath(rect: CGRect(x: 191, y: 438, width: 10, height: 10))
+            let rectangle17Path = UIBezierPath(rect: CGRect(x: 171, y: 438, width: 10, height: 10))
             UIColor.darkGray.setFill()
             rectangle17Path.fill()
         }
 
 
         //// Text 8 Drawing
-        let text8Rect = CGRect(x: 23, y: 368, width: 153, height: 18)
+        let text8Rect = CGRect(x: 10, y: 368, width: 153, height: 18)
         let text8TextContent = "Rear Suspension"
         let text8Style = NSMutableParagraphStyle()
         text8Style.alignment = .left
@@ -2830,7 +2830,7 @@ public class ResultsPDF : NSObject {
 
 
         //// label 18 Drawing
-        let label18Rect = CGRect(x: 23, y: 475, width: 152, height: 16)
+        let label18Rect = CGRect(x: 10, y: 475, width: 152, height: 16)
         let label18TextContent = "brake hoses or lines"
         let label18Style = NSMutableParagraphStyle()
         label18Style.alignment = .left
@@ -2849,14 +2849,14 @@ public class ResultsPDF : NSObject {
 
         if (formBRearBrakeHosesLines) {
             //// Rectangle 18 Drawing
-            let rectangle18Path = UIBezierPath(rect: CGRect(x: 191, y: 478, width: 10, height: 10))
+            let rectangle18Path = UIBezierPath(rect: CGRect(x: 171, y: 478, width: 10, height: 10))
             UIColor.darkGray.setFill()
             rectangle18Path.fill()
         }
 
 
         //// label 19 Drawing
-        let label19Rect = CGRect(x: 23, y: 495, width: 166, height: 16)
+        let label19Rect = CGRect(x: 10, y: 495, width: 166, height: 16)
         let label19TextContent = "*brake chamber"
         let label19Style = NSMutableParagraphStyle()
         label19Style.alignment = .left
@@ -2875,14 +2875,14 @@ public class ResultsPDF : NSObject {
 
         if (formBRearBrakeChamber) {
             //// Rectangle 19 Drawing
-            let rectangle19Path = UIBezierPath(rect: CGRect(x: 191, y: 498, width: 10, height: 10))
+            let rectangle19Path = UIBezierPath(rect: CGRect(x: 171, y: 498, width: 10, height: 10))
             UIColor.darkGray.setFill()
             rectangle19Path.fill()
         }
 
 
         //// label 20 Drawing
-        let label20Rect = CGRect(x: 23, y: 515, width: 166, height: 16)
+        let label20Rect = CGRect(x: 10, y: 515, width: 166, height: 16)
         let label20TextContent = "* slack adjustor & push rod"
         let label20Style = NSMutableParagraphStyle()
         label20Style.alignment = .left
@@ -2901,14 +2901,14 @@ public class ResultsPDF : NSObject {
 
         if (formBRearBrakeSlackAdjustorPushRod) {
             //// Rectangle 20 Drawing
-            let rectangle20Path = UIBezierPath(rect: CGRect(x: 191, y: 518, width: 10, height: 10))
+            let rectangle20Path = UIBezierPath(rect: CGRect(x: 171, y: 518, width: 10, height: 10))
             UIColor.darkGray.setFill()
             rectangle20Path.fill()
         }
 
 
         //// Text 7 Drawing
-        let text7Rect = CGRect(x: 23, y: 457, width: 153, height: 18)
+        let text7Rect = CGRect(x: 10, y: 457, width: 153, height: 18)
         let text7TextContent = "Rear Brake"
         let text7Style = NSMutableParagraphStyle()
         text7Style.alignment = .left
@@ -2926,7 +2926,7 @@ public class ResultsPDF : NSObject {
 
 
         //// label 21 Drawing
-        let label21Rect = CGRect(x: 23, y: 535, width: 152, height: 31)
+        let label21Rect = CGRect(x: 10, y: 535, width: 152, height: 31)
         let label21TextContent = "drum & linings or rotor & disk"
         let label21Style = NSMutableParagraphStyle()
         label21Style.alignment = .left
@@ -2945,14 +2945,14 @@ public class ResultsPDF : NSObject {
 
         if (formBRearBrakeDrumLiningsRotorDisk) {
             //// Rectangle 21 Drawing
-            let rectangle21Path = UIBezierPath(rect: CGRect(x: 191, y: 553, width: 10, height: 10))
+            let rectangle21Path = UIBezierPath(rect: CGRect(x: 171, y: 553, width: 10, height: 10))
             UIColor.darkGray.setFill()
             rectangle21Path.fill()
         }
 
 
         //// Text 9 Drawing
-        let text9Rect = CGRect(x: 24, y: 43, width: 152, height: 18)
+        let text9Rect = CGRect(x: 11, y: 43, width: 152, height: 18)
         let text9TextContent = "Driver/Fuel Area"
         let text9Style = NSMutableParagraphStyle()
         text9Style.alignment = .left
@@ -2970,7 +2970,7 @@ public class ResultsPDF : NSObject {
 
 
         //// label 22 Drawing
-        let label22Rect = CGRect(x: 23, y: 208, width: 166, height: 16)
+        let label22Rect = CGRect(x: 10, y: 208, width: 166, height: 16)
         let label22TextContent = "frame"
         let label22Style = NSMutableParagraphStyle()
         label22Style.alignment = .left
@@ -2989,14 +2989,14 @@ public class ResultsPDF : NSObject {
 
         if (formBUnderVehicleFrame) {
             //// Rectangle 22 Drawing
-            let rectangle22Path = UIBezierPath(rect: CGRect(x: 191, y: 211, width: 10, height: 10))
+            let rectangle22Path = UIBezierPath(rect: CGRect(x: 171, y: 211, width: 10, height: 10))
             UIColor.darkGray.setFill()
             rectangle22Path.fill()
         }
 
 
         //// label 23 Drawing
-        let label23Rect = CGRect(x: 23, y: 345, width: 166, height: 16)
+        let label23Rect = CGRect(x: 10, y: 345, width: 166, height: 16)
         let label23TextContent = "spacers or bud spacing"
         let label23Style = NSMutableParagraphStyle()
         label23Style.alignment = .left
@@ -3015,14 +3015,14 @@ public class ResultsPDF : NSObject {
 
         if (formBRearAxleSpacersBudSpacing) {
             //// Rectangle 23 Drawing
-            let rectangle23Path = UIBezierPath(rect: CGRect(x: 191, y: 348, width: 10, height: 10))
+            let rectangle23Path = UIBezierPath(rect: CGRect(x: 171, y: 348, width: 10, height: 10))
             UIColor.darkGray.setFill()
             rectangle23Path.fill()
         }
 
 
         //// Text 3 Drawing
-        let text3Rect = CGRect(x: 23, y: 572, width: 153, height: 18)
+        let text3Rect = CGRect(x: 10, y: 572, width: 153, height: 18)
         let text3TextContent = "Rear of Vehicle"
         let text3Style = NSMutableParagraphStyle()
         text3Style.alignment = .left
@@ -3042,19 +3042,19 @@ public class ResultsPDF : NSObject {
 
     }
 
-    @objc dynamic public class func drawFormC(frame targetFrame: CGRect = CGRect(x: 0, y: 0, width: 203, height: 655), resizing: ResizingBehavior = .aspectFit, formCTrailerHeaderBoardBulkhead: Bool = true, formCTrailerLightsReflectors: Bool = true, formCSideTrailerLandingGear: Bool = true, formCSideTrailerFrameTandemRelease: Bool = true, formCSideTrailerDoorsTiesLifts: Bool = true, formCSideTrailerLightsReflectors: Bool = true, formCWheelsTires: Bool = true, formCWheelsRims: Bool = true, formCWheelsLugNuts: Bool = true, formCWheelsAxleHubOilSeal: Bool = true, formCWheelsSpacersBudSpacing: Bool = true, formCSuspensionSpringsAirbagsShocks: Bool = true, formCSuspensionUbolts: Bool = true, formCSuspensionSpringAirMountsTorqueArm: Bool = true, formCBrakesHosesLines: Bool = true, formCBrakesChamber: Bool = true, formCBrakesSlackAdjustorPushRod: Bool = true, formCBrakesDrumLiningsRotorDisk: Bool = true, formCRearOfVehicleDoorTiesLift: Bool = true, formCRearOfVehicleSplashGuards: Bool = true, formCRearOfVehicleLightsReflectorsReflectiveTapeABS: Bool = true) {
+    @objc dynamic public class func drawFormC(frame targetFrame: CGRect = CGRect(x: 0, y: 0, width: 181, height: 655), resizing: ResizingBehavior = .aspectFit, formCTrailerHeaderBoardBulkhead: Bool = true, formCTrailerLightsReflectors: Bool = true, formCSideTrailerLandingGear: Bool = true, formCSideTrailerFrameTandemRelease: Bool = true, formCSideTrailerDoorsTiesLifts: Bool = true, formCSideTrailerLightsReflectors: Bool = true, formCWheelsTires: Bool = true, formCWheelsRims: Bool = true, formCWheelsLugNuts: Bool = true, formCWheelsAxleHubOilSeal: Bool = true, formCWheelsSpacersBudSpacing: Bool = true, formCSuspensionSpringsAirbagsShocks: Bool = true, formCSuspensionUbolts: Bool = true, formCSuspensionSpringAirMountsTorqueArm: Bool = true, formCBrakesHosesLines: Bool = true, formCBrakesChamber: Bool = true, formCBrakesSlackAdjustorPushRod: Bool = true, formCBrakesDrumLiningsRotorDisk: Bool = true, formCRearOfVehicleDoorTiesLift: Bool = true, formCRearOfVehicleSplashGuards: Bool = true, formCRearOfVehicleLightsReflectorsReflectiveTapeABS: Bool = true) {
         //// General Declarations
         let context = UIGraphicsGetCurrentContext()!
         
         //// Resize to Target Frame
         context.saveGState()
-        let resizedFrame: CGRect = resizing.apply(rect: CGRect(x: 0, y: 0, width: 203, height: 655), target: targetFrame)
+        let resizedFrame: CGRect = resizing.apply(rect: CGRect(x: 0, y: 0, width: 181, height: 655), target: targetFrame)
         context.translateBy(x: resizedFrame.minX, y: resizedFrame.minY)
-        context.scaleBy(x: resizedFrame.width / 203, y: resizedFrame.height / 655)
+        context.scaleBy(x: resizedFrame.width / 181, y: resizedFrame.height / 655)
 
 
         //// label Drawing
-        let labelRect = CGRect(x: 23, y: 64, width: 166, height: 14)
+        let labelRect = CGRect(x: 10, y: 64, width: 166, height: 14)
         let labelTextContent = "header board or bulkhead"
         let labelStyle = NSMutableParagraphStyle()
         labelStyle.alignment = .left
@@ -3073,14 +3073,14 @@ public class ResultsPDF : NSObject {
 
         if (formCTrailerHeaderBoardBulkhead) {
             //// Rectangle Drawing
-            let rectanglePath = UIBezierPath(rect: CGRect(x: 191, y: 66, width: 10, height: 10))
+            let rectanglePath = UIBezierPath(rect: CGRect(x: 171, y: 66, width: 10, height: 10))
             UIColor.darkGray.setFill()
             rectanglePath.fill()
         }
 
 
         //// label 7 Drawing
-        let label7Rect = CGRect(x: 23, y: 82, width: 132, height: 16)
+        let label7Rect = CGRect(x: 10, y: 82, width: 132, height: 16)
         let label7TextContent = "lights & reflectors (C)"
         let label7Style = NSMutableParagraphStyle()
         label7Style.alignment = .left
@@ -3099,14 +3099,14 @@ public class ResultsPDF : NSObject {
 
         if (formCTrailerLightsReflectors) {
             //// Rectangle 7 Drawing
-            let rectangle7Path = UIBezierPath(rect: CGRect(x: 191, y: 85, width: 10, height: 10))
+            let rectangle7Path = UIBezierPath(rect: CGRect(x: 171, y: 85, width: 10, height: 10))
             UIColor.darkGray.setFill()
             rectangle7Path.fill()
         }
 
 
         //// label 14 Drawing
-        let label14Rect = CGRect(x: 23, y: 571, width: 166, height: 16)
+        let label14Rect = CGRect(x: 10, y: 571, width: 166, height: 16)
         let label14TextContent = "door & ties & lift"
         let label14Style = NSMutableParagraphStyle()
         label14Style.alignment = .left
@@ -3125,14 +3125,14 @@ public class ResultsPDF : NSObject {
 
         if (formCRearOfVehicleDoorTiesLift) {
             //// Rectangle 14 Drawing
-            let rectangle14Path = UIBezierPath(rect: CGRect(x: 191, y: 574, width: 10, height: 10))
+            let rectangle14Path = UIBezierPath(rect: CGRect(x: 171, y: 574, width: 10, height: 10))
             UIColor.darkGray.setFill()
             rectangle14Path.fill()
         }
 
 
         //// Text Drawing
-        let textRect = CGRect(x: 12, y: 3, width: 177, height: 18)
+        let textRect = CGRect(x: -1, y: 3, width: 177, height: 18)
         let textTextContent = "Form C (Combinations)"
         let textStyle = NSMutableParagraphStyle()
         textStyle.alignment = .center
@@ -3150,7 +3150,7 @@ public class ResultsPDF : NSObject {
 
 
         //// Text 2 Drawing
-        let text2Rect = CGRect(x: 24, y: 26, width: 152, height: 18)
+        let text2Rect = CGRect(x: 11, y: 26, width: 152, height: 18)
         let text2TextContent = "Trailer/Semi-Trailer"
         let text2Style = NSMutableParagraphStyle()
         text2Style.alignment = .left
@@ -3168,7 +3168,7 @@ public class ResultsPDF : NSObject {
 
 
         //// label 2 Drawing
-        let label2Rect = CGRect(x: 23, y: 591, width: 116, height: 16)
+        let label2Rect = CGRect(x: 10, y: 591, width: 116, height: 16)
         let label2TextContent = "splash guards"
         let label2Style = NSMutableParagraphStyle()
         label2Style.alignment = .left
@@ -3187,14 +3187,14 @@ public class ResultsPDF : NSObject {
 
         if (formCRearOfVehicleSplashGuards) {
             //// Rectangle 2 Drawing
-            let rectangle2Path = UIBezierPath(rect: CGRect(x: 191, y: 594, width: 10, height: 10))
+            let rectangle2Path = UIBezierPath(rect: CGRect(x: 171, y: 594, width: 10, height: 10))
             UIColor.darkGray.setFill()
             rectangle2Path.fill()
         }
 
 
         //// label 3 Drawing
-        let label3Rect = CGRect(x: 23, y: 611, width: 166, height: 32)
+        let label3Rect = CGRect(x: 10, y: 611, width: 166, height: 32)
         let label3TextContent = "lights, reflectors, reflective tape (L-R-4-TL-BL-C) ABS"
         let label3Style = NSMutableParagraphStyle()
         label3Style.alignment = .left
@@ -3213,14 +3213,14 @@ public class ResultsPDF : NSObject {
 
         if (formCRearOfVehicleLightsReflectorsReflectiveTapeABS) {
             //// Rectangle 3 Drawing
-            let rectangle3Path = UIBezierPath(rect: CGRect(x: 191, y: 630, width: 10, height: 10))
+            let rectangle3Path = UIBezierPath(rect: CGRect(x: 171, y: 630, width: 10, height: 10))
             UIColor.darkGray.setFill()
             rectangle3Path.fill()
         }
 
 
         //// label 5 Drawing
-        let label5Rect = CGRect(x: 23, y: 128, width: 152, height: 16)
+        let label5Rect = CGRect(x: 10, y: 128, width: 152, height: 16)
         let label5TextContent = "landing gear"
         let label5Style = NSMutableParagraphStyle()
         label5Style.alignment = .left
@@ -3239,14 +3239,14 @@ public class ResultsPDF : NSObject {
 
         if (formCSideTrailerLandingGear) {
             //// Rectangle 5 Drawing
-            let rectangle5Path = UIBezierPath(rect: CGRect(x: 191, y: 131, width: 10, height: 10))
+            let rectangle5Path = UIBezierPath(rect: CGRect(x: 171, y: 131, width: 10, height: 10))
             UIColor.darkGray.setFill()
             rectangle5Path.fill()
         }
 
 
         //// label 6 Drawing
-        let label6Rect = CGRect(x: 23, y: 148, width: 177, height: 16)
+        let label6Rect = CGRect(x: 10, y: 148, width: 153, height: 16)
         let label6TextContent = "frame & tandem release"
         let label6Style = NSMutableParagraphStyle()
         label6Style.alignment = .left
@@ -3265,14 +3265,14 @@ public class ResultsPDF : NSObject {
 
         if (formCSideTrailerFrameTandemRelease) {
             //// Rectangle 6 Drawing
-            let rectangle6Path = UIBezierPath(rect: CGRect(x: 191, y: 151, width: 10, height: 10))
+            let rectangle6Path = UIBezierPath(rect: CGRect(x: 171, y: 151, width: 10, height: 10))
             UIColor.darkGray.setFill()
             rectangle6Path.fill()
         }
 
 
         //// label 9 Drawing
-        let label9Rect = CGRect(x: 23, y: 245, width: 152, height: 16)
+        let label9Rect = CGRect(x: 10, y: 245, width: 152, height: 16)
         let label9TextContent = "tires (T-C-P)"
         let label9Style = NSMutableParagraphStyle()
         label9Style.alignment = .left
@@ -3291,14 +3291,14 @@ public class ResultsPDF : NSObject {
 
         if (formCWheelsTires) {
             //// Rectangle 9 Drawing
-            let rectangle9Path = UIBezierPath(rect: CGRect(x: 191, y: 248, width: 10, height: 10))
+            let rectangle9Path = UIBezierPath(rect: CGRect(x: 171, y: 248, width: 10, height: 10))
             UIColor.darkGray.setFill()
             rectangle9Path.fill()
         }
 
 
         //// label 10 Drawing
-        let label10Rect = CGRect(x: 23, y: 265, width: 166, height: 16)
+        let label10Rect = CGRect(x: 10, y: 265, width: 166, height: 16)
         let label10TextContent = "rims"
         let label10Style = NSMutableParagraphStyle()
         label10Style.alignment = .left
@@ -3317,14 +3317,14 @@ public class ResultsPDF : NSObject {
 
         if (formCWheelsRims) {
             //// Rectangle 10 Drawing
-            let rectangle10Path = UIBezierPath(rect: CGRect(x: 191, y: 268, width: 10, height: 10))
+            let rectangle10Path = UIBezierPath(rect: CGRect(x: 171, y: 268, width: 10, height: 10))
             UIColor.darkGray.setFill()
             rectangle10Path.fill()
         }
 
 
         //// Text 4 Drawing
-        let text4Rect = CGRect(x: 23, y: 109, width: 153, height: 18)
+        let text4Rect = CGRect(x: 10, y: 109, width: 153, height: 18)
         let text4TextContent = "Side of Trailer"
         let text4Style = NSMutableParagraphStyle()
         text4Style.alignment = .left
@@ -3342,7 +3342,7 @@ public class ResultsPDF : NSObject {
 
 
         //// label 11 Drawing
-        let label11Rect = CGRect(x: 23, y: 285, width: 116, height: 16)
+        let label11Rect = CGRect(x: 10, y: 285, width: 116, height: 16)
         let label11TextContent = "lug nuts"
         let label11Style = NSMutableParagraphStyle()
         label11Style.alignment = .left
@@ -3361,14 +3361,14 @@ public class ResultsPDF : NSObject {
 
         if (formCWheelsLugNuts) {
             //// Rectangle 11 Drawing
-            let rectangle11Path = UIBezierPath(rect: CGRect(x: 191, y: 288, width: 10, height: 10))
+            let rectangle11Path = UIBezierPath(rect: CGRect(x: 171, y: 288, width: 10, height: 10))
             UIColor.darkGray.setFill()
             rectangle11Path.fill()
         }
 
 
         //// label 12 Drawing
-        let label12Rect = CGRect(x: 23, y: 305, width: 166, height: 16)
+        let label12Rect = CGRect(x: 10, y: 305, width: 166, height: 16)
         let label12TextContent = "axle or hub oil seal"
         let label12Style = NSMutableParagraphStyle()
         label12Style.alignment = .left
@@ -3387,14 +3387,14 @@ public class ResultsPDF : NSObject {
 
         if (formCWheelsAxleHubOilSeal) {
             //// Rectangle 12 Drawing
-            let rectangle12Path = UIBezierPath(rect: CGRect(x: 191, y: 308, width: 10, height: 10))
+            let rectangle12Path = UIBezierPath(rect: CGRect(x: 171, y: 308, width: 10, height: 10))
             UIColor.darkGray.setFill()
             rectangle12Path.fill()
         }
 
 
         //// Text 5 Drawing
-        let text5Rect = CGRect(x: 23, y: 211, width: 153, height: 18)
+        let text5Rect = CGRect(x: 10, y: 211, width: 153, height: 18)
         let text5TextContent = "Trailer Axles"
         let text5Style = NSMutableParagraphStyle()
         text5Style.alignment = .left
@@ -3412,7 +3412,7 @@ public class ResultsPDF : NSObject {
 
 
         //// Text 6 Drawing
-        let text6Rect = CGRect(x: 23, y: 228, width: 153, height: 18)
+        let text6Rect = CGRect(x: 10, y: 228, width: 153, height: 18)
         let text6TextContent = "Wheels          F     R"
         let text6Style = NSMutableParagraphStyle()
         text6Style.alignment = .left
@@ -3430,7 +3430,7 @@ public class ResultsPDF : NSObject {
 
 
         //// label 15 Drawing
-        let label15Rect = CGRect(x: 23, y: 365, width: 166, height: 16)
+        let label15Rect = CGRect(x: 10, y: 365, width: 166, height: 16)
         let label15TextContent = "springs & airbags & shocks"
         let label15Style = NSMutableParagraphStyle()
         label15Style.alignment = .left
@@ -3449,14 +3449,14 @@ public class ResultsPDF : NSObject {
 
         if (formCSuspensionSpringsAirbagsShocks) {
             //// Rectangle 15 Drawing
-            let rectangle15Path = UIBezierPath(rect: CGRect(x: 191, y: 368, width: 10, height: 10))
+            let rectangle15Path = UIBezierPath(rect: CGRect(x: 171, y: 368, width: 10, height: 10))
             UIColor.darkGray.setFill()
             rectangle15Path.fill()
         }
 
 
         //// label 16 Drawing
-        let label16Rect = CGRect(x: 23, y: 385, width: 166, height: 16)
+        let label16Rect = CGRect(x: 10, y: 385, width: 166, height: 16)
         let label16TextContent = "u-bolts"
         let label16Style = NSMutableParagraphStyle()
         label16Style.alignment = .left
@@ -3475,14 +3475,14 @@ public class ResultsPDF : NSObject {
 
         if (formCSuspensionUbolts) {
             //// Rectangle 16 Drawing
-            let rectangle16Path = UIBezierPath(rect: CGRect(x: 191, y: 388, width: 10, height: 10))
+            let rectangle16Path = UIBezierPath(rect: CGRect(x: 171, y: 388, width: 10, height: 10))
             UIColor.darkGray.setFill()
             rectangle16Path.fill()
         }
 
 
         //// label 17 Drawing
-        let label17Rect = CGRect(x: 23, y: 405, width: 153, height: 26)
+        let label17Rect = CGRect(x: 10, y: 405, width: 153, height: 26)
         let label17TextContent = "spring/air mounts & torque arm"
         let label17Style = NSMutableParagraphStyle()
         label17Style.alignment = .left
@@ -3501,14 +3501,14 @@ public class ResultsPDF : NSObject {
 
         if (formCSuspensionSpringAirMountsTorqueArm) {
             //// Rectangle 17 Drawing
-            let rectangle17Path = UIBezierPath(rect: CGRect(x: 191, y: 418, width: 10, height: 10))
+            let rectangle17Path = UIBezierPath(rect: CGRect(x: 171, y: 418, width: 10, height: 10))
             UIColor.darkGray.setFill()
             rectangle17Path.fill()
         }
 
 
         //// Text 8 Drawing
-        let text8Rect = CGRect(x: 23, y: 348, width: 153, height: 18)
+        let text8Rect = CGRect(x: 10, y: 348, width: 153, height: 18)
         let text8TextContent = "Suspension"
         let text8Style = NSMutableParagraphStyle()
         text8Style.alignment = .left
@@ -3526,7 +3526,7 @@ public class ResultsPDF : NSObject {
 
 
         //// label 18 Drawing
-        let label18Rect = CGRect(x: 23, y: 455, width: 152, height: 16)
+        let label18Rect = CGRect(x: 10, y: 455, width: 152, height: 16)
         let label18TextContent = "brake hoses or lines"
         let label18Style = NSMutableParagraphStyle()
         label18Style.alignment = .left
@@ -3545,14 +3545,14 @@ public class ResultsPDF : NSObject {
 
         if (formCBrakesHosesLines) {
             //// Rectangle 18 Drawing
-            let rectangle18Path = UIBezierPath(rect: CGRect(x: 191, y: 458, width: 10, height: 10))
+            let rectangle18Path = UIBezierPath(rect: CGRect(x: 171, y: 458, width: 10, height: 10))
             UIColor.darkGray.setFill()
             rectangle18Path.fill()
         }
 
 
         //// label 19 Drawing
-        let label19Rect = CGRect(x: 23, y: 475, width: 166, height: 16)
+        let label19Rect = CGRect(x: 10, y: 475, width: 166, height: 16)
         let label19TextContent = "*brake chamber"
         let label19Style = NSMutableParagraphStyle()
         label19Style.alignment = .left
@@ -3571,14 +3571,14 @@ public class ResultsPDF : NSObject {
 
         if (formCBrakesChamber) {
             //// Rectangle 19 Drawing
-            let rectangle19Path = UIBezierPath(rect: CGRect(x: 191, y: 478, width: 10, height: 10))
+            let rectangle19Path = UIBezierPath(rect: CGRect(x: 171, y: 478, width: 10, height: 10))
             UIColor.darkGray.setFill()
             rectangle19Path.fill()
         }
 
 
         //// label 20 Drawing
-        let label20Rect = CGRect(x: 23, y: 495, width: 166, height: 16)
+        let label20Rect = CGRect(x: 10, y: 495, width: 166, height: 16)
         let label20TextContent = "* slack adjustor & push rod"
         let label20Style = NSMutableParagraphStyle()
         label20Style.alignment = .left
@@ -3597,14 +3597,14 @@ public class ResultsPDF : NSObject {
 
         if (formCBrakesSlackAdjustorPushRod) {
             //// Rectangle 20 Drawing
-            let rectangle20Path = UIBezierPath(rect: CGRect(x: 191, y: 498, width: 10, height: 10))
+            let rectangle20Path = UIBezierPath(rect: CGRect(x: 171, y: 498, width: 10, height: 10))
             UIColor.darkGray.setFill()
             rectangle20Path.fill()
         }
 
 
         //// Text 7 Drawing
-        let text7Rect = CGRect(x: 23, y: 437, width: 153, height: 18)
+        let text7Rect = CGRect(x: 10, y: 437, width: 153, height: 18)
         let text7TextContent = "Brakes"
         let text7Style = NSMutableParagraphStyle()
         text7Style.alignment = .left
@@ -3622,7 +3622,7 @@ public class ResultsPDF : NSObject {
 
 
         //// label 21 Drawing
-        let label21Rect = CGRect(x: 23, y: 515, width: 152, height: 31)
+        let label21Rect = CGRect(x: 10, y: 515, width: 152, height: 31)
         let label21TextContent = "drum & linings or rotor & disk"
         let label21Style = NSMutableParagraphStyle()
         label21Style.alignment = .left
@@ -3641,14 +3641,14 @@ public class ResultsPDF : NSObject {
 
         if (formCBrakesDrumLiningsRotorDisk) {
             //// Rectangle 21 Drawing
-            let rectangle21Path = UIBezierPath(rect: CGRect(x: 191, y: 533, width: 10, height: 10))
+            let rectangle21Path = UIBezierPath(rect: CGRect(x: 171, y: 533, width: 10, height: 10))
             UIColor.darkGray.setFill()
             rectangle21Path.fill()
         }
 
 
         //// Text 9 Drawing
-        let text9Rect = CGRect(x: 24, y: 43, width: 152, height: 18)
+        let text9Rect = CGRect(x: 11, y: 43, width: 152, height: 18)
         let text9TextContent = "Trailer Front"
         let text9Style = NSMutableParagraphStyle()
         text9Style.alignment = .left
@@ -3666,7 +3666,7 @@ public class ResultsPDF : NSObject {
 
 
         //// label 22 Drawing
-        let label22Rect = CGRect(x: 23, y: 168, width: 166, height: 16)
+        let label22Rect = CGRect(x: 10, y: 168, width: 166, height: 16)
         let label22TextContent = "doors & ties & lifts"
         let label22Style = NSMutableParagraphStyle()
         label22Style.alignment = .left
@@ -3685,14 +3685,14 @@ public class ResultsPDF : NSObject {
 
         if (formCSideTrailerDoorsTiesLifts) {
             //// Rectangle 22 Drawing
-            let rectangle22Path = UIBezierPath(rect: CGRect(x: 191, y: 171, width: 10, height: 10))
+            let rectangle22Path = UIBezierPath(rect: CGRect(x: 171, y: 171, width: 10, height: 10))
             UIColor.darkGray.setFill()
             rectangle22Path.fill()
         }
 
 
         //// label 23 Drawing
-        let label23Rect = CGRect(x: 23, y: 325, width: 166, height: 16)
+        let label23Rect = CGRect(x: 10, y: 325, width: 166, height: 16)
         let label23TextContent = "spacers or bud spacing"
         let label23Style = NSMutableParagraphStyle()
         label23Style.alignment = .left
@@ -3711,14 +3711,14 @@ public class ResultsPDF : NSObject {
 
         if (formCWheelsSpacersBudSpacing) {
             //// Rectangle 23 Drawing
-            let rectangle23Path = UIBezierPath(rect: CGRect(x: 191, y: 328, width: 10, height: 10))
+            let rectangle23Path = UIBezierPath(rect: CGRect(x: 171, y: 328, width: 10, height: 10))
             UIColor.darkGray.setFill()
             rectangle23Path.fill()
         }
 
 
         //// Text 3 Drawing
-        let text3Rect = CGRect(x: 23, y: 552, width: 153, height: 18)
+        let text3Rect = CGRect(x: 10, y: 552, width: 153, height: 18)
         let text3TextContent = "Rear of Vehicle"
         let text3Style = NSMutableParagraphStyle()
         text3Style.alignment = .left
@@ -3736,7 +3736,7 @@ public class ResultsPDF : NSObject {
 
 
         //// label 4 Drawing
-        let label4Rect = CGRect(x: 23, y: 188, width: 166, height: 16)
+        let label4Rect = CGRect(x: 10, y: 188, width: 166, height: 16)
         let label4TextContent = "lights & reflectors (L-R-4-C)"
         let label4Style = NSMutableParagraphStyle()
         label4Style.alignment = .left
@@ -3755,10 +3755,349 @@ public class ResultsPDF : NSObject {
 
         if (formCSideTrailerLightsReflectors) {
             //// Rectangle 4 Drawing
-            let rectangle4Path = UIBezierPath(rect: CGRect(x: 191, y: 191, width: 10, height: 10))
+            let rectangle4Path = UIBezierPath(rect: CGRect(x: 171, y: 191, width: 10, height: 10))
             UIColor.darkGray.setFill()
             rectangle4Path.fill()
         }
+        
+        context.restoreGState()
+
+    }
+
+    @objc dynamic public class func drawAllPassengerVehicles(frame targetFrame: CGRect = CGRect(x: 0, y: 0, width: 181, height: 357), resizing: ResizingBehavior = .aspectFit, apvPassengerItemsEntryLift: Bool = true, apvPassengerItemsEmergencyExits: Bool = true, apvPassengerItemsSeating: Bool = true, apvBaggageCompartmentDoorsSecure: Bool = true, apvStudentLights: Bool = true, apvStudentSafetyStopArmSafetArm: Bool = true, apvStudentSafetyMirror: Bool = true, apvStudentSafetyKits: Bool = true) {
+        //// General Declarations
+        let context = UIGraphicsGetCurrentContext()!
+        
+        //// Resize to Target Frame
+        context.saveGState()
+        let resizedFrame: CGRect = resizing.apply(rect: CGRect(x: 0, y: 0, width: 181, height: 357), target: targetFrame)
+        context.translateBy(x: resizedFrame.minX, y: resizedFrame.minY)
+        context.scaleBy(x: resizedFrame.width / 181, y: resizedFrame.height / 357)
+
+
+        //// label Drawing
+        let labelRect = CGRect(x: 10, y: 54, width: 152, height: 14)
+        let labelTextContent = "passenger entry & lift"
+        let labelStyle = NSMutableParagraphStyle()
+        labelStyle.alignment = .left
+        let labelFontAttributes = [
+            .font: UIFont.systemFont(ofSize: UIFont.smallSystemFontSize),
+            .foregroundColor: UIColor.black,
+            .paragraphStyle: labelStyle,
+        ] as [NSAttributedStringKey: Any]
+
+        let labelTextHeight: CGFloat = labelTextContent.boundingRect(with: CGSize(width: labelRect.width, height: CGFloat.infinity), options: .usesLineFragmentOrigin, attributes: labelFontAttributes, context: nil).height
+        context.saveGState()
+        context.clip(to: labelRect)
+        labelTextContent.draw(in: CGRect(x: labelRect.minX, y: labelRect.minY + (labelRect.height - labelTextHeight) / 2, width: labelRect.width, height: labelTextHeight), withAttributes: labelFontAttributes)
+        context.restoreGState()
+
+
+        if (apvPassengerItemsEntryLift) {
+            //// Rectangle Drawing
+            let rectanglePath = UIBezierPath(rect: CGRect(x: 171, y: 56, width: 10, height: 10))
+            UIColor.darkGray.setFill()
+            rectanglePath.fill()
+        }
+
+
+        //// label 7 Drawing
+        let label7Rect = CGRect(x: 10, y: 72, width: 132, height: 16)
+        let label7TextContent = "emergency exits"
+        let label7Style = NSMutableParagraphStyle()
+        label7Style.alignment = .left
+        let label7FontAttributes = [
+            .font: UIFont.systemFont(ofSize: UIFont.smallSystemFontSize),
+            .foregroundColor: UIColor.black,
+            .paragraphStyle: label7Style,
+        ] as [NSAttributedStringKey: Any]
+
+        let label7TextHeight: CGFloat = label7TextContent.boundingRect(with: CGSize(width: label7Rect.width, height: CGFloat.infinity), options: .usesLineFragmentOrigin, attributes: label7FontAttributes, context: nil).height
+        context.saveGState()
+        context.clip(to: label7Rect)
+        label7TextContent.draw(in: CGRect(x: label7Rect.minX, y: label7Rect.minY + (label7Rect.height - label7TextHeight) / 2, width: label7Rect.width, height: label7TextHeight), withAttributes: label7FontAttributes)
+        context.restoreGState()
+
+
+        if (apvPassengerItemsEmergencyExits) {
+            //// Rectangle 7 Drawing
+            let rectangle7Path = UIBezierPath(rect: CGRect(x: 171, y: 75, width: 10, height: 10))
+            UIColor.darkGray.setFill()
+            rectangle7Path.fill()
+        }
+
+
+        //// Text Drawing
+        let textRect = CGRect(x: -1, y: 3, width: 177, height: 18)
+        let textTextContent = "All Passenger Vehicles"
+        let textStyle = NSMutableParagraphStyle()
+        textStyle.alignment = .center
+        let textFontAttributes = [
+            .font: UIFont.systemFont(ofSize: UIFont.systemFontSize, weight: .bold),
+            .foregroundColor: UIColor.black,
+            .paragraphStyle: textStyle,
+        ] as [NSAttributedStringKey: Any]
+
+        let textTextHeight: CGFloat = textTextContent.boundingRect(with: CGSize(width: textRect.width, height: CGFloat.infinity), options: .usesLineFragmentOrigin, attributes: textFontAttributes, context: nil).height
+        context.saveGState()
+        context.clip(to: textRect)
+        textTextContent.draw(in: CGRect(x: textRect.minX, y: textRect.minY + (textRect.height - textTextHeight) / 2, width: textRect.width, height: textTextHeight), withAttributes: textFontAttributes)
+        context.restoreGState()
+
+
+        //// Text 2 Drawing
+        let text2Rect = CGRect(x: 11, y: 26, width: 152, height: 18)
+        let text2TextContent = "Passenger Items"
+        let text2Style = NSMutableParagraphStyle()
+        text2Style.alignment = .left
+        let text2FontAttributes = [
+            .font: UIFont.systemFont(ofSize: UIFont.systemFontSize, weight: .bold),
+            .foregroundColor: UIColor.black,
+            .paragraphStyle: text2Style,
+        ] as [NSAttributedStringKey: Any]
+
+        let text2TextHeight: CGFloat = text2TextContent.boundingRect(with: CGSize(width: text2Rect.width, height: CGFloat.infinity), options: .usesLineFragmentOrigin, attributes: text2FontAttributes, context: nil).height
+        context.saveGState()
+        context.clip(to: text2Rect)
+        text2TextContent.draw(in: CGRect(x: text2Rect.minX, y: text2Rect.minY + (text2Rect.height - text2TextHeight) / 2, width: text2Rect.width, height: text2TextHeight), withAttributes: text2FontAttributes)
+        context.restoreGState()
+
+
+        //// label 5 Drawing
+        let label5Rect = CGRect(x: 10, y: 138, width: 152, height: 16)
+        let label5TextContent = "doors secure (baggage)"
+        let label5Style = NSMutableParagraphStyle()
+        label5Style.alignment = .left
+        let label5FontAttributes = [
+            .font: UIFont.systemFont(ofSize: UIFont.smallSystemFontSize),
+            .foregroundColor: UIColor.black,
+            .paragraphStyle: label5Style,
+        ] as [NSAttributedStringKey: Any]
+
+        let label5TextHeight: CGFloat = label5TextContent.boundingRect(with: CGSize(width: label5Rect.width, height: CGFloat.infinity), options: .usesLineFragmentOrigin, attributes: label5FontAttributes, context: nil).height
+        context.saveGState()
+        context.clip(to: label5Rect)
+        label5TextContent.draw(in: CGRect(x: label5Rect.minX, y: label5Rect.minY + (label5Rect.height - label5TextHeight) / 2, width: label5Rect.width, height: label5TextHeight), withAttributes: label5FontAttributes)
+        context.restoreGState()
+
+
+        if (apvBaggageCompartmentDoorsSecure) {
+            //// Rectangle 5 Drawing
+            let rectangle5Path = UIBezierPath(rect: CGRect(x: 171, y: 141, width: 10, height: 10))
+            UIColor.darkGray.setFill()
+            rectangle5Path.fill()
+        }
+
+
+        //// label 9 Drawing
+        let label9Rect = CGRect(x: 10, y: 235, width: 152, height: 16)
+        let label9TextContent = "student lights (front, back)"
+        let label9Style = NSMutableParagraphStyle()
+        label9Style.alignment = .left
+        let label9FontAttributes = [
+            .font: UIFont.systemFont(ofSize: UIFont.smallSystemFontSize),
+            .foregroundColor: UIColor.black,
+            .paragraphStyle: label9Style,
+        ] as [NSAttributedStringKey: Any]
+
+        let label9TextHeight: CGFloat = label9TextContent.boundingRect(with: CGSize(width: label9Rect.width, height: CGFloat.infinity), options: .usesLineFragmentOrigin, attributes: label9FontAttributes, context: nil).height
+        context.saveGState()
+        context.clip(to: label9Rect)
+        label9TextContent.draw(in: CGRect(x: label9Rect.minX, y: label9Rect.minY + (label9Rect.height - label9TextHeight) / 2, width: label9Rect.width, height: label9TextHeight), withAttributes: label9FontAttributes)
+        context.restoreGState()
+
+
+        if (apvStudentLights) {
+            //// Rectangle 9 Drawing
+            let rectangle9Path = UIBezierPath(rect: CGRect(x: 171, y: 238, width: 10, height: 10))
+            UIColor.darkGray.setFill()
+            rectangle9Path.fill()
+        }
+
+
+        //// Text 4 Drawing
+        let text4Rect = CGRect(x: 10, y: 119, width: 166, height: 18)
+        let text4TextContent = "Baggage Compartment"
+        let text4Style = NSMutableParagraphStyle()
+        text4Style.alignment = .left
+        let text4FontAttributes = [
+            .font: UIFont.systemFont(ofSize: UIFont.systemFontSize, weight: .bold),
+            .foregroundColor: UIColor.black,
+            .paragraphStyle: text4Style,
+        ] as [NSAttributedStringKey: Any]
+
+        let text4TextHeight: CGFloat = text4TextContent.boundingRect(with: CGSize(width: text4Rect.width, height: CGFloat.infinity), options: .usesLineFragmentOrigin, attributes: text4FontAttributes, context: nil).height
+        context.saveGState()
+        context.clip(to: text4Rect)
+        text4TextContent.draw(in: CGRect(x: text4Rect.minX, y: text4Rect.minY + (text4Rect.height - text4TextHeight) / 2, width: text4Rect.width, height: text4TextHeight), withAttributes: text4FontAttributes)
+        context.restoreGState()
+
+
+        //// Text 5 Drawing
+        let text5Rect = CGRect(x: 10, y: 201, width: 153, height: 18)
+        let text5TextContent = "School Bus (Only)"
+        let text5Style = NSMutableParagraphStyle()
+        text5Style.alignment = .left
+        let text5FontAttributes = [
+            .font: UIFont.systemFont(ofSize: UIFont.systemFontSize, weight: .bold),
+            .foregroundColor: UIColor.black,
+            .paragraphStyle: text5Style,
+        ] as [NSAttributedStringKey: Any]
+
+        let text5TextHeight: CGFloat = text5TextContent.boundingRect(with: CGSize(width: text5Rect.width, height: CGFloat.infinity), options: .usesLineFragmentOrigin, attributes: text5FontAttributes, context: nil).height
+        context.saveGState()
+        context.clip(to: text5Rect)
+        text5TextContent.draw(in: CGRect(x: text5Rect.minX, y: text5Rect.minY + (text5Rect.height - text5TextHeight) / 2, width: text5Rect.width, height: text5TextHeight), withAttributes: text5FontAttributes)
+        context.restoreGState()
+
+
+        //// Text 6 Drawing
+        let text6Rect = CGRect(x: 10, y: 218, width: 153, height: 18)
+        let text6TextContent = "Student Lights"
+        let text6Style = NSMutableParagraphStyle()
+        text6Style.alignment = .left
+        let text6FontAttributes = [
+            .font: UIFont.systemFont(ofSize: UIFont.smallSystemFontSize, weight: .bold),
+            .foregroundColor: UIColor.black,
+            .paragraphStyle: text6Style,
+        ] as [NSAttributedStringKey: Any]
+
+        let text6TextHeight: CGFloat = text6TextContent.boundingRect(with: CGSize(width: text6Rect.width, height: CGFloat.infinity), options: .usesLineFragmentOrigin, attributes: text6FontAttributes, context: nil).height
+        context.saveGState()
+        context.clip(to: text6Rect)
+        text6TextContent.draw(in: CGRect(x: text6Rect.minX, y: text6Rect.minY + (text6Rect.height - text6TextHeight) / 2, width: text6Rect.width, height: text6TextHeight), withAttributes: text6FontAttributes)
+        context.restoreGState()
+
+
+        //// label 15 Drawing
+        let label15Rect = CGRect(x: 10, y: 276, width: 153, height: 16)
+        let label15TextContent = "stop arm & safety arm"
+        let label15Style = NSMutableParagraphStyle()
+        label15Style.alignment = .left
+        let label15FontAttributes = [
+            .font: UIFont.systemFont(ofSize: UIFont.smallSystemFontSize),
+            .foregroundColor: UIColor.black,
+            .paragraphStyle: label15Style,
+        ] as [NSAttributedStringKey: Any]
+
+        let label15TextHeight: CGFloat = label15TextContent.boundingRect(with: CGSize(width: label15Rect.width, height: CGFloat.infinity), options: .usesLineFragmentOrigin, attributes: label15FontAttributes, context: nil).height
+        context.saveGState()
+        context.clip(to: label15Rect)
+        label15TextContent.draw(in: CGRect(x: label15Rect.minX, y: label15Rect.minY + (label15Rect.height - label15TextHeight) / 2, width: label15Rect.width, height: label15TextHeight), withAttributes: label15FontAttributes)
+        context.restoreGState()
+
+
+        if (apvStudentSafetyStopArmSafetArm) {
+            //// Rectangle 15 Drawing
+            let rectangle15Path = UIBezierPath(rect: CGRect(x: 171, y: 278, width: 10, height: 10))
+            UIColor.darkGray.setFill()
+            rectangle15Path.fill()
+        }
+
+
+        //// label 16 Drawing
+        let label16Rect = CGRect(x: 10, y: 295, width: 152, height: 16)
+        let label16TextContent = "student mirror"
+        let label16Style = NSMutableParagraphStyle()
+        label16Style.alignment = .left
+        let label16FontAttributes = [
+            .font: UIFont.systemFont(ofSize: UIFont.smallSystemFontSize),
+            .foregroundColor: UIColor.black,
+            .paragraphStyle: label16Style,
+        ] as [NSAttributedStringKey: Any]
+
+        let label16TextHeight: CGFloat = label16TextContent.boundingRect(with: CGSize(width: label16Rect.width, height: CGFloat.infinity), options: .usesLineFragmentOrigin, attributes: label16FontAttributes, context: nil).height
+        context.saveGState()
+        context.clip(to: label16Rect)
+        label16TextContent.draw(in: CGRect(x: label16Rect.minX, y: label16Rect.minY + (label16Rect.height - label16TextHeight) / 2, width: label16Rect.width, height: label16TextHeight), withAttributes: label16FontAttributes)
+        context.restoreGState()
+
+
+        if (apvStudentSafetyMirror) {
+            //// Rectangle 16 Drawing
+            let rectangle16Path = UIBezierPath(rect: CGRect(x: 171, y: 298, width: 10, height: 10))
+            UIColor.darkGray.setFill()
+            rectangle16Path.fill()
+        }
+
+
+        //// label 17 Drawing
+        let label17Rect = CGRect(x: 10, y: 315, width: 153, height: 26)
+        let label17TextContent = "emergency kit & body fluid kit"
+        let label17Style = NSMutableParagraphStyle()
+        label17Style.alignment = .left
+        let label17FontAttributes = [
+            .font: UIFont.systemFont(ofSize: UIFont.smallSystemFontSize),
+            .foregroundColor: UIColor.black,
+            .paragraphStyle: label17Style,
+        ] as [NSAttributedStringKey: Any]
+
+        let label17TextHeight: CGFloat = label17TextContent.boundingRect(with: CGSize(width: label17Rect.width, height: CGFloat.infinity), options: .usesLineFragmentOrigin, attributes: label17FontAttributes, context: nil).height
+        context.saveGState()
+        context.clip(to: label17Rect)
+        label17TextContent.draw(in: CGRect(x: label17Rect.minX, y: label17Rect.minY + (label17Rect.height - label17TextHeight) / 2, width: label17Rect.width, height: label17TextHeight), withAttributes: label17FontAttributes)
+        context.restoreGState()
+
+
+        if (apvStudentSafetyKits) {
+            //// Rectangle 17 Drawing
+            let rectangle17Path = UIBezierPath(rect: CGRect(x: 171, y: 328, width: 10, height: 10))
+            UIColor.darkGray.setFill()
+            rectangle17Path.fill()
+        }
+
+
+        //// Text 8 Drawing
+        let text8Rect = CGRect(x: 10, y: 258, width: 153, height: 18)
+        let text8TextContent = "Student Safety Items"
+        let text8Style = NSMutableParagraphStyle()
+        text8Style.alignment = .left
+        let text8FontAttributes = [
+            .font: UIFont.systemFont(ofSize: UIFont.smallSystemFontSize, weight: .bold),
+            .foregroundColor: UIColor.black,
+            .paragraphStyle: text8Style,
+        ] as [NSAttributedStringKey: Any]
+
+        let text8TextHeight: CGFloat = text8TextContent.boundingRect(with: CGSize(width: text8Rect.width, height: CGFloat.infinity), options: .usesLineFragmentOrigin, attributes: text8FontAttributes, context: nil).height
+        context.saveGState()
+        context.clip(to: text8Rect)
+        text8TextContent.draw(in: CGRect(x: text8Rect.minX, y: text8Rect.minY + (text8Rect.height - text8TextHeight) / 2, width: text8Rect.width, height: text8TextHeight), withAttributes: text8FontAttributes)
+        context.restoreGState()
+
+
+        //// label 8 Drawing
+        let label8Rect = CGRect(x: 10, y: 92, width: 132, height: 16)
+        let label8TextContent = "seating"
+        let label8Style = NSMutableParagraphStyle()
+        label8Style.alignment = .left
+        let label8FontAttributes = [
+            .font: UIFont.systemFont(ofSize: UIFont.smallSystemFontSize),
+            .foregroundColor: UIColor.black,
+            .paragraphStyle: label8Style,
+        ] as [NSAttributedStringKey: Any]
+
+        let label8TextHeight: CGFloat = label8TextContent.boundingRect(with: CGSize(width: label8Rect.width, height: CGFloat.infinity), options: .usesLineFragmentOrigin, attributes: label8FontAttributes, context: nil).height
+        context.saveGState()
+        context.clip(to: label8Rect)
+        label8TextContent.draw(in: CGRect(x: label8Rect.minX, y: label8Rect.minY + (label8Rect.height - label8TextHeight) / 2, width: label8Rect.width, height: label8TextHeight), withAttributes: label8FontAttributes)
+        context.restoreGState()
+
+
+        if (apvPassengerItemsSeating) {
+            //// Rectangle 8 Drawing
+            let rectangle8Path = UIBezierPath(rect: CGRect(x: 171, y: 95, width: 10, height: 10))
+            UIColor.darkGray.setFill()
+            rectangle8Path.fill()
+        }
+
+
+        //// Bezier Drawing
+        let bezierPath = UIBezierPath()
+        bezierPath.move(to: CGPoint(x: 3.5, y: 163.5))
+        bezierPath.addLine(to: CGPoint(x: 180.5, y: 163.5))
+        UIColor.black.setStroke()
+        bezierPath.lineWidth = 1
+        bezierPath.stroke()
         
         context.restoreGState()
 
