@@ -201,41 +201,44 @@ class ExamCriteriaViewController: UITableViewController, LoadExamInfoDelegate, U
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = ExamCriteriaView();
         let section = self.tableViewHeaders[indexPath.section];
+        var resultKey:String!
         
         if (self.criteriaList.count != 0) {
-            cell.setup(type: "SWITCH", key: self.resultKey + "." + self.criteriaList[indexPath.row])
-            cell.nameLabel!.text = self.criteriaList[indexPath.row];
+            resultKey = self.resultKey + "." + self.criteriaList[indexPath.row]
+            let value = self.criteriaList[indexPath.row];
+            if value.contains("|") {
+                let descriptor = value.split(separator: "|").last!;
+                let type = descriptor.split(separator: ":").first!
+                let placeholders = descriptor.split(separator: ":").last!
+                
+                if type == "CONTROL" {
+                    cell.setup(type: "CONTROL", key: resultKey)
+                    cell.segment.insertSegment(withTitle: String(describing: placeholders.split(separator: "/").first!), at: 0, animated: false)
+                    cell.segment.insertSegment(withTitle: String(describing: placeholders.split(separator: "/").last!), at: 1, animated: false)
+                } else if type == "INPUT" {
+                    cell.setup(type: "INPUT", key: resultKey)
+                    cell.textField.placeholder = String(describing: placeholders)
+                }
+                
+                cell.nameLabel!.text = String(describing: value.split(separator: "|").first!)
+            } else {
+                cell.setup(type: "SWITCH", key: resultKey)
+                cell.nameLabel!.text = self.criteriaList[indexPath.row];
+            }
+            
         } else {
             if let values = self.criteriaDict[self.tableViewHeaders[indexPath.section]] as? [String] {
-                let resultKey = self.resultKey + "." + section + "." + values[indexPath.row];
+                resultKey = self.resultKey + "." + section + "." + values[indexPath.row];
                 cell.setup(type: "SWITCH", key: resultKey)
                 cell.nameLabel.text = values[indexPath.row]
             } else {
-                if let values = self.criteriaDict[self.tableViewHeaders[indexPath.section]] as? [String:Any] {
-                    for (key, value) in values {
-                        let multipleChoiceView = MultipleChoiceView();
-                        multipleChoiceView.setup(headerName: key, criteriaList: value as! [String])
-                        multipleChoiceView.resultKey = key;
-                        return multipleChoiceView;
+                if let values = self.criteriaDict[self.tableViewHeaders[indexPath.section]] as? [Any] {
+                    if let value = values[indexPath.row] as? String {
+                        resultKey = self.resultKey + "." + section + "." + value;
+                        cell.setup(type: "SWITCH", key: resultKey)
+                        cell.nameLabel.text = value;
                     }
-                } else {
-                    if let values = self.criteriaDict[self.tableViewHeaders[indexPath.section]] as? [Any] {
-                        if let value = values[indexPath.row] as? String {
-                            let resultKey = self.resultKey + "." + section + "." + value;
-                            cell.setup(type: "SWITCH", key: resultKey)
-                            cell.nameLabel.text = value;
-                        } else {
-                            if let value = values[indexPath.row] as? [String: Any] {
-                                for (key, value) in value {
-                                    let multipleChoiceView = MultipleChoiceView();
-                                    multipleChoiceView.setup(headerName: key, criteriaList: value as! [String])
-                                    multipleChoiceView.resultKey = key;
-                                    return multipleChoiceView;
-                                }
-                            }
-                        }
-                    }
-                }
+                }                
             }
         }
         

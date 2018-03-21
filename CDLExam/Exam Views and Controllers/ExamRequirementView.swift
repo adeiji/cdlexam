@@ -163,7 +163,7 @@ class ExamCriteriaView: UITableViewCell {
     func setup(type: String, key: String) {
         let nameLabel = UILabel()
         let dividerView = UIView()
-        
+        self.resultKey = key;
         self.contentView.addSubview(nameLabel);
         nameLabel.snp.makeConstraints { (make) in
             make.left.equalTo(self.contentView).offset(75)
@@ -195,6 +195,7 @@ class ExamCriteriaView: UITableViewCell {
                 make.right.equalTo(self).offset(-30)
                 make.height.equalTo(30)
             });
+            self.segment.addTarget(self, action: #selector(segmentTapped(segment:)), for: .valueChanged);
         case "INPUT":
             self.textField = UITextField()
             self.addSubview(self.textField)
@@ -204,6 +205,7 @@ class ExamCriteriaView: UITableViewCell {
                 make.right.equalTo(self).offset(-30)
                 make.height.equalTo(30)
             })
+            self.textField.addTarget(self, action: #selector(textChanged(textField:)), for: .editingChanged)
         case "SWITCH":
             self.mySwitch = UISwitch()
             self.addSubview(mySwitch)
@@ -213,7 +215,6 @@ class ExamCriteriaView: UITableViewCell {
                 make.height.equalTo(30)
             })
             self.mySwitch.addTarget(self, action: #selector(switchChanged), for: .touchUpInside)
-            self.resultKey = key;
             let value = ExamResults.sharedInstance.getResult(key: self.resultKey);
             var boolValue:Bool;
             if value == "true" {
@@ -224,6 +225,16 @@ class ExamCriteriaView: UITableViewCell {
             self.mySwitch.isOn = boolValue
         default:break
         }
+    }
+    
+    @objc func textChanged (textField: UITextField) {
+        let value = textField.text;
+        ExamResults.sharedInstance.addResult(key: self.resultKey, value: value!)
+    }
+    
+    @objc func segmentTapped (segment: UISegmentedControl) {
+        let value = segment.titleForSegment(at: segment.selectedSegmentIndex)
+        ExamResults.sharedInstance.addResult(key: self.resultKey, value: value!)
     }
     
     @objc func switchChanged(_ resultSwitch: UISwitch) {
