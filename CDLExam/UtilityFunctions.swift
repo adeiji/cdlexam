@@ -19,5 +19,13 @@ class UtilityFunctions {
             return false;
         }
     }
+
+    class func dateToString (date: Date) -> String {
+        let dateformatter = DateFormatter()
+        dateformatter.dateStyle = .long
+        dateformatter.timeStyle = .short
+        let stringDate = dateformatter.string(from: date)
+        return stringDate
+    }
     
 }

@@ -19,7 +19,7 @@ class ExamCriteriaViewController: UITableViewController, LoadExamInfoDelegate, U
     var criteriaDict = [String:Any]();
     var tableViewHeaders = [String]()
     var resultKey:String!
-    var exam:Exam!
+    var exam:ExamObject!
     var documentInteractionController:UIDocumentInteractionController!
     
     func reset() {

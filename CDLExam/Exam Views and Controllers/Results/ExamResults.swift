@@ -12,7 +12,11 @@ import RealmSwift
 final class ExamResults {
     static let sharedInstance = ExamResults()
     var results = [String:String]();
-    var exam:Exam!
+    var exam:ExamObject! {
+        willSet(myExam) {
+            self.setResults(exam: myExam)
+        }
+    }
     
     private init() {}
     
@@ -24,44 +28,62 @@ final class ExamResults {
         return self.results[key];
     }
     
-    public func getResults () -> [String:Any] {
-        return self.results;
-    }
-    
-    public func loadResults () {
-        let realm = try! Realm()
-        let exams = realm.objects(ExamObject.self)
-        let exam = exams[0];
+    public func setResults (exam: ExamObject){
         for result in exam.resultList {
-            self.results[result.resultValue] = result.resultValue;
+            self.results[result.resultKey] = result.resultValue;
         }
     }
     
-    public func saveExamResults (exam: Exam, passed: Bool) -> Bool {
-        let examObject = ExamObject();
-        examObject.clientId = UUID().uuidString;
-        examObject.passed = passed;
-        examObject.date = exam.date;
-        examObject.name = exam.name;
-        examObject.license = exam.driversLicense;
-        examObject.vehicle = exam.vehicle;
-        examObject.type = exam.type;
-        examObject.examClass = exam.examClass;
+    public func deleteRealmObject (object: Object) -> Bool {
+        do {
+            let realm = try Realm()
+            try realm.write {
+                realm.delete(object)
+            }
+        } catch {
+            print("Unexpected error: \(error).")
+            return false;
+        }
+        
+        return true
+    }
+    
+    public func loadExams () -> [ExamObject] {
+        
+        do {
+            let realm = try Realm()
+            
+            let exams = realm.objects(ExamObject.self)
+            
+            return Array(exams);
+        } catch {
+            print("Unexpected error: \(error).")
+        }
+        
+        return [ExamObject]();
+    }
+    
+    public func saveExamResults (exam: ExamObject, passed: Bool) -> Bool {
+        let realm = try! Realm()
         
         // Value can only be of type Boolean or of type string
         for (key, value) in self.results {
             let resultsObject = ResultsObject()
             resultsObject.resultKey = key;
             resultsObject.resultValue = value;
-            
-            examObject.resultList.append(resultsObject)
-            
+            do {
+                try realm.write {
+                    exam.resultList.append(resultsObject)
+                }
+            } catch {
+                print("Unexpected error: \(error).")
+                return false;
+            }
         }
         
-        let realm = try! Realm()
         do {
             try realm.write {
-                realm.add(examObject)
+                realm.add(exam)
             }
         } catch {
             print("Unexpected error: \(error).")
@@ -79,8 +101,15 @@ class ExamObject: Object {
     @objc dynamic var name = "";
     @objc dynamic var license = "";
     @objc dynamic var vehicle = "";
-    @objc dynamic var type = "";
-    @objc dynamic var examClass = "";
+    @objc dynamic var type = "Pre-Trip Exam";
+    @objc dynamic var examClass = "Class 1";
+    @objc dynamic var status = "";
+    @objc dynamic var form = "Form A";
+    @objc dynamic var airBrakes = "False";
+    @objc dynamic var vehicleAxles = "Two";
+    @objc dynamic var trailerAxles = "Three";
+    @objc dynamic var gvwr = "";
+    @objc dynamic var passPoints = 0;
     
     let resultList = List<ResultsObject>();
 }

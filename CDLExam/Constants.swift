@@ -240,3 +240,12 @@ let kSchoolBusStudentSafetyItems = kSchoolBusOnly + ".Student Safety Items"
 let kSchoolBusStudentSafetyItemsStopArmSafetyArm = kSchoolBusStudentSafetyItems + ".stop arm & safety arm"
 let kSchoolBusStudentSafetyItemsStudentMirror = kSchoolBusStudentSafetyItems + ".student mirror"
 let kSchoolBusStudentSafetyItemsEmergencyKitBodyFluidKit = kSchoolBusStudentSafetyItems + ".emergency kit & body fluid kit"
+
+// ------------------------------------------------------------------------------------------------------------------------
+//                                              VEHICLE INFO
+// ------------------------------------------------------------------------------------------------------------------------
+let kVehicleInfo = "Vehicle Info"
+let kVehicleInfoAxles = kVehicleInfo + ".Vehicle Axles"
+let kVehicleInfoTrailerAxles = kVehicleInfo + ".Trailer Axles"
+let kVehicleInfoAirBrakes = kVehicleInfo + ".Air Brakes"
+let kVehicleInfoGVWR = kVehicleInfo + ".GVWR"

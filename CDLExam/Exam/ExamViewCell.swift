@@ -18,13 +18,15 @@ class ExamViewCell : UITableViewCell {
     @IBOutlet weak var type: UILabel!
     @IBOutlet weak var examClass: UILabel!
     @IBOutlet weak var startButton: UIButton!
-    var exam:Exam!
+    @IBOutlet weak var cancelButton: UIButton!
     
-    func setExam (exam: Exam) {
+    var exam:ExamObject!
+    
+    func setExam (exam: ExamObject) {
         self.exam = exam;
         self.name.text = exam.name;
-        self.date.text = "Monday 2/25/2018 @ 9:20 PM";
-        self.license.text = exam.driversLicense;
+        self.date.text = UtilityFunctions.dateToString(date: exam.date)
+        self.license.text = exam.license;
         self.vehicle.text = exam.vehicle;
         self.type.text = exam.type;
         self.examClass.text = exam.examClass;

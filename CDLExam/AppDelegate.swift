@@ -8,6 +8,7 @@
 
 import UIKit
 import CoreData
+import RealmSwift
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDelegate {
@@ -17,7 +18,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {        
         // Override point for customization after application launch.
-
+        handleRealmMigration()
+//        restartRealm()
         let splitViewController = UISplitViewController();
         self.window!.rootViewController = splitViewController;
         
@@ -29,24 +31,48 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
         let navVC = UINavigationController(rootViewController: menuTableViewController)
         splitViewController.viewControllers.append(navVC);
         
-        let examScheduleViewController = ExamScheduleTableViewController()
-        let exams = [
-                    Exam(name: "Adebayo Ijidakinro", date: Date(), driversLicense: "Open Class C", vehicle: "18 Wheeler Four Ton", type: "Class Exam Type", examClass: "Class 1"),
-                    Exam(name: "Adebayo Ijidakinro", date: Date(), driversLicense: "Open Class C", vehicle: "18 Wheeler Four Ton", type: "Class Exam Type", examClass: "Class 1")
-        ]
+        let examScheduleViewController = ExamScheduleTableViewController()        
         examScheduleViewController.menuViewController = menuTableViewController;
-        examScheduleViewController.exams = exams;        
+        examScheduleViewController.exams = ExamResults.sharedInstance.loadExams();
         let detailNavVC = UINavigationController(rootViewController: examScheduleViewController);
+        menuTableViewController.detailViewController = detailNavVC
         splitViewController.delegate = self
         splitViewController.viewControllers.append(detailNavVC);
         
         return true
     }
     
-    func generateKeys () {
-        
+    func restartRealm () {
+        do {
+            let realm = try Realm()
+            try realm.write {
+                realm.deleteAll()
+            }
+        } catch {
+            print("Unexpected error: \(error).")
+        }
     }
     
+    func handleRealmMigration () {
+        let config = Realm.Configuration(
+            // Set the new schema version. This must be greater than the previously used
+            // version (if you've never set a schema version before, the version is 0).
+            schemaVersion: 1,
+            
+            // Set the block which will be called automatically when opening a Realm with
+            // a schema version lower than the one set above
+            migrationBlock: { migration, oldSchemaVersion in
+                // We haven’t migrated anything yet, so oldSchemaVersion == 0
+                if (oldSchemaVersion < 1) {
+                    // Nothing to do!
+                    // Realm will automatically detect new properties and removed properties
+                    // And will update the schema on disk automatically
+                }
+        })
+        
+        // Tell Realm to use this new configuration object for the default Realm
+        Realm.Configuration.defaultConfiguration = config
+    }
 
     func applicationWillResignActive(_ application: UIApplication) {
         // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.

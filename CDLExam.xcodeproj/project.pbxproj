@@ -10,6 +10,9 @@
 		4D19DB9003BCD64316516A13 /* Pods_CDLExamUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B64B9C32CB0D3F5E48B84EB /* Pods_CDLExamUITests.framework */; };
 		6EF3E77AC8822F14F7F936A7 /* Pods_CDLExamTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BBD2D0D787777CCADED9EFE6 /* Pods_CDLExamTests.framework */; };
 		82DF936606E5F445A3598B78 /* Pods_CDLExam.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E7405E8C0C329D2D7355BC61 /* Pods_CDLExam.framework */; };
+		F417404020635C46007DFE7A /* CreateExamView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F417403F20635C46007DFE7A /* CreateExamView.xib */; };
+		F417404220635C53007DFE7A /* CreateExamViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F417404120635C53007DFE7A /* CreateExamViewController.swift */; };
+		F417404420636026007DFE7A /* CreateExamView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F417404320636026007DFE7A /* CreateExamView.swift */; };
 		F41E237B205FC76A00975C5A /* ExamResults.swift in Sources */ = {isa = PBXBuildFile; fileRef = F41E2375205FC76900975C5A /* ExamResults.swift */; };
 		F41E237C205FC76A00975C5A /* ExamScheduleTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F41E2376205FC76900975C5A /* ExamScheduleTableViewController.swift */; };
 		F41E237D205FC76A00975C5A /* ExamMenuTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F41E2377205FC76900975C5A /* ExamMenuTableViewController.swift */; };
@@ -63,6 +66,9 @@
 		BBD2D0D787777CCADED9EFE6 /* Pods_CDLExamTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CDLExamTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DFADD75CBDACF24254B89DFF /* Pods-CDLExam.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CDLExam.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CDLExam/Pods-CDLExam.debug.xcconfig"; sourceTree = "<group>"; };
 		E7405E8C0C329D2D7355BC61 /* Pods_CDLExam.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CDLExam.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F417403F20635C46007DFE7A /* CreateExamView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CreateExamView.xib; sourceTree = "<group>"; };
+		F417404120635C53007DFE7A /* CreateExamViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateExamViewController.swift; sourceTree = "<group>"; };
+		F417404320636026007DFE7A /* CreateExamView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateExamView.swift; sourceTree = "<group>"; };
 		F41E2375205FC76900975C5A /* ExamResults.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExamResults.swift; sourceTree = "<group>"; };
 		F41E2376205FC76900975C5A /* ExamScheduleTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ExamScheduleTableViewController.swift; path = "CDLExam/Exam Views and Controllers/ExamScheduleTableViewController.swift"; sourceTree = SOURCE_ROOT; };
 		F41E2377205FC76900975C5A /* ExamMenuTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ExamMenuTableViewController.swift; path = "CDLExam/Exam Views and Controllers/ExamMenuTableViewController.swift"; sourceTree = SOURCE_ROOT; };
@@ -146,6 +152,16 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		F417403E20635C0E007DFE7A /* Create Exam */ = {
+			isa = PBXGroup;
+			children = (
+				F417403F20635C46007DFE7A /* CreateExamView.xib */,
+				F417404120635C53007DFE7A /* CreateExamViewController.swift */,
+				F417404320636026007DFE7A /* CreateExamView.swift */,
+			);
+			path = "Create Exam";
+			sourceTree = "<group>";
+		};
 		F41E2374205FC76900975C5A /* Results */ = {
 			isa = PBXGroup;
 			children = (
@@ -189,6 +205,7 @@
 		F4674A96201C95DA00944EC5 /* CDLExam */ = {
 			isa = PBXGroup;
 			children = (
+				F417403E20635C0E007DFE7A /* Create Exam */,
 				F41E2383205FC86600975C5A /* PDF */,
 				F4EADDE2205CE5BF008DA8AB /* Exam Sections */,
 				F4674AD0201F3C5200944EC5 /* Exam */,
@@ -371,6 +388,7 @@
 				F4674AA4201C95DA00944EC5 /* Assets.xcassets in Resources */,
 				F41E237F205FC76A00975C5A /* ExamView.xib in Resources */,
 				F4674AA2201C95DA00944EC5 /* Main.storyboard in Resources */,
+				F417404020635C46007DFE7A /* CreateExamView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -540,11 +558,13 @@
 				F4674A9D201C95DA00944EC5 /* MasterViewController.swift in Sources */,
 				F4674A9F201C95DA00944EC5 /* DetailViewController.swift in Sources */,
 				F4EADDEB205E4EF4008DA8AB /* Exam.swift in Sources */,
+				F417404220635C53007DFE7A /* CreateExamViewController.swift in Sources */,
 				F41E2387205FE04D00975C5A /* Constants.swift in Sources */,
 				F41E237B205FC76A00975C5A /* ExamResults.swift in Sources */,
 				F4EADDE4205CE5E9008DA8AB /* ExamSectionsTableViewController.swift in Sources */,
 				F4EADDE6205CEEB6008DA8AB /* LoadExamInfoProtocol.swift in Sources */,
 				F41E237C205FC76A00975C5A /* ExamScheduleTableViewController.swift in Sources */,
+				F417404420636026007DFE7A /* CreateExamView.swift in Sources */,
 				F41E23892060B9BF00975C5A /* UtilityFunctions.swift in Sources */,
 				F41E2382205FC80900975C5A /* ResultsPDF.swift in Sources */,
 				F41E237D205FC76A00975C5A /* ExamMenuTableViewController.swift in Sources */,

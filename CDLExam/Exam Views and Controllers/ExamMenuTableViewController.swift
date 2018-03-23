@@ -10,7 +10,8 @@ import UIKit
 
 class ExamMenuTableViewController: UITableViewController {
 
-    let menuItems = ["Exam Schedule", "Completed Exams", "Cancelled Exams", "Exam In Progress", "Search Exams"];
+    let menuItems = ["Create Exam (Testing Purposes)", "Exam Schedule", "Completed Exams", "Cancelled Exams", "Exam In Progress", "Search Exams"];
+    var detailViewController:UINavigationController!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -37,6 +38,10 @@ class ExamMenuTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         // If they click on exam in progress than we push the ExamSectionsTableViewController so they can view the exam info
+        if menuItems[indexPath.row] == "Create Exam (Testing Purposes)" {
+            let createExam = CreateExamViewController(nibName: "CreateExamView", bundle: nil)
+            self.detailViewController.pushViewController(createExam, animated: true)
+        }
     }
     
 

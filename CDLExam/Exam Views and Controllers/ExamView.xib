@@ -151,6 +151,7 @@
                 </constraints>
             </tableViewCellContentView>
             <connections>
+                <outlet property="cancelButton" destination="iZ2-gg-N5y" id="aiV-zC-b0y"/>
                 <outlet property="date" destination="jbG-G9-UL5" id="tcZ-6a-vbM"/>
                 <outlet property="examClass" destination="QY0-ud-Qzy" id="ANj-5T-Hrf"/>
                 <outlet property="license" destination="jrR-CY-Mlg" id="F3y-ts-fP7"/>
