@@ -29,16 +29,43 @@ final class ExamResults {
     }
     
     public func setResults (exam: ExamObject){
+        self.results = [String:String]();
         for result in exam.resultList {
             self.results[result.resultKey] = result.resultValue;
         }
     }
     
-    public func deleteRealmObject (object: Object) -> Bool {
+    public func startExam(exam: ExamObject) -> Bool {
         do {
             let realm = try Realm()
             try realm.write {
-                realm.delete(object)
+                exam.started = true;
+            }
+            return true
+        } catch {
+            print("Unexpected error: \(error).")
+            return false
+        }
+    }
+    
+    public func endExam(exam: ExamObject) -> Bool {
+        do {
+            let realm = try Realm()
+            try realm.write {
+                exam.started = true;
+            }
+            return true
+        } catch {
+            print("Unexpected error: \(error).")
+            return false;
+        }
+    }
+    
+    public func cancelExam (exam: ExamObject) -> Bool {
+        do {
+            let realm = try Realm()
+            try realm.write {
+                exam.cancelled = true;
             }
         } catch {
             print("Unexpected error: \(error).")
@@ -48,13 +75,10 @@ final class ExamResults {
         return true
     }
     
-    public func loadExams () -> [ExamObject] {
-        
+    public func getExams (predicate: String) -> [ExamObject] {
         do {
             let realm = try Realm()
-            
-            let exams = realm.objects(ExamObject.self)
-            
+            let exams = realm.objects(ExamObject.self).filter(predicate)
             return Array(exams);
         } catch {
             print("Unexpected error: \(error).")
@@ -66,24 +90,21 @@ final class ExamResults {
     public func saveExamResults (exam: ExamObject, passed: Bool) -> Bool {
         let realm = try! Realm()
         
-        // Value can only be of type Boolean or of type string
-        for (key, value) in self.results {
-            let resultsObject = ResultsObject()
-            resultsObject.resultKey = key;
-            resultsObject.resultValue = value;
-            do {
-                try realm.write {
-                    exam.resultList.append(resultsObject)
-                }
-            } catch {
-                print("Unexpected error: \(error).")
-                return false;
-            }
-        }
-        
         do {
             try realm.write {
-                realm.add(exam)
+                if exam.resultList.count > 0 {
+                    // Reset the list and input all new information
+                    exam.resultList.removeAll()
+                }
+                for (key, value) in self.results {
+                    let resultsObject = ResultsObject()
+                    resultsObject.resultKey = key;
+                    resultsObject.resultValue = value;
+                    
+                    exam.resultList.append(resultsObject)
+                }
+                
+                exam.finished = true;
             }
         } catch {
             print("Unexpected error: \(error).")
@@ -96,7 +117,10 @@ final class ExamResults {
 
 class ExamObject: Object {
     @objc dynamic var clientId = "";
+    @objc dynamic var started = false;
+    @objc dynamic var finished = false;
     @objc dynamic var passed = false;
+    @objc dynamic var cancelled = false;
     @objc dynamic var date = Date();
     @objc dynamic var name = "";
     @objc dynamic var license = "";

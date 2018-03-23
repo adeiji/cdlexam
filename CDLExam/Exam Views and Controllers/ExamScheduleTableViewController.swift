@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import RealmSwift
 
 class ExamScheduleTableViewController: UITableViewController {
 
@@ -21,10 +22,34 @@ class ExamScheduleTableViewController: UITableViewController {
         self.tableView.register(nib, forCellReuseIdentifier: "ExamViewCell")
         let refreshButton = UIBarButtonItem(title: "Refresh", style: .done, target: self, action: #selector(refreshButtonPressed))
         self.navigationItem.rightBarButtonItem = refreshButton
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(removeExam(with:)), name: .CDLExamFinished, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(addExam(with:)), name: .CDLExamStarted, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(examsChanged(with:)), name: .CDLExamsChanged, object: nil)
+    }
+    
+    @objc func examsChanged (with notification: Notification) {
+        let exams = notification.userInfo!["exams"] as? [ExamObject]
+        self.exams = exams
+        self.tableView.reloadData()
+    }
+    
+    @objc func removeExam (with notification: Notification) {
+        let exam = notification.userInfo!["exam"] as? ExamObject
+        if self.exams.index(of: exam!) != nil {
+            self.exams.remove(at: self.exams.index(of: exam!)!)
+            self.tableView.reloadData()
+        }
+    }
+    
+    @objc func addExam (with notification: Notification) {
+        let exam = notification.userInfo!["exam"] as? ExamObject
+        self.exams.append(exam!)
+        self.tableView.reloadData()
     }
 
     @objc func refreshButtonPressed () {
-        self.exams = ExamResults.sharedInstance.loadExams()
+        self.exams = ExamResults.sharedInstance.getExams(predicate: "cancelled == false && finished == false")
         self.tableView.reloadData()
     }
     
@@ -60,9 +85,10 @@ class ExamScheduleTableViewController: UITableViewController {
         let alert = UIAlertController(title: "Cancel", message: "Are you sure you want to cancel the exam?", preferredStyle: .alert)
         let okayAction = UIAlertAction(title: "Okay", style: .default) { (action) in
             // Delete the exam
-            let success = ExamResults.sharedInstance.deleteRealmObject(object: cell.exam)
+            let success = ExamResults.sharedInstance.cancelExam(exam: cell.exam)
             if !success {
                 // Reveal to the client that there was an error saving realm
+                // -------------------------------------------- Handle Error -------------------------------------------------------
             } else {
                 self.exams.remove(at: (self.tableView.indexPath(for: cell)?.row)!)
                 self.tableView.reloadData()
@@ -73,10 +99,15 @@ class ExamScheduleTableViewController: UITableViewController {
         alert.addAction(cancelAction)
         self.present(alert, animated: true, completion: nil)
     }
-
+    
     @objc func startExam (startButton: UIButton) {
         let cell = startButton.superview?.superview as! ExamViewCell;
         ExamResults.sharedInstance.exam = cell.exam;
+        let success = ExamResults.sharedInstance.startExam(exam: cell.exam)
+        if !success {
+            // -------------------------------------------- Handle Error -------------------------------------------------------
+        }
+        
         // Exam Sections
         let examSectionsTableViewController = ExamSectionsTableViewController();
         examSectionsTableViewController.title = "Sections";
@@ -127,50 +158,4 @@ class ExamScheduleTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
     }
-
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
-    }
-    */
-
-    /*
-    // Override to support editing the table view.
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            // Delete the row from the data source
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
-    }
-    */
-
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-
-    }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
-    }
-    */
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }

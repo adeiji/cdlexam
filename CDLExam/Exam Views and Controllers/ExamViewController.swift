@@ -63,6 +63,7 @@ class ExamCriteriaViewController: UITableViewController, LoadExamInfoDelegate, U
         self.navigationItem.rightBarButtonItem = finishButton;
         // Make the table view our main view
         self.tableView.separatorStyle = .none;
+        self.tableView.allowsSelection = false;
     }
     
     func documentInteractionControllerViewControllerForPreview(_ controller: UIDocumentInteractionController) -> UIViewController {
@@ -82,7 +83,7 @@ class ExamCriteriaViewController: UITableViewController, LoadExamInfoDelegate, U
             if didSave {
                 let viewController = UIViewController()
                 let width = viewController.view.frame.width;
-                let pdfView = UIView(frame: CGRect(x: 0, y: 0, width: Int(width), height: 2000))
+                let pdfView = UIView(frame: CGRect(x: 0, y: 0, width: Int(width), height: 1255))
                 var yPos = 0;
                 var xPos = 13;
                 let header = PDFHeader(frame: CGRect(x: 0, y: 0, width: width, height: 180))
@@ -131,6 +132,8 @@ class ExamCriteriaViewController: UITableViewController, LoadExamInfoDelegate, U
                 pdfView.addSubview(allPassengerVehicles)
                 
                 self.generatePDF(view: pdfView)
+                NotificationCenter.default.post(name: .CDLExamFinished, object: self, userInfo: ["exam": self.exam])
+                
             } else {
                 // Handle error showing that the exam did not save
             }
@@ -139,12 +142,11 @@ class ExamCriteriaViewController: UITableViewController, LoadExamInfoDelegate, U
         let cancelAction = UIAlertAction(title: "No", style: .cancel, handler: nil)
         alert.addAction(okayAction);
         alert.addAction(cancelAction);
-        
         self.present(alert, animated: true, completion: nil);
     }
-
+    
     func generatePDF (view: UIView) {
-        let dst = URL(fileURLWithPath: NSTemporaryDirectory().appending("sample1.pdf"))
+        let dst = URL(fileURLWithPath: NSTemporaryDirectory().appending(self.exam.license + ".pdf"))
         // outputs as Data
         do {
             let data = try PDFGenerator.generated(by: [view])

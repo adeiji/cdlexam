@@ -19,6 +19,7 @@ class ExamViewCell : UITableViewCell {
     @IBOutlet weak var examClass: UILabel!
     @IBOutlet weak var startButton: UIButton!
     @IBOutlet weak var cancelButton: UIButton!
+    @IBOutlet weak var changeVehicle: UIButton!
     
     var exam:ExamObject!
     
@@ -30,5 +31,21 @@ class ExamViewCell : UITableViewCell {
         self.vehicle.text = exam.vehicle;
         self.type.text = exam.type;
         self.examClass.text = exam.examClass;
+        
+        if exam.started == true {
+            self.startButton.setTitle("Goto Exam", for: .normal)
+        } else {
+            self.startButton.setTitle("Start Exam", for: .normal)
+        }
+        
+        if exam.finished == true || exam.cancelled == true {
+            self.startButton.isHidden = true
+            self.cancelButton.isHidden = true
+            self.changeVehicle.isHidden = true
+        } else {
+            self.startButton.isHidden = false
+            self.cancelButton.isHidden = false
+            self.changeVehicle.isHidden = false
+        }
     }
 }

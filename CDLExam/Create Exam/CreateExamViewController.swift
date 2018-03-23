@@ -83,6 +83,7 @@ class CreateExamViewController : UIViewController {
             }
             
             self.navigationController?.popViewController(animated: true)
+            NotificationCenter.default.post(name: .CDLExamStarted, object: self, userInfo: ["exam": self.examObject])
         } catch {
             print ("Unexpected error: \(error).")
         }

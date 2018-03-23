@@ -10,11 +10,19 @@ import UIKit
 
 class ExamMenuTableViewController: UITableViewController {
 
-    let menuItems = ["Create Exam (Testing Purposes)", "Exam Schedule", "Completed Exams", "Cancelled Exams", "Exam In Progress", "Search Exams"];
+    let kCreateExam = "Create Exam (Testing Purposes)"
+    let kExamSchedule = "Exam Schedule"
+    let kCompletedExams = "Completed Exams"
+    let kCancelledExams = "Cancelled Exams"
+    let kExamInProgress = "Exam In Progress"
+    let kSearchExams = "Search Exams"
+    var menuItems:[String]!;
+    
     var detailViewController:UINavigationController!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        menuItems = [self.kCreateExam, self.kExamSchedule, self.kCompletedExams, self.kCancelledExams, self.kExamInProgress, self.kSearchExams]
     }
 
     override func didReceiveMemoryWarning() {
@@ -38,56 +46,19 @@ class ExamMenuTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         // If they click on exam in progress than we push the ExamSectionsTableViewController so they can view the exam info
-        if menuItems[indexPath.row] == "Create Exam (Testing Purposes)" {
+        if menuItems[indexPath.row] == kCreateExam {
             let createExam = CreateExamViewController(nibName: "CreateExamView", bundle: nil)
             self.detailViewController.pushViewController(createExam, animated: true)
+        } else if menuItems[indexPath.row] == kCompletedExams {
+            let exams = ExamResults.sharedInstance.getExams(predicate: "finished == true")
+            NotificationCenter.default.post(name: .CDLExamsChanged, object: self, userInfo: ["exams": exams])
+        } else if menuItems[indexPath.row] == kCancelledExams {
+            let exams = ExamResults.sharedInstance.getExams(predicate: "cancelled == true")
+            NotificationCenter.default.post(name: .CDLExamsChanged, object: self, userInfo: ["exams": exams])
+        } else if menuItems[indexPath.row] == kExamSchedule {
+            let exams = ExamResults.sharedInstance.getExams(predicate: "finished == false && cancelled == false")
+            NotificationCenter.default.post(name: .CDLExamsChanged, object: self, userInfo: ["exams": exams])
         }
+        // Exam In Progress will take you to the current exam that is being worked on
     }
-    
-
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
-    }
-    */
-
-    /*
-    // Override to support editing the table view.
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            // Delete the row from the data source
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
-    }
-    */
-
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-
-    }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
-    }
-    */
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }
