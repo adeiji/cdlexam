@@ -14,7 +14,7 @@ class ExamMenuTableViewController: UITableViewController {
     let kExamSchedule = "Exam Schedule"
     let kCompletedExams = "Completed Exams"
     let kCancelledExams = "Cancelled Exams"
-    let kExamInProgress = "Exam In Progress"
+    let kExamInProgress = "Exam In Progress Sections"
     let kSearchExams = "Search Exams"
     var menuItems:[String]!;
     
@@ -24,7 +24,11 @@ class ExamMenuTableViewController: UITableViewController {
         super.viewDidLoad()
         menuItems = [self.kCreateExam, self.kExamSchedule, self.kCompletedExams, self.kCancelledExams, self.kExamInProgress, self.kSearchExams]
     }
-
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)        
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
@@ -48,16 +52,66 @@ class ExamMenuTableViewController: UITableViewController {
         // If they click on exam in progress than we push the ExamSectionsTableViewController so they can view the exam info
         if menuItems[indexPath.row] == kCreateExam {
             let createExam = CreateExamViewController(nibName: "CreateExamView", bundle: nil)
-            self.detailViewController.pushViewController(createExam, animated: true)
+            if let _ = self.detailViewController.viewControllers.last as? CreateExamViewController {
+            } else {
+                self.detailViewController.popToRootViewController(animated: false)
+                self.detailViewController.pushViewController(createExam, animated: true)
+            }
         } else if menuItems[indexPath.row] == kCompletedExams {
             let exams = ExamResults.sharedInstance.getExams(predicate: "finished == true")
+            self.detailViewController.popToRootViewController(animated: true)
             NotificationCenter.default.post(name: .CDLExamsChanged, object: self, userInfo: ["exams": exams])
         } else if menuItems[indexPath.row] == kCancelledExams {
+            self.detailViewController.popToRootViewController(animated: true)
             let exams = ExamResults.sharedInstance.getExams(predicate: "cancelled == true")
             NotificationCenter.default.post(name: .CDLExamsChanged, object: self, userInfo: ["exams": exams])
         } else if menuItems[indexPath.row] == kExamSchedule {
+            self.detailViewController.popToRootViewController(animated: true)
             let exams = ExamResults.sharedInstance.getExams(predicate: "finished == false && cancelled == false")
             NotificationCenter.default.post(name: .CDLExamsChanged, object: self, userInfo: ["exams": exams])
+        } else if menuItems[indexPath.row] == kSearchExams {
+            let search = ExamSearchViewController(nibName: "ExamSearch", bundle: nil)
+            if let _ = self.detailViewController.viewControllers.last as? ExamSearchViewController {
+            } else {
+                self.detailViewController.popToRootViewController(animated: false)
+                self.detailViewController.pushViewController(search, animated: true)
+            }
+            
+        } else if menuItems[indexPath.row] == kExamInProgress {
+            // Create and show the Exam View Controller
+            if ExamResults.sharedInstance.exam?.finished == false {
+                let examViewController = ExamCriteriaViewController();
+                examViewController.exam = ExamResults.sharedInstance.exam
+                examViewController.navigationController?.navigationBar.isHidden = false;
+                examViewController.title = "Exam";
+                
+                // Exam Sections
+                let examSectionsTableViewController = ExamSectionsTableViewController();
+                let result = UtilityFunctions.loadExam(form: ExamResults.sharedInstance.exam.form)
+                examSectionsTableViewController.exam = result;
+                var examSections = [String]();
+                
+                // Get the sections of the exam
+                for (key, _) in result {
+                    examSections.append(key)
+                }
+                examSectionsTableViewController.examSections = examSections;
+                examSectionsTableViewController.delegate = examViewController;
+                
+                if let _ = self.detailViewController.viewControllers.last as? ExamCriteriaViewController {
+                } else {
+                    self.detailViewController.popToRootViewController(animated: false)
+                    self.detailViewController.pushViewController(examViewController, animated: false)
+                }
+                
+                if let _ = self.navigationController?.viewControllers.last as? ExamSectionsTableViewController {
+                } else {
+                    self.navigationController?.pushViewController(examSectionsTableViewController, animated: false)
+                    examSectionsTableViewController.tableView(examSectionsTableViewController.tableView, didSelectRowAt: IndexPath(row: 0, section: 0));
+                }
+                
+            }
+            
         }
         // Exam In Progress will take you to the current exam that is being worked on
     }

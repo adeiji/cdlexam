@@ -22,6 +22,19 @@ final class ExamResults {
     
     public func addResult (key: String, value: String) {
         self.results[key] = value;
+        
+        do {
+            let realm = try Realm()
+            try realm.write {
+                let resultObject = ResultsObject()
+                resultObject.resultKey = key
+                resultObject.resultValue = value
+                self.exam.resultList.append(resultObject)
+            }
+        } catch {
+            print("Unexpected error: \(error).")
+        }
+        
     }
     
     public func getResult (key: String) -> String? {
@@ -61,11 +74,12 @@ final class ExamResults {
         }
     }
     
-    public func cancelExam (exam: ExamObject) -> Bool {
+    public func cancelExam (exam: ExamObject, reason: String) -> Bool {
         do {
             let realm = try Realm()
             try realm.write {
                 exam.cancelled = true;
+                exam.cancelReason = reason
             }
         } catch {
             print("Unexpected error: \(error).")
@@ -75,11 +89,18 @@ final class ExamResults {
         return true
     }
     
-    public func getExams (predicate: String) -> [ExamObject] {
+    
+    public func getExams (predicate: Any) -> [ExamObject] {
         do {
             let realm = try Realm()
-            let exams = realm.objects(ExamObject.self).filter(predicate)
-            return Array(exams);
+            if let stringPredicate = predicate as? String {
+                let exams = realm.objects(ExamObject.self).filter(stringPredicate)
+                return Array(exams);
+            } else {
+                let exams = realm.objects(ExamObject.self).filter(predicate as! NSPredicate)
+                return Array(exams);
+            }
+            
         } catch {
             print("Unexpected error: \(error).")
         }
@@ -89,7 +110,7 @@ final class ExamResults {
     
     public func saveExamResults (exam: ExamObject, passed: Bool) -> Bool {
         let realm = try! Realm()
-        
+        var passedCount = 0;
         do {
             try realm.write {
                 if exam.resultList.count > 0 {
@@ -100,10 +121,15 @@ final class ExamResults {
                     let resultsObject = ResultsObject()
                     resultsObject.resultKey = key;
                     resultsObject.resultValue = value;
+                    if UtilityFunctions.toBool(value: value) {
+                        passedCount = passedCount + 1
+                    }
                     
                     exam.resultList.append(resultsObject)
                 }
-                
+                if passedCount >= exam.passPoints {
+                    exam.passed = true
+                }
                 exam.finished = true;
             }
         } catch {
@@ -134,6 +160,7 @@ class ExamObject: Object {
     @objc dynamic var trailerAxles = "Three";
     @objc dynamic var gvwr = "";
     @objc dynamic var passPoints = 0;
+    @objc dynamic var cancelReason = "";
     
     let resultList = List<ResultsObject>();
 }

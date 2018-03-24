@@ -30,10 +30,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
         // ------------------  LOAD MENU ---------------------------------------------
         let navVC = UINavigationController(rootViewController: menuTableViewController)
         splitViewController.viewControllers.append(navVC);
-        
+        navVC.isNavigationBarHidden = false
+        navVC.navigationBar.isTranslucent = false
         let examScheduleViewController = ExamScheduleTableViewController()        
         examScheduleViewController.menuViewController = menuTableViewController;
         examScheduleViewController.exams = ExamResults.sharedInstance.getExams(predicate: "cancelled == false && finished == false");
+        examScheduleViewController.navigationItem.title = "Exams"
         let detailNavVC = UINavigationController(rootViewController: examScheduleViewController);
         menuTableViewController.detailViewController = detailNavVC
         splitViewController.delegate = self
@@ -57,7 +59,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
         let config = Realm.Configuration(
             // Set the new schema version. This must be greater than the previously used
             // version (if you've never set a schema version before, the version is 0).
-            schemaVersion: 3,
+            schemaVersion: 4,
             
             // Set the block which will be called automatically when opening a Realm with
             // a schema version lower than the one set above

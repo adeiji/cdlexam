@@ -111,9 +111,25 @@
                             <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         </state>
                     </button>
+                    <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mWo-e7-gml">
+                        <rect key="frame" x="35" y="22" width="183" height="30"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="30" id="9yw-Rs-JQp"/>
+                            <constraint firstAttribute="width" constant="183" id="aYF-ES-Dgk"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                        <state key="normal" title="Goto online schedule page (future)"/>
+                    </button>
+                    <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Passed" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cpo-LB-HTP">
+                        <rect key="frame" x="475" y="107" width="143" height="30"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="23"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
                 </subviews>
                 <constraints>
                     <constraint firstItem="k4B-kv-XwD" firstAttribute="trailing" secondItem="QY0-ud-Qzy" secondAttribute="trailing" id="1in-aG-Ip2"/>
+                    <constraint firstItem="mWo-e7-gml" firstAttribute="leading" secondItem="JTU-Mx-9Ib" secondAttribute="leading" id="3Ck-jW-SiY"/>
                     <constraint firstItem="tLy-S8-3X5" firstAttribute="baseline" secondItem="k4B-kv-XwD" secondAttribute="baseline" id="48Q-Mj-Me3"/>
                     <constraint firstItem="Hfr-u6-18w" firstAttribute="leading" secondItem="k4B-kv-XwD" secondAttribute="leading" id="5zA-Hq-6rY"/>
                     <constraint firstItem="m2L-cE-0yX" firstAttribute="firstBaseline" secondItem="QY0-ud-Qzy" secondAttribute="firstBaseline" id="62f-HS-sOc"/>
@@ -132,10 +148,14 @@
                     <constraint firstItem="iZ2-gg-N5y" firstAttribute="bottom" secondItem="QY0-ud-Qzy" secondAttribute="bottom" id="Pvu-xz-9BN"/>
                     <constraint firstItem="0Nt-YU-DaG" firstAttribute="centerX" secondItem="Wuw-71-2UW" secondAttribute="centerX" id="QeR-Sq-6Q5"/>
                     <constraint firstItem="0rZ-yU-q5x" firstAttribute="leading" secondItem="tLy-S8-3X5" secondAttribute="leading" id="Rd9-tU-HoG"/>
+                    <constraint firstItem="cpo-LB-HTP" firstAttribute="leading" secondItem="17Y-lk-ula" secondAttribute="leading" id="SDn-2U-kDk"/>
                     <constraint firstItem="tLy-S8-3X5" firstAttribute="leading" secondItem="m2L-cE-0yX" secondAttribute="leading" id="SQX-4A-SlD"/>
                     <constraint firstItem="17Y-lk-ula" firstAttribute="leading" secondItem="iZ2-gg-N5y" secondAttribute="leading" id="TSY-QD-MMO"/>
+                    <constraint firstItem="cpo-LB-HTP" firstAttribute="trailing" secondItem="17Y-lk-ula" secondAttribute="trailing" id="XNL-A8-Q6o"/>
                     <constraint firstItem="0rZ-yU-q5x" firstAttribute="firstBaseline" secondItem="Hfr-u6-18w" secondAttribute="firstBaseline" id="YrC-jS-7Ov"/>
                     <constraint firstItem="jrR-CY-Mlg" firstAttribute="leading" secondItem="Hfr-u6-18w" secondAttribute="leading" id="Zad-9g-fmF"/>
+                    <constraint firstItem="mWo-e7-gml" firstAttribute="top" secondItem="0Nt-YU-DaG" secondAttribute="top" constant="4" id="ZgE-Y0-fZz"/>
+                    <constraint firstItem="cpo-LB-HTP" firstAttribute="bottom" secondItem="17Y-lk-ula" secondAttribute="bottom" id="ZhD-fg-FrQ"/>
                     <constraint firstItem="0rZ-yU-q5x" firstAttribute="top" secondItem="JTU-Mx-9Ib" secondAttribute="bottom" constant="14" id="cT3-Mr-DOX"/>
                     <constraint firstItem="0Nt-YU-DaG" firstAttribute="top" secondItem="Wuw-71-2UW" secondAttribute="top" constant="18" id="guP-aM-o5M"/>
                     <constraint firstItem="17Y-lk-ula" firstAttribute="leading" secondItem="5BE-Tw-1Ov" secondAttribute="leading" id="jJu-oj-HEt"/>
@@ -148,6 +168,7 @@
                     <constraint firstAttribute="trailing" secondItem="iZ2-gg-N5y" secondAttribute="trailing" constant="37" id="ut9-R4-0RM"/>
                     <constraint firstItem="tLy-S8-3X5" firstAttribute="top" secondItem="0rZ-yU-q5x" secondAttribute="bottom" constant="15" id="vrR-yu-s6k"/>
                     <constraint firstItem="k4B-kv-XwD" firstAttribute="top" secondItem="Hfr-u6-18w" secondAttribute="bottom" constant="11" id="xuU-qC-y6D"/>
+                    <constraint firstItem="cpo-LB-HTP" firstAttribute="top" secondItem="17Y-lk-ula" secondAttribute="top" id="y9f-Cx-1cx"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>
@@ -157,11 +178,13 @@
                 <outlet property="examClass" destination="QY0-ud-Qzy" id="ANj-5T-Hrf"/>
                 <outlet property="license" destination="jrR-CY-Mlg" id="F3y-ts-fP7"/>
                 <outlet property="name" destination="0Nt-YU-DaG" id="4Mn-co-UcJ"/>
+                <outlet property="schedulePageButton" destination="mWo-e7-gml" id="FhJ-Gn-KX3"/>
                 <outlet property="startButton" destination="5BE-Tw-1Ov" id="NN1-ky-hKK"/>
+                <outlet property="status" destination="cpo-LB-HTP" id="17y-eu-SZw"/>
                 <outlet property="type" destination="k4B-kv-XwD" id="AQo-DO-FcN"/>
                 <outlet property="vehicle" destination="Hfr-u6-18w" id="B7a-5g-Gpj"/>
             </connections>
-            <point key="canvasLocation" x="226" y="-241"/>
+            <point key="canvasLocation" x="225.5" y="-241"/>
         </tableViewCell>
     </objects>
 </document>

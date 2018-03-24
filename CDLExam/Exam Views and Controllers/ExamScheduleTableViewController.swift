@@ -9,23 +9,76 @@
 import UIKit
 import RealmSwift
 
-class ExamScheduleTableViewController: UITableViewController {
+class ExamScheduleTableViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
-    var exams:[ExamObject]!;
+    let vehicles = ["Vehicle A", "Vehicle B", "Vehicle C"]
+    
+    var exams:[ExamObject]! {
+        willSet (newExamsList) {
+            if newExamsList.count == 0 {
+                self.showNoExamsView()
+                self.tableView.isHidden = true
+            } else {
+                self.hideNoExamsView()
+                self.tableView.isHidden = false
+            }
+        }
+    }
     var menuViewController:ExamMenuTableViewController!
+    var tableView:UITableView = UITableView()
+    var noExamsView:UIView = UIView()
+    
+    func createNoExamsView () {
+        let noResultsLabel = UILabel()
+        noResultsLabel.text = "No Exams"
+        noResultsLabel.font = UIFont.boldSystemFont(ofSize: 40)
+        self.noExamsView.addSubview(noResultsLabel)
+        self.noExamsView.backgroundColor = .white
+        noResultsLabel.snp.makeConstraints { (make) in
+            make.center.equalTo(self.noExamsView)
+        }
+        self.view.addSubview(self.noExamsView)
+        self.noExamsView.snp.makeConstraints { (make) in
+            make.edges.equalTo(self.view)
+        }
+        
+        self.noExamsView.layer.zPosition = 1
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        if let _ = self.menuViewController.navigationController?.viewControllers.last as? ExamSectionsTableViewController {
+            self.menuViewController.navigationController?.popToRootViewController(animated: true)
+        } 
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.createNoExamsView()
+        
+        self.view.addSubview(self.tableView)
+        self.tableView.snp.makeConstraints { (make) in
+            make.edges.equalTo(self.view)
+        }
+        
         self.tableView.allowsSelection = false
-        self.clearsSelectionOnViewWillAppear = false
+        self.tableView.dataSource = self
+        self.tableView.delegate = self
+        
         let nib = UINib.init(nibName: "ExamView", bundle: nil);
         self.tableView.register(nib, forCellReuseIdentifier: "ExamViewCell")
-        let refreshButton = UIBarButtonItem(title: "Refresh", style: .done, target: self, action: #selector(refreshButtonPressed))
-        self.navigationItem.rightBarButtonItem = refreshButton
         
         NotificationCenter.default.addObserver(self, selector: #selector(removeExam(with:)), name: .CDLExamFinished, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(addExam(with:)), name: .CDLExamStarted, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(examsChanged(with:)), name: .CDLExamsChanged, object: nil)
+    }
+    
+    func showNoExamsView () {
+        self.noExamsView.isHidden = false;
+    }
+    
+    func hideNoExamsView () {
+        self.noExamsView.isHidden = true;
     }
     
     @objc func examsChanged (with notification: Notification) {
@@ -60,44 +113,113 @@ class ExamScheduleTableViewController: UITableViewController {
 
     // MARK: - Table view data source
 
-    override func numberOfSections(in tableView: UITableView) -> Int {
+    func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
         return 1
     }
 
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
         return exams.count;
     }
 
     
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = self.tableView.dequeueReusableCell(withIdentifier: "ExamViewCell", for: indexPath) as! ExamViewCell
         cell.setExam(exam: self.exams[indexPath.row])
         cell.startButton.addTarget(self, action: #selector(startExam(startButton:)), for: .touchUpInside)
         cell.cancelButton.addTarget(self, action: #selector(cancelExam(cancelButton:)), for: .touchUpInside)
+        cell.changeVehicle.addTarget(self, action: #selector(changeVehicle(changeVehicleButton:)), for: .touchUpInside)
         return cell
     }
     
+    func updateVehicle (vehicle: String, exam: ExamObject) -> Bool {
+        do {
+            let realm = try Realm()
+            try realm.write {
+                exam.vehicle = vehicle
+            }
+            
+            return true
+        } catch {
+            print("Unexpected error: \(error).")
+            return false
+        }
+    }
+    
+    @objc func changeVehicle (changeVehicleButton: UIButton) {
+        let cell = changeVehicleButton.superview?.superview as! ExamViewCell;
+        
+        let alertController = UIAlertController(title: "Vehicle", message: "Select a Vehicle Type", preferredStyle: .actionSheet)
+        for value in self.vehicles {
+            let action = UIAlertAction(title: value, style: .default, handler: { (action) in
+                if self.updateVehicle(vehicle: action.title!, exam: cell.exam) {
+                    cell.vehicle.text = action.title!
+                }
+            })
+            alertController.addAction(action)
+        }
+        alertController.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+        alertController.popoverPresentationController?.sourceView = changeVehicleButton
+        self.present(alertController, animated: true, completion: nil)
+    }
+    
+    func cancelExam (exam: ExamObject, indexPath: IndexPath, reason: String) {
+        if ExamResults.sharedInstance.cancelExam(exam: exam, reason: reason) {
+            self.exams.remove(at: indexPath.row)
+            self.tableView.reloadData()
+        }
+    }
+
     @objc func cancelExam (cancelButton: UIButton) {
         let cell = cancelButton.superview?.superview as! ExamViewCell;
-        // Create Conditions for this
-        let alert = UIAlertController(title: "Cancel", message: "Are you sure you want to cancel the exam?", preferredStyle: .alert)
-        let okayAction = UIAlertAction(title: "Okay", style: .default) { (action) in
-            // Delete the exam
-            let success = ExamResults.sharedInstance.cancelExam(exam: cell.exam)
-            if !success {
-                // Reveal to the client that there was an error saving realm
-                // -------------------------------------------- Handle Error -------------------------------------------------------
-            } else {
-                self.exams.remove(at: (self.tableView.indexPath(for: cell)?.row)!)
-                self.tableView.reloadData()
+        
+        let timeInterval = (cell.exam.date.timeIntervalSince(Date()) / 60)
+        if timeInterval > 5 || timeInterval < -45  {
+            // Create Conditions for this
+            let alert = UIAlertController(title: "Reason", message: "Why are you cancelling this exam?", preferredStyle: .actionSheet)
+            let noShowAction = UIAlertAction(title: "No Show", style: .default) { (action) in
+                self.cancelExam(exam: cell.exam, indexPath: self.tableView.indexPath(for: cell)!, reason: kNoShow)
             }
+            
+            let clientRequestedAction = UIAlertAction(title: "Client Requested", style: .default) { (action) in
+                self.cancelExam(exam: cell.exam, indexPath: self.tableView.indexPath(for: cell)!, reason: kClientRequested)
+            }
+            
+            let weatherAction = UIAlertAction(title: "Weather", style: .default) { (action) in
+                self.cancelExam(exam: cell.exam, indexPath: self.tableView.indexPath(for: cell)!, reason: kWeather)
+            }
+            
+            let otherAction = UIAlertAction(title: "Other", style: .default) { (action) in
+                let otherAlert = UIAlertController(title: "Other", message: "Why are you cancelling this exam?", preferredStyle: .alert)
+                otherAlert.addTextField(configurationHandler: { (textField) in
+                    textField.placeholder = "Reason for cancelling"
+                })
+                self.present(otherAlert, animated: true, completion: nil)
+                
+                let cancelAction = UIAlertAction(title: "Don't Cancel Exam", style: .cancel, handler: nil)
+                let okayAction = UIAlertAction(title: "Cancel Exam", style: .default, handler: { (action) in
+                    let textField = otherAlert.textFields![0]
+                    self.cancelExam(exam: cell.exam, indexPath: self.tableView.indexPath(for: cell)!, reason: textField.text!)
+                })
+                otherAlert.addAction(cancelAction)
+                otherAlert.addAction(okayAction)
+            }
+            
+            let cancelAction = UIAlertAction(title: "Don't Cancel Exam", style: .destructive, handler: nil)
+            alert.addAction(noShowAction)
+            alert.addAction(clientRequestedAction)
+            alert.addAction(weatherAction)
+            alert.addAction(otherAction)
+            alert.addAction(cancelAction)
+            alert.popoverPresentationController?.sourceView = cancelButton
+            self.present(alert, animated: true, completion: nil)
+        } else {
+            let cannotCancelAlert = UIAlertController(title: "Cannot Cancel", message: "You can not cancel an exam less than 5 minutes before, or within 45 minutes after the scheduled start time", preferredStyle: .alert)
+            cannotCancelAlert.addAction(UIAlertAction(title: "Okay", style: .default, handler: nil))
+            self.present(cannotCancelAlert, animated: true, completion: nil);
         }
-        let cancelAction = UIAlertAction(title: "Cancel", style: .destructive, handler: nil)
-        alert.addAction(okayAction)
-        alert.addAction(cancelAction)
-        self.present(alert, animated: true, completion: nil)
+        
     }
     
     @objc func startExam (startButton: UIButton) {
@@ -110,9 +232,7 @@ class ExamScheduleTableViewController: UITableViewController {
         
         // Exam Sections
         let examSectionsTableViewController = ExamSectionsTableViewController();
-        examSectionsTableViewController.title = "Sections";
-        
-        let result = self.loadExam(form: cell.exam.form);
+        let result = UtilityFunctions.loadExam(form: cell.exam.form)
         examSectionsTableViewController.exam = result;
         var examSections = [String]();
         
@@ -135,27 +255,5 @@ class ExamScheduleTableViewController: UITableViewController {
         
         // Update button to now say View Exam In Progress
         startButton.setTitle("Goto Exam", for: .normal);
-    }
-    
-    func loadExam (form: String) -> [String:Any] {
-        if let fileUrl = Bundle.main.url(forResource: "exam-criteria", withExtension: "plist"),
-            // Load exam data
-            let data = try? Data(contentsOf: fileUrl) {
-            if var result = try? PropertyListSerialization.propertyList(from: data, options: [], format: nil) as? [String:Any] {
-                if form == kFormA {
-                    result![kFormC] = nil;
-                    result![kFormB] = nil;
-                }
-                return result!;
-            }
-        }
-        
-        // Handle Error, there should always be a result returned
-        return [String:Any]();
-    }
-
-    
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
     }
 }

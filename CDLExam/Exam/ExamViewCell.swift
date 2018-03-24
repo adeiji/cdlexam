@@ -20,13 +20,15 @@ class ExamViewCell : UITableViewCell {
     @IBOutlet weak var startButton: UIButton!
     @IBOutlet weak var cancelButton: UIButton!
     @IBOutlet weak var changeVehicle: UIButton!
+    @IBOutlet weak var schedulePageButton: UIButton!
+    @IBOutlet weak var status: UILabel!
     
     var exam:ExamObject!
     
     func setExam (exam: ExamObject) {
         self.exam = exam;
         self.name.text = exam.name;
-        self.date.text = UtilityFunctions.dateToString(date: exam.date)
+        self.date.text = UtilityFunctions.dateToString(date: exam.date, style: .full)
         self.license.text = exam.license;
         self.vehicle.text = exam.vehicle;
         self.type.text = exam.type;
@@ -46,6 +48,28 @@ class ExamViewCell : UITableViewCell {
             self.startButton.isHidden = false
             self.cancelButton.isHidden = false
             self.changeVehicle.isHidden = false
+        }
+        
+        if exam.cancelled == true {
+            if self.changeVehicle.isHidden == true {
+                self.status.isHidden = false;
+                self.status.text = "Cancelled"
+                self.status.textColor = .black
+            }
+        } else if exam.finished == true && exam.passed == true {
+            if self.changeVehicle.isHidden == true {
+                self.status.isHidden = false;
+                self.status.text = "Passed"
+                self.status.textColor = .green
+            }
+        } else if exam.finished == true && exam.passed == false {
+            if self.changeVehicle.isHidden == true {
+                self.status.isHidden = false;
+                self.status.text = "Failed"
+                self.status.textColor = .red
+            }
+        } else {
+            self.status.isHidden = true
         }
     }
 }

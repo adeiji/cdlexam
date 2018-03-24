@@ -249,3 +249,7 @@ let kVehicleInfoAxles = kVehicleInfo + ".Vehicle Axles"
 let kVehicleInfoTrailerAxles = kVehicleInfo + ".Trailer Axles"
 let kVehicleInfoAirBrakes = kVehicleInfo + ".Air Brakes"
 let kVehicleInfoGVWR = kVehicleInfo + ".GVWR"
+
+let kNoShow = "NO SHOW"
+let kClientRequested = "CLIENT REQUESTED"
+let kWeather = "WEATHER"

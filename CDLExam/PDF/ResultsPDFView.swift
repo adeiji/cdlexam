@@ -12,7 +12,25 @@ import UIKit
 class PDFHeader: UIView {
     
     override func draw(_ rect: CGRect) {
-        ResultsPDF.drawHeader(frame: rect, resizing: .stretch, txtName: "Adebayo Ijidakinro", licenseNumber: "8787847", dob: "3/21/2000", date: "3/21/2018", tester: "Johnny Harding", testerNumber: "4878978", preTripScore: "88");
+        let exam = ExamResults.sharedInstance.exam
+        var passedCount = 0
+        
+        for (_, value) in ExamResults.sharedInstance.results {
+            if UtilityFunctions.toBool(value: value) {
+                passedCount = passedCount + 1
+            }
+        }
+        
+        
+        ResultsPDF.drawHeader(frame: rect,
+                              resizing: .stretch,
+                              txtName: (exam?.name)!,
+                              licenseNumber: (exam?.license)!,
+                              dob: "",
+                              date: UtilityFunctions.dateToString(date: (exam?.date)!, style: .short),
+                              tester: "",
+                              testerNumber: "11111111",
+                              preTripScore: String(passedCount));
     }
     
 }

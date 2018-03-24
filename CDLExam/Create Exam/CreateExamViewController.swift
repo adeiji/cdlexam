@@ -18,12 +18,13 @@ class CreateExamViewController : UIViewController {
     override func viewDidLoad() {
         let datePicker = UIDatePicker()
         datePicker.datePickerMode = .dateAndTime
+        self.examObject.passPoints = 30;
         self.createExamView.examTimeTextField.inputView = datePicker
         datePicker.addTarget(self, action: #selector(dateChanged(picker:)), for: .valueChanged)
     }
     
     @objc func dateChanged (picker: UIDatePicker) {
-        self.createExamView.examTimeTextField.text = UtilityFunctions.dateToString(date: picker.date)
+        self.createExamView.examTimeTextField.text = UtilityFunctions.dateToString(date: picker.date, style: .full)
         self.examObject.date = picker.date
     }
     
@@ -63,7 +64,7 @@ class CreateExamViewController : UIViewController {
     }
     @IBAction func sliderChanged(_ sender: UISlider) {
         self.examObject.passPoints = Int(sender.value)
-        self.createExamView.pointsToPassTextField.text = String(sender.value)
+        self.createExamView.pointsToPassTextField.text = String(Int(sender.value))
     }
     
     @IBAction func submitPressed(_ sender: UIButton) {

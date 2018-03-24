@@ -20,6 +20,7 @@ class ExamSectionsTableViewController: UITableViewController {
         super.viewDidLoad()
         self.clearsSelectionOnViewWillAppear = false
         self.tableView.reloadData()
+        self.title = "Sections"
     }
     
     override func didReceiveMemoryWarning() {

@@ -39,6 +39,8 @@
 		F4EADDED205E4F9C008DA8AB /* ExamViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4EADDEC205E4F9C008DA8AB /* ExamViewCell.swift */; };
 		F4EF953B206496D3009E05CB /* NotificationExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4EF953A206496D3009E05CB /* NotificationExtensions.swift */; };
 		F4EF953D20649A91009E05CB /* NoResultsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4EF953C20649A91009E05CB /* NoResultsView.swift */; };
+		F4EF95402064C9AB009E05CB /* ExamSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4EF953F2064C9AB009E05CB /* ExamSearchViewController.swift */; };
+		F4EF95422064CA8C009E05CB /* ExamSearch.xib in Resources */ = {isa = PBXBuildFile; fileRef = F4EF95412064CA8C009E05CB /* ExamSearch.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -103,6 +105,8 @@
 		F4EADDEC205E4F9C008DA8AB /* ExamViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ExamViewCell.swift; path = CDLExam/Exam/ExamViewCell.swift; sourceTree = SOURCE_ROOT; };
 		F4EF953A206496D3009E05CB /* NotificationExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationExtensions.swift; sourceTree = "<group>"; };
 		F4EF953C20649A91009E05CB /* NoResultsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoResultsView.swift; sourceTree = "<group>"; };
+		F4EF953F2064C9AB009E05CB /* ExamSearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExamSearchViewController.swift; sourceTree = "<group>"; };
+		F4EF95412064CA8C009E05CB /* ExamSearch.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ExamSearch.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -209,6 +213,7 @@
 		F4674A96201C95DA00944EC5 /* CDLExam */ = {
 			isa = PBXGroup;
 			children = (
+				F4EF953E2064C98E009E05CB /* Search */,
 				F4EF9539206496C6009E05CB /* Extensions */,
 				F417403E20635C0E007DFE7A /* Create Exam */,
 				F41E2383205FC86600975C5A /* PDF */,
@@ -279,6 +284,15 @@
 				F4EF953A206496D3009E05CB /* NotificationExtensions.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		F4EF953E2064C98E009E05CB /* Search */ = {
+			isa = PBXGroup;
+			children = (
+				F4EF953F2064C9AB009E05CB /* ExamSearchViewController.swift */,
+				F4EF95412064CA8C009E05CB /* ExamSearch.xib */,
+			);
+			path = Search;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -401,6 +415,7 @@
 				F4674AA7201C95DA00944EC5 /* LaunchScreen.storyboard in Resources */,
 				F4674AA4201C95DA00944EC5 /* Assets.xcassets in Resources */,
 				F41E237F205FC76A00975C5A /* ExamView.xib in Resources */,
+				F4EF95422064CA8C009E05CB /* ExamSearch.xib in Resources */,
 				F4674AA2201C95DA00944EC5 /* Main.storyboard in Resources */,
 				F417404020635C46007DFE7A /* CreateExamView.xib in Resources */,
 			);
@@ -574,6 +589,7 @@
 				F4EF953D20649A91009E05CB /* NoResultsView.swift in Sources */,
 				F4EADDEB205E4EF4008DA8AB /* Exam.swift in Sources */,
 				F417404220635C53007DFE7A /* CreateExamViewController.swift in Sources */,
+				F4EF95402064C9AB009E05CB /* ExamSearchViewController.swift in Sources */,
 				F41E2387205FE04D00975C5A /* Constants.swift in Sources */,
 				F41E237B205FC76A00975C5A /* ExamResults.swift in Sources */,
 				F4EADDE4205CE5E9008DA8AB /* ExamSectionsTableViewController.swift in Sources */,
@@ -755,7 +771,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = HJPTQ3N75W;
 				INFOPLIST_FILE = CDLExam/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.nhsa.CDLExam;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -772,7 +788,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = HJPTQ3N75W;
 				INFOPLIST_FILE = CDLExam/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.nhsa.CDLExam;
 				PRODUCT_NAME = "$(TARGET_NAME)";
